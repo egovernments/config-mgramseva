@@ -4403,6 +4403,52 @@
           ]
         }
       ]
+    },
+    {
+      "name": "DSS_MGRAMSEVA_WC_DASHBOARD",
+      "id": "mgramseva-wc",
+      "isActive": "",
+      "style": "linear",
+      "visualizations": [
+        {
+          "row": 1,
+          "name": "DSS_REVENUE",
+          "vizArray": [
+            {
+              "id": 431,
+              "name": "DSS_MGRAMSEVA_WC",
+              "dimensions": {
+                "height": 350,
+                "width": 12
+              },
+              "vizType": "chart",
+              "label": "",
+              "noUnit": false,
+              "isCollapsible": true,
+              "charts": [
+                {
+                  "id": "collectionsData",
+                  "name": "DSS_MGRAMSEVA_WC_COLLECTIONS",
+                  "code": "",
+                  "chartType": "table",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Collections"
+                },
+                {
+                  "id": "ecpenditureData",
+                  "name": "DSS_MGRAMSEVA_WC_EXPENDITURE",
+                  "code": "",
+                  "chartType": "table",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Expenditure"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

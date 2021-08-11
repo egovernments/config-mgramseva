@@ -4860,5 +4860,93 @@
     "insight": {
     },
     "_comment": ""
+  },
+  "collectionsData": {
+    "chartName": "DSS_MGRAMSEVA_WC_COLLECTIONS",
+    "queries": [
+      {
+        "module": "MGRAMSEVA-WC",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\"}",
+        "dateRefField": "Data.@timestamp",
+        "indexName": "water-services",
+        "aggrQuery": ""
+      }
+    ],
+    "filterKeys": [
+      {"key": "connectionNo", "column": "connection_Id"}
+    ],
+    "isPostResponseHandler": true,
+    "chartType": "xtable",
+    "valueType": "number",
+    "action": "",
+    "isRoundOff": true,
+    "documentType": "_doc",
+    "drillChart": "none",
+    "plotLabel":"connection_Id",
+    "aggregationPaths": [
+      "Name",
+      "Collections"
+    ],
+    "pathDataTypeMapping": [
+      {
+        "Name" : "String"
+      },
+      {
+        "Collections" : "Number"
+      }
+    ],
+    "isCumulative": true,
+    "interval": "month",
+    "insight": {
+    },
+    "_comment": " "
+  },
+  "ecpenditureData": {
+    "chartName": "DSS_PGR_STATUS_BY_TENANT",
+    "queries": [
+      {
+        "module": "MGRAMSEVA-WC",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\"}",
+        "dateRefField": "Data.@timestamp",
+        "indexName": "water-services",
+        "aggrQuery": ""
+      }
+    ],
+    "filterKeys": [
+      {"key": "vendor", "column": "BillId - Vendor"}
+    ],
+    "isPostResponseHandler": true,
+    "chartType": "xtable",
+    "valueType": "number",
+    "action": "",
+    "isRoundOff": true,
+    "documentType": "_doc",
+    "drillChart": "none",
+    "plotLabel":"Vehicle_No",
+    "aggregationPaths": [
+      "ExpenseType",
+      "Amount",
+      "BillDate",
+      "PaidDate"
+    ],
+    "pathDataTypeMapping": [
+      {
+        "ExpenseType" : "String"
+      },
+      {
+        "Amount" : "number"
+      },
+      {
+        "BillDate" : "String"
+      },
+      {
+        "PaidDate" : "String"
+      }
+    ],
+    "isCumulative": true,
+    "interval": "month",
+    "insight": {
+    },
+    "_comment": " "
   }
 }
