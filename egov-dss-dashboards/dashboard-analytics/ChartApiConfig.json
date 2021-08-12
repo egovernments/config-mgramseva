@@ -4869,7 +4869,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "water-services",
-        "aggrQuery": ""
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Connections\":{\"terms\":{\"field\":\"Data.oldConnectionNo.keyword\",\"size\":1000},\"aggs\":{\"Name\":{\"terms\":{\"field\":\"Data.connectionHolders.name.keyword\"}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -4884,15 +4884,15 @@
     "drillChart": "none",
     "plotLabel":"connection_Id",
     "aggregationPaths": [
-      "Name",
-      "Collections"
+      "Collections",
+      "Name"
     ],
     "pathDataTypeMapping": [
       {
-        "Name" : "String"
+        "Collections" : "Number"
       },
       {
-        "Collections" : "Number"
+        "Name" : "String"
       }
     ],
     "isCumulative": true,
@@ -4902,18 +4902,18 @@
     "_comment": " "
   },
   "ecpenditureData": {
-    "chartName": "DSS_PGR_STATUS_BY_TENANT",
+    "chartName": "DSS_MGRAMSEVA_WC_EXPENDITURE",
     "queries": [
       {
-        "module": "MGRAMSEVA-WC",
+        "module": "MGRAMSEVA",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\"}",
         "dateRefField": "Data.@timestamp",
-        "indexName": "water-services",
-        "aggrQuery": ""
+        "indexName": "echallan-services",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Vendor\":{\"terms\":{\"field\":\"Data.vendor.keyword\",\"size\":1000},\"aggs\":{\"Expense Type\":{\"terms\":{\"field\":\"Data.typeOfExpense.keyword\"}},\"Amount\":{\"terms\":{\"field\":\"Data.totalAmount.keyword\"}},\"Bill Date\":{\"terms\":{\"field\":\"Data.billDate.keyword\"}},\"Paid Date\":{\"terms\":{\"field\":\"Data.paidDate.keyword\"}}}}}}}}"
       }
     ],
     "filterKeys": [
-      {"key": "vendor", "column": "BillId - Vendor"}
+      {"key": "vendor", "column": "Vendor"}
     ],
     "isPostResponseHandler": true,
     "chartType": "xtable",
@@ -4924,23 +4924,23 @@
     "drillChart": "none",
     "plotLabel":"Vehicle_No",
     "aggregationPaths": [
-      "ExpenseType",
+      "Expense Type",
       "Amount",
-      "BillDate",
-      "PaidDate"
+      "Bill Date",
+      "Paid Date"
     ],
     "pathDataTypeMapping": [
       {
-        "ExpenseType" : "String"
+        "Expense Type" : "String"
       },
       {
         "Amount" : "number"
       },
       {
-        "BillDate" : "String"
+        "Bill Date" : "String"
       },
       {
-        "PaidDate" : "String"
+        "Paid Date" : "String"
       }
     ],
     "isCumulative": true,
