@@ -147,3 +147,16 @@ serviceMaps:
 
       - jsonPath: $.Challan.id
 
+  - version: 1.0.0
+    description: Update Challan Sttaus details in eg_echallan  table
+    fromTopic: update-status-challan
+    isTransaction: true
+    queryMaps:
+    
+    - query: UPDATE eg_echallan SET applicationStatus = ? WHERE id=?;
+      basePath: Challan
+      jsonMaps:
+      
+      - jsonPath: $.Challan.applicationStatus
+
+      - jsonPath: $.Challan.id
