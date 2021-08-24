@@ -483,7 +483,7 @@ serviceMaps:
    isTransaction: true
    queryMaps: 
     - query: INSERT INTO eg_ws_feedback (id, tenantid, connectionno, paymentid, billingcycle, additionaldetails, createdby, lastmodifiedby, createdtime, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
-      basePath: $.WaterConnection
+      basePath: $.feedback
       jsonMaps:
         - jsonPath: $.feedback.id 
 
