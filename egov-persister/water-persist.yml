@@ -489,11 +489,11 @@ serviceMaps:
 
         - jsonPath: $.feedback.tenantId
             
-        - jsonPath: $.feedback.connectionno
+        - jsonPath: $.feedback.connectionNo
 
-        - jsonPath: $.feedback.paymentid
+        - jsonPath: $.feedback.paymentId
             
-        - jsonPath: $.feedback.billingcycle
+        - jsonPath: $.feedback.billingCycle
 
         - jsonPath: $.feedback.additionalDetails
           type: JSON
