@@ -476,4 +476,33 @@ serviceMaps:
       - jsonPath: $.WaterConnection.additionalDetails.sanctionFileStoreId
 
       - jsonPath: $.WaterConnection.id   
-   
+   - version: 1.0
+   name: WaterConnection
+   description: save water service feedback
+   fromTopic: ws-service-feedback-save
+   isTransaction: true
+   queryMaps: 
+    - query: INSERT INTO eg_ws_feedback (id, tenantid, connectionno, paymentid, billingcycle, additionaldetails, createdby, lastmodifiedby, createdtime, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+   basePath: $.feedback
+   jsonMaps:
+        - jsonPath: $.feedback.id 
+
+        - jsonPath: $.feedback.tenantId
+        
+        - jsonPath: $.feedback.connectionNo
+         
+        - jsonPath: $.feedback.paymentId
+          
+        - jsonPath: $.feedback.billingCycle
+        
+        - jsonPath: $.feedback.additionalDetails
+          type: JSON
+          dbType: JSONB              
+        - jsonPath: $.feedback.auditDetails.createdBy
+        
+        - jsonPath: $.feedback.auditDetails.lastModifiedBy
+        
+        - jsonPath: $.feedback.auditDetails.createdTime
+        
+        - jsonPath: $.feedback.auditDetails.lastModifiedTime
+ 
