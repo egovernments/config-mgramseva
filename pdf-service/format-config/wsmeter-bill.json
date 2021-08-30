@@ -1,0 +1,1126 @@
+{
+  "key": "wsmeter-bill",
+  "config": {
+    "defaultStyle": {
+      "font": "Cambay"
+    },
+    "content": [
+      {
+        "table": {
+             "widths": [
+           "50%",
+           "50%"
+         ],
+          "body": [
+           [
+             {
+               "text": "{{gp_watersupply_sanitation}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+            {
+               "text": "{{charges_bill}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 true
+               ],
+               "style": "receipt-table"
+             }
+             
+        ]
+     ]
+   }
+   },
+   
+   {
+        "style": "noc-table",
+       "table": {
+         "widths": [
+           "25%",
+           "25%",
+           "25%",
+           "25%"
+         ],
+         "body": [
+           [
+             {
+               "text": "{{gpwsc_name}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "gpname_value",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],
+           [
+             {
+               "text": "{{connection_id}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "{{propertyID}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],
+           [
+             {
+               "text": "{{consumer_name}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "{{payerName}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],
+           [
+             {
+               "text": "{{consumer_mobileno}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "{{mobileNo}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],
+           [
+             {
+               "text": "{{consumer_address}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "{{payerAddress}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ]
+           
+       ]
+       }
+   },
+   
+   
+   {
+         "style": "noc-table",
+       "table": {
+         "widths": [
+           "25%",
+           "25%",
+           "25%",
+           "25%"
+         ],
+         "body": [
+            [
+               
+             {
+               "text": " ",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": " ",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],  
+           [
+               
+             {
+               "text": "{{service_type}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "{{serviceType}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],
+           [
+             {
+               "text": "{{meter_no}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "meternumber",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],
+           [
+             {
+               "text": "{{meter_reading}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "meterreading",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],
+           [
+             {
+               "text": "{{meter_reading_date}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "meterreading_date",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],
+           [
+             {
+               "text": "{{bill_id}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "{{billNo}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],
+           [
+             {
+               "text": "{{bill_period}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "{{fromPeriod}}-{{toPeriod}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],
+           [
+             {
+               "text": "{{bill_issue_date}}",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 true
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "{{billIssueDate}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+           ],
+            [
+               
+             {
+               "text": " ",
+               "border": [
+                 true,
+                 true,
+                 false,
+                 true
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": " ",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 true
+               ],
+               "style": "receipt-table"
+             }
+           ]
+           
+       ]
+       }
+   },
+   
+       {
+        "table": {
+             "widths": [
+           "50%",
+           "50%"
+         ],
+          "body": [
+           [
+             {
+               "text": "{{breakup_pending_watercharges}}",
+               "border": [
+                 true,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+            {
+               "text": "{{month_summary}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             
+        ],
+       [
+             {
+               "text": "{{water_id}} {{propertyID}}",
+               "border": [
+                 true,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+            {
+               "text": "{{user_feedback}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             
+        ],
+       [
+             
+               {
+        "table": {
+             "widths": [
+           "70%",
+           "30%"
+         ],
+          "body": [
+           [
+             {
+               "text": "{{water_charges}} {{fromPeriod}}-{{toPeriod}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "{{charge}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+        ],
+        
+         [
+            {
+               "text": "{{water_arrears}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             },
+             {
+               "text": "{{arrears}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             ],
+             
+             [
+            {
+               "text": "{{total_due}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             },
+       
+             {
+               "text": "{{totalAmountDue}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             ],
+             [
+            {
+               "text": "{{amount_inwords}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "{{totalAmountDue}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             ]
+        
+     ]
+   } 
+        },
+        [
+            {
+               "text": "{{summary_of}}",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "",
+               "border": [
+                 false,
+                 true,
+                 true,
+                 false
+               ],
+               "style": "receipt-table"
+             },
+               {
+        "table": {
+             "widths": [
+           "70%",
+           "30%"
+         ],
+                  "body": [
+           [
+             {
+               "text": "{{customer_rating}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "customerrate",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             
+        ],
+     
+        [
+             {
+               "text": "{{quality_water_supply}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "quality_supplyrate",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             
+        ],
+     
+       [
+             {
+               "text": "{{adequate_water_supply}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "adequate_supplyrate",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             
+        ],
+     
+       [
+             {
+               "text": " ",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": " ",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             }
+             
+        ],
+     
+       [
+             {
+               "text": "{{collections}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": " ",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             }
+             
+        ],
+     
+       [
+             {
+               "text": "{{new_demand}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "newdemand",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             
+        ],
+     
+       [
+             {
+               "text": "{{actual_collections}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "actualcollection",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             
+        ],
+     
+       [
+             {
+               "text": "{{total_pending_collections}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "pendingcollection",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             
+        ],
+     
+       [
+             {
+               "text": " ",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": " ",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             }
+             
+        ],
+     
+       [
+             {
+               "text": "{{expenditure}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": " ",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             }
+             
+        ],
+     
+       [
+             {
+               "text": "{{new_expenditure}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "newexpenditure",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             
+        ],
+     
+       [
+             {
+               "text": "{{actual_payments}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "actualpayment",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             }
+             
+        ],
+     
+       [
+             {
+               "text": "{{total_pending_expenditure}}",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table-value"
+             },
+             {
+               "text": "pendingexpenditure",
+               "border": [
+                 false,
+                 false,
+                 false,
+                 false
+               ],
+               "style": "receipt-table"
+             }
+             
+        ]
+        
+        ]
+        }
+               }
+             
+        ]
+             
+             
+      ]
+    ]
+   }
+   }
+
+    ],
+    "styles": {
+      "noc-head": {
+        "margin": [
+          -25,
+          -30,
+          0,
+          1
+        ]
+      },
+      "receipt-logo-header": {
+        "color": "#484848",
+        "fontFamily": "Roboto",
+        "fontSize": 14,
+        "bold": true,
+        "letterSpacing": 0.74,
+        "margin": [
+          0,
+          -10,
+          0,
+          5
+        ]
+      },
+      "receipt-logo-sub-header": {
+        "color": "#484848",
+        "fontFamily": "Roboto",
+        "fontSize": 13,
+        "letterSpacing": 0.6
+      },
+      "noc-table": {
+        "fontSize": 12,
+        "color": "#484848",
+        "margin": [
+          -25,
+          10,
+          -8,
+          -8
+        ]
+      },
+      "noc-table4": {
+        "fontSize": 12,
+        "color": "#484848",
+        "margin": [
+          -25,
+          75,
+          -8,
+          -8
+        ]
+      },
+      "noc-table2": {
+        "fontSize": 12,
+        "color": "#484848",
+        "margin": [
+          -25,
+          18,
+          -8,
+          -8
+        ]
+      },
+      "noc-table3": {
+        "fontSize": 12,
+        "color": "#484848",
+        "margin": [
+          -25,
+          30,
+          -8,
+          -8
+        ]
+      },
+      "receipt-table-value": {
+        "color": "#000000",
+        "bold": true,
+        "fontSize": 12,
+        "fontWeight": 500,
+        "margin": [
+          8,
+          5,
+          0,
+          0
+        ]
+      },
+      "receipt-table-value2": {
+        "color": "#000000",
+        "bold": true,
+        "fontSize": 12,
+        "fontWeight": 500,
+        "margin": [
+          3,
+          5,
+          0,
+          0
+        ]
+      },
+      "receipt-table": {
+        "color": "#484848",
+        "bold": true,
+        "fontSize": 12,
+        "fontWeight": 400,
+        "margin": [
+          -30,
+          5,
+          0,
+          0
+        ]
+      },
+      "receipt-table2": {
+        "color": "#484848",
+        "bold": true,
+        "fontSize": 11,
+        "fontWeight": 400,
+        "margin": [
+          3,
+          8,
+          0,
+          10
+        ]
+      },
+      "right-receipt-table": {
+        "color": "#000000",
+        "bold": true,
+        "fontSize": 12,
+        "fontWeight": 500,
+        "margin": [
+          8,
+          5,
+          0,
+          10
+        ]
+      },
+      "right-receipt-table2": {
+        "color": "#484848",
+        "bold": true,
+        "fontSize": 12,
+        "fontWeight": 400,
+        "margin": [
+          -30,
+          5,
+          0,
+          0
+        ]
+      },
+      "receipt-approver": {
+        "fontSize": 12,
+        "bold": true,
+        "margin": [
+          -27,
+          50,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "no-signature": {
+        "fontSize": 12,
+        "margin": [
+          -27,
+          35,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "amount-due": {
+        "fontSize": 30,
+        "color": "#FC8019",
+        "bold": true,
+        "fontWeight": 700
+      },
+      "pt-disclaimer": {
+        "fontSize": 12,
+        "margin": [
+          -27,
+          30,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "pt-disclaimer-value": {
+        "fontSize": 12,
+        "margin": [
+          0,
+          5,
+          0,
+          0
+        ],
+        "color": "#484848"
+      },
+      "qr-text": {
+        "fontSize": 12,
+        "margin": [
+          40,
+          0,
+          0,
+          0
+        ],
+        "color": "#484848",
+        "alignment": "left"
+      },
+      "qr-image": {
+        "margin": [
+          -40,
+          -1,
+          -3,
+          0
+        ],
+        "color": "#484848",
+        "alignment": "right"
+      },
+      "footer-header": {
+        "margin": [
+          0,
+          15,
+          0,
+          -40
+        ],
+        "bold": true,
+        "color": "#000000",
+        "alignment": "center"
+      },
+      "footer-bottom": {
+        "margin": [
+          0,
+          50,
+          0,
+          0
+        ],
+        "bold": true,
+        "color": "#000000",
+        "alignment": "right"
+      }
+    }
+  }
+}
