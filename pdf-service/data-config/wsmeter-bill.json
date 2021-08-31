@@ -1,5 +1,5 @@
 {
-  "key": "ws-bill",
+  "key": "wsmeter-bill",
   "DataConfigs": {
     "serviceName": "mgramseva-common",
     "version": "1.0.0",
@@ -9,7 +9,6 @@
     "mappings": [
       {
         "topic": "common-pdf-generation-1",
-        "staticConfigPath": "https://raw.githubusercontent.com/egovernments/egov-services/vishal-feature-filestore/core/egov-indexer/src/main/resources/rainmaker-pgr-indexer.yml",
         "mappings": [
           {
             "direct": [
@@ -696,6 +695,41 @@
                   {
                     "variable": "actualcollection",
                     "value": "$.challans[(@.length-1)].totalAmount"
+                  }
+                ]
+              },
+              {
+                "path": "http://echallan-services.egov:8080/eChallan/v1/_lastMonthSummary",
+                "queryParam": "tenantId=$.tenantId",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "actualpayment",
+                    "value": "$.LastMonthSummary.previousMonthCollection"
+                  },
+                  {
+                    "variable": "newexpenditure",
+                    "value": "$.LastMonthSummary.previousMonthNewExpense"
+                  },
+                  {
+                    "variable": "pendingexpenditure",
+                    "value": "$.LastMonthSummary.cumulativePendingExpense"
+                  },
+                  {
+                    "variable": "pendingcollection",
+                    "value": "$.LastMonthSummary.cumulativePendingCollection"
+                  },
+                  {
+                    "variable": "newdemand",
+                    "value": "$.LastMonthSummary.newDemand"
+                  },
+                  {
+                    "variable": "actualcollection",
+                    "value": "$.LastMonthSummary.actualCollection"
+                  },
+                  {
+                    "variable": "previousMonthYear",
+                    "value": "$.LastMonthSummary.previousMonthYear"
                   }
                 ]
               }

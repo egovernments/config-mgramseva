@@ -61,7 +61,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "gpname_value",
+               "text": "{{gpname_value}}",
                "border": [
                  false,
                  true,
@@ -201,7 +201,7 @@
            [
                
              {
-               "text": "{{service_type}}",
+               "text": "service_type",
                "border": [
                  true,
                  true,
@@ -233,7 +233,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "meternumber",
+               "text": "{{meternumber}}",
                "border": [
                  false,
                  true,
@@ -255,7 +255,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "meterreading",
+               "text": "{{meterreading}}",
                "border": [
                  false,
                  true,
@@ -277,7 +277,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "meterreading_date",
+               "text": "{{meterreading_date}}",
                "border": [
                  false,
                  true,
@@ -400,7 +400,7 @@
                "style": "receipt-table-value"
              },
             {
-               "text": "{{month_summary}}",
+               "text": "{{month_summary}}   {{previousMonthYear}}",
                "border": [
                  false,
                  true,
@@ -578,7 +578,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "customerrate",
+               "text": "{{customerrate}}",
                "border": [
                  false,
                  false,
@@ -602,7 +602,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "quality_supplyrate",
+               "text": "{{quality_supplyrate}}",
                "border": [
                  false,
                  false,
@@ -626,7 +626,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "adequate_supplyrate",
+               "text": "{{adequate_supplyrate}}",
                "border": [
                  false,
                  false,
@@ -698,7 +698,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "newdemand",
+               "text": "{{newdemand}}",
                "border": [
                  false,
                  false,
@@ -722,7 +722,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "actualcollection",
+               "text": "{{actualcollection}}",
                "border": [
                  false,
                  false,
@@ -746,7 +746,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "pendingcollection",
+               "text": "{{pendingcollection}}",
                "border": [
                  false,
                  false,
@@ -818,7 +818,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "newexpenditure",
+               "text": "{{newexpenditure}}",
                "border": [
                  false,
                  false,
@@ -842,7 +842,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "actualpayment",
+               "text": "{{actualpayment}}",
                "border": [
                  false,
                  false,
@@ -866,7 +866,7 @@
                "style": "receipt-table-value"
              },
              {
-               "text": "pendingexpenditure",
+               "text": "{{pendingexpenditure}}",
                "border": [
                  false,
                  false,
