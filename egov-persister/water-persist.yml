@@ -170,7 +170,6 @@ serviceMaps:
       
    - query: UPDATE eg_ws_connection SET applicationstatus=?, status=?, connectionno=?, oldconnectionno=?, action=?, roadCuttingArea=?, roadType=?, adhocpenalty=?, adhocrebate=?, adhocpenaltyreason=?, adhocpenaltycomment=?, adhocrebatereason=?, adhocrebatecomment=?, lastModifiedBy=?, lastModifiedTime=?, dateEffectiveFrom=?, locality=?, isoldapplication=?, property_id=?, arrears=?, additionaldetails=? WHERE id=?;
       basePath: $.WaterConnection
-      basePath: $.WaterConnection
       jsonMaps:
 
        - jsonPath: $.WaterConnection.applicationStatus
