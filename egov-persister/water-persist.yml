@@ -168,7 +168,7 @@ serviceMaps:
       jsonMaps:
       - jsonPath: $.WaterConnection.id
       
-    - query: UPDATE eg_ws_connection SET applicationstatus=?, status=?, connectionno=?, oldconnectionno=?, action=?, roadCuttingArea=?, roadType=?, adhocpenalty=?, adhocrebate=?, adhocpenaltyreason=?, adhocpenaltycomment=?, adhocrebatereason=?, adhocrebatecomment=?, lastModifiedBy=?, lastModifiedTime=?, dateEffectiveFrom=?, locality=?, isoldapplication=?, property_id=?, additionaldetails=? WHERE id=?;
+    - query: UPDATE eg_ws_connection SET applicationstatus=?, status=?, connectionno=?, oldconnectionno=?, action=?, roadCuttingArea=?, roadType=?, adhocpenalty=?, adhocrebate=?, adhocpenaltyreason=?, adhocpenaltycomment=?, adhocrebatereason=?, adhocrebatecomment=?, lastModifiedBy=?, lastModifiedTime=?, dateEffectiveFrom=?, locality=?, isoldapplication=?, property_id=?, arrears=?, additionaldetails=? WHERE id=?;
       basePath: $.WaterConnection
       jsonMaps:
 
@@ -209,6 +209,8 @@ serviceMaps:
        - jsonPath: $.WaterConnection.oldApplication
 
        - jsonPath: $.WaterConnection.propertyId
+
+       - jsonPath: $.WaterConnection.arrears
 
        - jsonPath: $.WaterConnection.additionalDetails
          type: JSON
