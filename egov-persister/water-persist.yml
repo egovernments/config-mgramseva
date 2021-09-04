@@ -210,6 +210,8 @@ serviceMaps:
 
        - jsonPath: $.WaterConnection.propertyId
 
+        - jsonPath: $.WaterConnection.arrears
+ 
        - jsonPath: $.WaterConnection.additionalDetails
          type: JSON
          dbType: JSONB
