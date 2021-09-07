@@ -1,5 +1,5 @@
 {
-  "key": "ws-bill",
+  "key": "ws-bill-nm",
   "config": {
     "defaultStyle": {
       "font": "Cambay",
@@ -218,72 +218,6 @@
               },
               {
                 "text": "{{serviceType}}",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table-value"
-              }
-            ],
-            [
-              {
-                "text": "{{meter_no}}",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table"
-              },
-              {
-                "text": "{{meternumber}}",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table-value"
-              }
-            ],
-            [
-              {
-                "text": "{{meter_reading}}",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table"
-              },
-              {
-                "text": "{{meterreading}}",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table-value"
-              }
-            ],
-            [
-              {
-                "text": "{{meter_reading_date}}",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table"
-              },
-              {
-                "text": "{{meterreading_date}}",
                 "border": [
                   false,
                   false,

@@ -1,5 +1,5 @@
 {
-  "key": "ws-bill",
+  "key": "ws-bill-nm",
   "DataConfigs": {
     "serviceName": "mgramseva-common",
     "version": "1.0.0",
@@ -387,7 +387,7 @@
               {
                 "variable": "month_summary",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_WATER_PREVIOUS_MONTH_SUMMARY"
+                  "path": "PDF_STATIC_LABEL_WATER_PREVIOUS_MONTH_SUMMARY_NM"
                 },
                 "type": "label",
                 "localisation": {
