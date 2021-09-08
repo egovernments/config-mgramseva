@@ -1,0 +1,751 @@
+{
+  "key": "ws-receipt-nm",
+  "DataConfigs": {
+    "serviceName": "mgramseva-common",
+    "version": "1.0.0",
+    "baseKeyPath": "$.Payments.*",
+    "entityIdPath":"$.id",
+    "isCommonTableBorderRequired": true,
+    "mappings": [
+      {
+        "topic": "common-pdf-generation-1",
+        "mappings": [
+          {
+            "direct": [
+              {
+                "variable": "gpwsc_name",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_GPWSC_NAME"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "connection_id",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_BILL_CONNECTION_ID"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "consumer_name",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_BILL_CONSUMER_NAME"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "consumer_mobileno",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_BILL_CONSUMER_MOBILE_NO"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "consumer_address",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_CONSUMER_ADDRESS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "service_type",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_SERVICE_TYPE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "meter_no",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_METER_NUMBER"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "meter_reading",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_METER_READING"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "meter_reading_date",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_METER_READING_DATE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "receipt_id",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_RECEIPT_ID"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "receipt_period",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_RECEIPT_PERIOD"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "receipt_issue_date",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_BILL_RECEIPT_DATE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "payment_mode",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_PAYMENT_MODE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "water_charges",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_CHARGES"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "water_arrears",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_ARREARS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "total_paid",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_PAID"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "due_amouont_ason",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_DUE_ASON"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "amount_inwords",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_AMOUNT_INWORDS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "customer_rating",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_CUSTOMER_RATING"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "quality_water_supply",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_QUALITY_WATER_SUPPLY"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "adequate_water_supply",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_ADEQUATE_WATER_SUPPLY"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "collections",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_COLLECTIONS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "new_demand",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_NEW_DEMAND"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "actual_collections",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_ACTUAL_COLLECTIONS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "total_pending_collections",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_PENDING_COLLECTIONS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "expenditure",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_EXPENDITURE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "new_expenditure",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_NEW_EXPENDITURE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "actual_payments",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_ACTUAL_PAYMENTS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "total_pending_expenditure",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_PENDING_EXPENDITURE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "gp_watersupply_sanitation",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_GP_WATER_SUPPLY_SANITATION"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "charges_bill",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_CHARGES_RECEIPT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "breakup_pending_watercharges",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_BREAKUP_PENDING_WATERCHARGES"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "water_id",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_ID"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "month_summary",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_PREVIOUS_MONTH_SUMMARY_NM"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "user_feedback",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_USER_FEEDBACK"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "summary_of",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_SUMMARY_OF"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              
+              {
+                "variable": "totalAmountDue",
+                "value": {
+                  "path": "$.totalDue"
+                }
+              },
+              {
+                "variable": "totalPaid",
+                "value": {
+                  "path": "$.totalAmountPaid"
+                }
+              },
+              {
+                "variable": "payerName",
+                "value": {
+                  "path": "$.payerName"
+                }
+              },
+              {
+                "variable": "mobileNo",
+                "value": {
+                  "path": "$.mobileNumber"
+                }
+              },
+              {
+                "variable": "payerAddress",
+                "value": {
+                  "path": "$.payerAddress"
+                }
+              },
+              {
+                "variable": "billNo",
+                "value": {
+                  "path": "$.paymentDetails[0].receiptNumber"
+                }
+              },
+              {
+                "variable": "fromPeriod",
+                "value": {
+                  "path": "$.paymentDetails[0].bill.billDetails[0].fromPeriod"
+                },
+                "type": "date"
+              },
+              {
+                "variable": "toPeriod",
+                "value": {
+                  "path": "$.paymentDetails[0].bill.billDetails[0].toPeriod"
+                },
+                "type": "date"
+              },
+              {
+                "variable": "billIssueDate",
+                "value": {
+                  "path": "$.instrumentDate"
+                },
+                "type": "date",
+                "format":"DD/MM/YYYY HH:mm A"
+              },
+              {
+                "variable": "ason_date",
+                "value": {
+                  "path": "$.instrumentDate"
+                },
+                "type": "date",
+                "format":"DD/MM/YYYY HH:mm A"
+              },
+              {
+                "variable": "paymentmode",
+                "value": {
+                  "path": "$.paymentMode"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "PDF_PAYMODE",
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "consumerID",
+                "value": {
+                  "path": "$.paymentDetails[0].bill.consumerCode"
+                }
+              },
+              {
+                "variable": "totalPayment",
+                "value": {
+                  "path": "$.paymentDetails[0].bill.billDetails[0].amountPaid"
+                }
+              },
+              {
+                "variable": "totalArrears",
+                "value": {
+                     "path":"$.paymentDetails[0].bill.billDetails"                              
+                },
+                "type":"function",
+                "format":"var y=0,x=arguments[0];for( var i=0;i<x.length;i++){if(x[i].billAccountDetails[0].taxHeadCode=='10102'){ y=y+x[i].amount;}} return y;" 
+              },{
+                "variable": "current_charges",
+                "value": {
+                     "path":"$.paymentDetails[0].bill.billDetails"                              
+                },
+                "type":"function",
+                "format":"var y=0,x=arguments[0];for( var i=0;i<x.length;i++){if(x[i].billAccountDetails[0].taxHeadCode=='10101'){ y=y+x[i].amount;}} return y;" 
+              },{
+                "variable": "arrears",
+                "value": {
+                     "path":"$.paymentDetails[0].bill.billDetails"                              
+                },
+                "type":"function",
+                "format":"var y=[],x=arguments[0];for( var i=0;i<x.length;i++){if(x[i].billAccountDetails[0].taxHeadCode=='10102'){y.push({'text':'Water Charges '+(new Date(x[i].fromPeriod).toLocaleString().split(/[,| ]/)[0])+' - '+(new Date(x[i].toPeriod).toLocaleString().split(/[,| ]/)[0]),'value':'₹  '+x[i].amount});}} return y;" 
+              }
+            ]
+          },
+          {
+            "derived": [
+              {
+                "variable": "dueason_date",
+                "formula": "{{totalPaid}}>{{totalAmountDue}}?0:{{totalPaid}}-{{totalAmountDue}}"
+             }
+            ]
+          },
+          {
+            "externalAPI": [
+              { 
+                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.tenantId}&filter=%5B?(@.code=='{$.tenantId}')%5D",
+                "apiRequest": null,
+                "responseMapping":[
+                  {             
+                    "variable":"tenantaddress",
+                    "value":"$.MdmsRes.tenant.tenants[0].address"
+                  },{             
+                    "variable":"GPWSC",
+                    "value":"$.MdmsRes.tenant.tenants[0].city.ddrName"
+                  },
+                  {
+                    "variable":"phoneNumber",
+                    "value":"$.MdmsRes.tenant.tenants[0].contactNumber"
+                  },
+                  {
+                    "variable":"website",
+                    "value":"$.MdmsRes.tenant.tenants[0].domainUrl"
+                  },
+                  {
+                    "variable":"email",
+                    "value":"$.MdmsRes.tenant.tenants[0].emailId"
+                  },
+                  {
+                    "variable": "logoImage",                        
+                    "value":"$.MdmsRes.tenant.tenants[0].logoId",
+                    "type":"image"      
+                  },
+                  {
+                    "variable": "logo-header",
+                    "value":"$.MdmsRes.tenant.tenants[0].code",
+                    "localisation":{
+                      "required":true,
+                      "prefix": "TENANT_TENANTS",
+                      "module":"mgramseva-common"
+                      }
+                  }
+                ]
+            },{
+              "path": "http://billing-service:8080/billing-service//bill/v2/_fetchbill",
+              "queryParam": "tenantId=$.tenantId,consumerCode=$.paymentDetails[0].bill.consumerCode,businessService=WS",
+              "apiRequest": null,
+              "responseMapping": [
+                {
+                  "variable": "ws_charge",
+                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[?(@.taxHeadCode == '10101')].amount"
+                },
+                {
+                  "variable": "total_arrear",
+                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[?(@.taxHeadCode == '10102')].amount"
+                }
+              ]
+            },{
+                "path": "http://billing-service:8080/billing-service/demand/_search",
+                "queryParam": "tenantId=$.tenantId,consumerCode=$.paymentDetails[0].bill.consumerCode,businessService=WS",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "ws_advanceAmount",
+                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')].taxAmount"
+                  },
+                  {
+                    "variable": "ws_roundoff",
+                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_Round_Off')].taxAmount"
+                  },
+                  {
+                    "variable": "ws_water_cess",
+                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_WATER_CESS')].taxAmount"
+                  },
+                  {
+                    "variable": "ws_time_interest",
+                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_INTEREST')].taxAmount"
+                  },
+                  {
+                    "variable": "ws_time_penalty",
+                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
+                  }
+                ]
+              },
+              {
+                "path": "http://ws-services.egov:8080/ws-services/wc/_search",
+                "queryParam": "tenantId=$.tenantId,connectionNumber=$.paymentDetails[0].bill.consumerCode",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "meternumber",
+                    "value": "$.WaterConnection[(@.length-1)].meterId"
+                  },{
+                    "variable": "serviceType",
+                    "value": "$.WaterConnection[(@.length-1)].connectionType"
+                  }
+                ]
+              },
+              {
+                "path": "http://ws-services.egov:8080/ws-services/wc/_getfeedback",
+                "queryParam": "tenantId=$.tenantId,",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "watersupply_rate",
+                    "value": "$.feedback.HAPPY_WATER_SUPPLY"
+                  },
+                  {
+                    "variable": "waterquality_rate",
+                    "value": "$.feedback.WATER_QUALITY_GOOD"
+                  },
+                  {
+                    "variable": "supplyregula_rate",
+                    "value": "$.feedback.WATER_SUPPLY_REGULAR"
+                  }
+                ]
+              },
+              {
+                "path": "http://collection-services:8080/collection-services/payments/_search",
+                "queryParam": "tenantId=$.tenantId,consumerCodes=$.paymentDetails[0].bill.consumerCode,businessServices=WS",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "actualcollection",
+                    "value": "$.Payments[(@.length-1)].paymentDetails[0].totalAmountPaid"
+                  },
+                  {
+                    "variable": "dueAmount",
+                    "value": "$.Payments[(@.length-1)].paymentDetails[0].totalDue"
+                  }
+                ]
+              },
+              {
+                "path": "http://echallan-services.egov:8080/echallan-services/eChallan/v1/_search",
+                "queryParam": "tenantId=$.tenantId",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "actualcollection",
+                    "value": "$.challans[(@.length-1)].totalAmount"
+                  }
+                ]
+              },
+              {
+                "path": "http://echallan-services.egov:8080/echallan-services/eChallan/v1/_lastMonthSummary",
+                "queryParam": "tenantId=$.tenantId,currentDate=$.transactionDate",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "actualpayment",
+                    "value": "$.LastMonthSummary.previousMonthCollection"
+                  },
+                  {
+                    "variable": "newexpenditure",
+                    "value": "$.LastMonthSummary.previousMonthNewExpense"
+                  },
+                  {
+                    "variable": "pendingexpenditure",
+                    "value": "$.LastMonthSummary.cumulativePendingExpense"
+                  },
+                  {
+                    "variable": "pendingcollection",
+                    "value": "$.LastMonthSummary.cumulativePendingCollection"
+                  },
+                  {
+                    "variable": "newdemand",
+                    "value": "$.LastMonthSummary.newDemand"
+                  },
+                  {
+                    "variable": "actualcollection",
+                    "value": "$.LastMonthSummary.actualCollection"
+                  },
+                  {
+                    "variable": "previousMonthYear",
+                    "value": "$.LastMonthSummary.previousMonthYear"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
