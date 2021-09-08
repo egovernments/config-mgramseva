@@ -1,7 +1,7 @@
 {
   "key": "ws-bill",
   "DataConfigs": {
-    "serviceName": "rainmaker-common",
+    "serviceName": "mgramseva-common",
     "version": "1.0.0",
     "baseKeyPath": "$.Bill.*",
     "entityIdPath": "$.billNumber",
@@ -9,429 +9,418 @@
     "mappings": [
       {
         "topic": "common-pdf-generation-1",
-        "staticConfigPath": "https://raw.githubusercontent.com/egovernments/egov-services/vishal-feature-filestore/core/egov-indexer/src/main/resources/rainmaker-pgr-indexer.yml",
         "mappings": [
           {
             "direct": [
               {
-                "variable": "total_amount_due",
+                "variable": "gpwsc_name",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_TOTAL_AMOUNT_DUE"
+                  "path": "PDF_STATIC_LABEL_WATER_GPWSC_NAME"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "payer_name",
+                "variable": "connection_id",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_PAYER_NAME"
+                  "path": "PDF_STATIC_LABEL_WATER_BILL_CONNECTION_ID"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "Municipal_Corporation",
+                "variable": "consumer_name",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_MDMS_MUNICIPAL_CORPORATION"
+                  "path": "PDF_STATIC_LABEL_WATER_BILL_CONSUMER_NAME"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "bill_no",
+                "variable": "consumer_mobileno",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_BILL_NO"
+                  "path": "PDF_STATIC_LABEL_WATER_BILL_CONSUMER_MOBILE_NO"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "Rs",
+                "variable": "consumer_address",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_TLAPP_RUPEE"
+                  "path": "PDF_STATIC_LABEL_WATER_CONSUMER_ADDRESS"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "mobile_no",
+                "variable": "service_type",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_MOBILE_NO"
+                  "path": "PDF_STATIC_LABEL_WATER_SERVICE_TYPE"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "meter_no",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_METER_NUMBER"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "meter_reading",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_METER_READING"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "meter_reading_date",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_METER_READING_DATE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "bill_id",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_BILL_ID"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
                 }
               },
               {
                 "variable": "bill_period",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_BILL_PERIOD"
+                  "path": "PDF_STATIC_LABEL_WATER_BILL_PERIOD"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
-                "variable": "payer_address",
-                "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_PAYER_ADDRESS"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
                 "variable": "bill_issue_date",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_ISSUE_DATE"
+                  "path": "PDF_STATIC_LABEL_WATER_BILL_ISSUE_DATE"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "bill_due_date",
+                "variable": "water_charges",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_BILL_DUE_DATE"
+                  "path": "PDF_STATIC_LABEL_WATER_CHARGES"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "billing_summary_property_tax",
+                "variable": "water_arrears",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_BILLING_SUMMARY"
+                  "path": "PDF_STATIC_LABEL_WATER_ARREARS"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "serviceType",
+                "variable": "total_due",
                 "value": {
-                  "path": "$.businessService"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "MODULE",
-                  "module": "rainmaker-common"
-                }
-              },
-              {
-                "variable": "property_id",
-                "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_PROPERTY_ID"
+                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_DUE"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "arrears_label",
+                "variable": "amount_inwords",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_ARREARS"
+                  "path": "PDF_STATIC_LABEL_WATER_AMOUNT_INWORDS"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "advanceAdjusted_label",
+                "variable": "customer_rating",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_ADVANCEADJUSTED"
+                  "path": "PDF_STATIC_LABEL_WATER_CUSTOMER_RATING"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "advanceAvailable_label",
+                "variable": "quality_water_supply",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_ADVANCEAVAILABLE"
+                  "path": "PDF_STATIC_LABEL_WATER_QUALITY_WATER_SUPPLY"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "charge_label",
+                "variable": "adequate_water_supply",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_CHARGE"
+                  "path": "PDF_STATIC_LABEL_WATER_ADEQUATE_WATER_SUPPLY"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "penalty_label",
+                "variable": "collections",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_PENALTY"
+                  "path": "PDF_STATIC_LABEL_WATER_COLLECTIONS"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "rebate_label",
+                "variable": "new_demand",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_REBATE"
+                  "path": "PDF_STATIC_LABEL_WATER_NEW_DEMAND"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "others_label",
+                "variable": "actual_collections",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_OTHERS"
+                  "path": "PDF_STATIC_LABEL_WATER_ACTUAL_COLLECTIONS"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "total_label",
+                "variable": "total_pending_collections",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_TOTAL"
+                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_PENDING_COLLECTIONS"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "important_message",
+                "variable": "expenditure",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_IMPORTANT_MESSAGE"
+                  "path": "PDF_STATIC_LABEL_WATER_EXPENDITURE"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "payment_received",
+                "variable": "new_expenditure",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_WS_BILL_PAYMENT_RECEIVED"
+                  "path": "PDF_STATIC_LABEL_WATER_NEW_EXPENDITURE"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-ws"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "this_document",
+                "variable": "actual_payments",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_WS_BILL_THIS_DOCUMENT"
+                  "path": "PDF_STATIC_LABEL_WATER_ACTUAL_PAYMENTS"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-ws"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "this_is_a",
+                "variable": "total_pending_expenditure",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_WS_BILL_THIS_IS"
+                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_PENDING_EXPENDITURE"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-ws"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "assessment_payment",
+                "variable": "gp_watersupply_sanitation",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_WS_BILL_ASSESSSMENT_PAYMENT"
+                  "path": "PDF_STATIC_LABEL_WATER_GP_WATER_SUPPLY_SANITATION"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-ws"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "please_deposit",
+                "variable": "charges_bill",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_WS_BILL_PLEASE_DEPOSIT"
+                  "path": "PDF_STATIC_LABEL_WATER_CHARGES_BILL"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-ws"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "if_the_tax",
+                "variable": "breakup_pending_watercharges",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_WS_BILL_IF_THE_TAX"
+                  "path": "PDF_STATIC_LABEL_WATER_BREAKUP_PENDING_WATERCHARGES"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-ws"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "acknowledgement_for",
+                "variable": "water_id",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_ACKNOWLEDGEMENT"
+                  "path": "PDF_STATIC_LABEL_WATER_ID"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "date_label",
+                "variable": "month_summary",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_DATE"
+                  "path": "PDF_STATIC_LABEL_WATER_PREVIOUS_MONTH_SUMMARY"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "consumer_id",
+                "variable": "user_feedback",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_CONSUMER_ID"
+                  "path": "PDF_STATIC_LABEL_WATER_USER_FEEDBACK"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
               {
-                "variable": "consumer_no",
+                "variable": "summary_of",
                 "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_CONSUMER_NO"
+                  "path": "PDF_STATIC_LABEL_WATER_SUMMARY_OF"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "mgramseva-common"
                 }
               },
-              {
-                "variable": "name_address",
-                "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_NAME_ADDRESS"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
-                "variable": "total_payment",
-                "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_TOTAL_PAYMENT"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
-                "variable": "receivers_signature",
-                "value": {
-                  "path": "PDF_STATIC_LABEL_CONSOLIDATED_BILL_RECEIVERS_SIGNATURE"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
+              
               {
                 "variable": "totalAmountDue",
                 "value": {
@@ -463,12 +452,6 @@
                 }
               },
               {
-                "variable": "nameAddress",
-                "value": {
-                  "path": "$.payerAddress"
-                }
-              },
-              {
                 "variable": "billNo",
                 "value": {
                   "path": "$.billNumber"
@@ -493,7 +476,8 @@
                 "value": {
                   "path": "$.billDate"
                 },
-                "type": "date"
+                "type": "date",
+                "format":"DD/MM/YYYY HH:mm A"
               },
               {
                 "variable": "billDueDate",
@@ -516,81 +500,9 @@
                 }
               },
               {
-                "variable": "taxCharge",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_TAX' || @.taxHeadCode == 'TL_TAX' || @.taxHeadCode == 'FIRENOC_TAXES' || @.taxHeadCode == 'WS_CHARGE' || @.taxHeadCode == 'SW_CHARGE' )].amount"
-                }
-              },
-              {
-                "variable": "timeRebate",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_TIME_REBATE' || @.taxHeadCode == 'WS_TIME_REBATE' || @.taxHeadCode == 'SW_TIME_REBATE')].amount"
-                }
-              },
-              {
-                "variable": "adhocRebate",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_ADHOC_REBATE' || @.taxHeadCode == 'TL_ADHOC_REBATE' || @.taxHeadCode == 'FIRENOC_ADHOC_REBATE')].amount"
-                }
-              },
-              {
-                "variable": "timePenalty",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_TIME_PENALTY' || @.taxHeadCode == 'WS_TIME_PENALTY' || @.taxHeadCode == 'SW_TIME_PENALTY')].amount"
-                }
-              },
-              {
-                "variable": "adhocPenalty",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_ADHOC_PENALTY' || @.taxHeadCode == 'TL_ADHOC_PENALTY' || @.taxHeadCode == 'FIRENOC_ADHOC_PENALTY')].amount"
-                }
-              },
-              {
-                "variable": "firecess",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_FIRE_CESS')].amount"
-                }
-              },
-              {
-                "variable": "usageExemption",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_UNIT_USAGE_EXEMPTION')].amount"
-                }
-              },
-              {
-                "variable": "roundoff",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_ROUNDOFF' || @.taxHeadCode == 'TL_ROUNDOFF' || @.taxHeadCode == 'FIRENOC_ROUNDOFF' || @.taxHeadCode == 'WS_Round_Off' || @.taxHeadCode == 'SW_Round_Off')].amount"
-                }
-              },
-              {
-                "variable": "fees",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'FIRENOC_FEES')].amount"
-                }
-              },
-              {
-                "variable": "ownerExemption",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_OWNER_EXEMPTION')].amount"
-                }
-              },
-              {
-                "variable": "cancerCess",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_CANCER_CESS')].amount"
-                }
-              },
-              {
                 "variable": "waterCess",
                 "value": {
                   "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'WS_WATER_CESS' || @.taxHeadCode == 'SW_SEWERAGE_CESS')].amount"
-                }
-              },
-              {
-                "variable": "timeInterest",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_TIME_INTEREST' || @.taxHeadCode == 'WS_TIME_INTEREST' || @.taxHeadCode == 'SW_TIME_INTEREST')].amount"
                 }
               },
               {
@@ -603,12 +515,6 @@
                 "variable": "ceilingCredit",
                 "value": {
                   "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_DECIMAL_CEILING_CREDIT')].amount"
-                }
-              },
-              {
-                "variable": "carryForward",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == 'WS_ADVANCE_CARRYFORWARD' || @.taxHeadCode == 'SW_ADVANCE_CARRYFORWARD')].amount"
                 }
               },
               {
@@ -631,113 +537,84 @@
                 }
               },
               {
-                "variable": "WS_arrears",
+                "variable": "totalArrears",
                 "value": {
-                  "path": "$.arrearAmount"
-                }
-              },
-              {
-                "variable": "WS_AdvanceAdjusted",
+                     "path":"$.billDetails"                              
+                },
+                "type":"function",
+                "format":"var y=0,x=arguments[0];for( var i=0;i<x.length;i++){if(x[i].billAccountDetails[0].taxHeadCode=='10102'){ y=y+x[i].amount;}} return y;" 
+              },{
+                "variable": "arrears",
                 "value": {
-                  "path": "$.AdvanceAdjustedValue"
-                }
-              },
-              {
-                "variable": "scissorImage",
-                "url": "http://www.pngall.com/wp-content/uploads/2016/03/Scissor-PNG-Clipart.png",
-                "type": "image"
+                     "path":"$.billDetails"                              
+                },
+                "type":"function",
+                "format":"var y=[],x=arguments[0];for( var i=0;i<x.length;i++){if(x[i].billAccountDetails[0].taxHeadCode=='10102'){y.push({'text':'Water Charges '+(new Date(x[i].fromPeriod).toLocaleString().split(/[,| ]/)[0])+' - '+(new Date(x[i].toPeriod).toLocaleString().split(/[,| ]/)[0]),'value':'₹  '+x[i].amount});}} return y;" 
               }
             ]
           },
           {
             "derived": [
-              {
-                "variable": "charge",
-                "formula": "{{ws_charge}}"
-              },
-              {
-                "variable": "penalty",
-                "formula": "{{timePenalty}}+{{adhocPenalty}}"
-              },
-              {
-                "variable": "rebate",
-                "formula": "{{timeRebate}}+{{adhocRebate}}"
-              },
-              {
-                "variable": "billOthers",
-                "formula": "{{cancerCess}}+{{roundoff}}+{{timeInterest}}+{{ceilingDebit}}+{{ceilingCredit}}+{{firecess}}+{{waterCess}}"
-              },
-              {
-                "variable": "demandTotalAmount",
-                "formula": "({{ws_roundoff}}+{{ws_charge}}+{{ws_water_cess}}+{{ws_time_interest}}+{{ws_time_penalty}}).toFixed(2)"
-              },
-              {
-                "variable": "billTotalAmount",
-                "formula": "{{total}}"
-              },
-              {
-                "variable": "arrears",
-                "formula": "{{billTotalAmount}}>{{demandTotalAmount}}?({{billTotalAmount}}-{{demandTotalAmount}}).toFixed(2):0"
-              },
-              {
-                "variable": "advanceAdjusted",
-                "formula": "{{billTotalAmount}}>=0?({{billTotalAmount}}<{{demandTotalAmount}}?({{billTotalAmount}}-{{demandTotalAmount}}).toFixed(2):0):{{demandTotalAmount}} * -1"
-              },
-              {
-                "variable": "advanceAvailable",
-                "formula": "{{billTotalAmount}}<0?{{billTotalAmount}}*-1:0"
-              },
-              {
-                "variable": "others",
-                "formula": "({{ws_roundoff}}+{{ws_water_cess}}+{{ws_time_interest}}).toFixed(2)"
-              },
-              {
-                "variable": "calculatedTotal",
-                "formula": "{{billTotalAmount}}>0?{{billTotalAmount}}:0"
-              }
+             
             ]
           },
           {
             "externalAPI": [
-              {
+              { 
                 "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
-                "queryParam": "moduleName=tenant&masterName=tenants&tenantId=pb&filter=%5B?(@.code=='{$.tenantId}')%5D",
+                "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.tenantId}&filter=%5B?(@.code=='{$.tenantId}')%5D",
                 "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "address",
-                    "value": "$.MdmsRes.tenant.tenants[0].address"
+                "responseMapping":[
+                  {             
+                    "variable":"tenantaddress",
+                    "value":"$.MdmsRes.tenant.tenants[0].address"
+                  },{             
+                    "variable":"GPWSC",
+                    "value":"$.MdmsRes.tenant.tenants[0].city.ddrName"
                   },
                   {
-                    "variable": "phoneNumber",
-                    "value": "$.MdmsRes.tenant.tenants[0].contactNumber"
+                    "variable":"phoneNumber",
+                    "value":"$.MdmsRes.tenant.tenants[0].contactNumber"
                   },
                   {
-                    "variable": "website",
-                    "value": "$.MdmsRes.tenant.tenants[0].domainUrl"
+                    "variable":"website",
+                    "value":"$.MdmsRes.tenant.tenants[0].domainUrl"
                   },
                   {
-                    "variable": "email",
-                    "value": "$.MdmsRes.tenant.tenants[0].emailId"
+                    "variable":"email",
+                    "value":"$.MdmsRes.tenant.tenants[0].emailId"
                   },
                   {
-                    "variable": "logoImage",
-                    "value": "$.MdmsRes.tenant.tenants[0].logoId",
-                    "type": "image"
+                    "variable": "logoImage",                        
+                    "value":"$.MdmsRes.tenant.tenants[0].logoId",
+                    "type":"image"      
                   },
                   {
-                    "variable": "logo_header",
-                    "value": "$.MdmsRes.tenant.tenants[0].code",
-                    "localisation": {
-                      "required": true,
+                    "variable": "logo-header",
+                    "value":"$.MdmsRes.tenant.tenants[0].code",
+                    "localisation":{
+                      "required":true,
                       "prefix": "TENANT_TENANTS",
-                      "module": "rainmaker-common"
-                    }
+                      "module":"mgramseva-common"
+                      }
                   }
                 ]
-              },
-              {
-                "path": "http://billing-service.egov:8080/billing-service/demand/_search",
+            },{
+              "path": "http://billing-service:8080/billing-service//bill/v2/_fetchbill",
+              "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
+              "apiRequest": null,
+              "responseMapping": [
+                {
+                  "variable": "ws_charge",
+                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[?(@.taxHeadCode == 'WS_CHARGE')].amount"
+                },
+                {
+                  "variable": "total_arrear",
+                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[?(@.taxHeadCode == '10102')].amount"
+                }
+              ]
+            },{
+                "path": "http://billing-service:8080/billing-service/demand/_search",
                 "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
                 "apiRequest": null,
                 "responseMapping": [
@@ -750,10 +627,6 @@
                     "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_Round_Off')].taxAmount"
                   },
                   {
-                    "variable": "ws_charge",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_CHARGE')].taxAmount"
-                  },
-                  {
                     "variable": "ws_water_cess",
                     "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_WATER_CESS')].taxAmount"
                   },
@@ -764,6 +637,116 @@
                   {
                     "variable": "ws_time_penalty",
                     "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
+                  }
+                ]
+              },
+              {
+                "path": "http://ws-services.egov:8080/ws-services/wc/_search",
+                "queryParam": "tenantId=$.tenantId,connectionNumber=$.consumerCode",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "meternumber",
+                    "value": "$.WaterConnection[(@.length-1)].meterId"
+                  },{
+                    "variable": "serviceType",
+                    "value": "$.WaterConnection[(@.length-1)].connectionType"
+                  }
+                ]
+              },
+              {
+                "path": "http://ws-calculator.egov:8080/ws-calculator/meterConnection/_search",
+                "queryParam": "tenantId=$.tenantId,connectionNos=$.consumerCode",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "meterreading",
+                    "value": "$.meterReadings[(@.length-1)].currentReading"
+                  },
+                  {
+                    "variable": "meterreading_date",
+                    "value": "$.meterReadings[(@.length-1)].currentReadingDate",
+                    "type": "date"
+                  }
+                ]
+              },
+              {
+                "path": "http://ws-services.egov:8080/ws-services/wc/_getfeedback",
+                "queryParam": "tenantId=$.tenantId,",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "watersupply_rate",
+                    "value": "$.feedback.HAPPY_WATER_SUPPLY"
+                  },
+                  {
+                    "variable": "waterquality_rate",
+                    "value": "$.feedback.WATER_QUALITY_GOOD"
+                  },
+                  {
+                    "variable": "supplyregula_rate",
+                    "value": "$.feedback.WATER_SUPPLY_REGULAR"
+                  }
+                ]
+              },
+              {
+                "path": "http://collection-services:8080/collection-services/payments/_search",
+                "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,businessServices=WS",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "actualcollection",
+                    "value": "$.Payments[(@.length-1)].paymentDetails[0].totalAmountPaid"
+                  },
+                  {
+                    "variable": "dueAmount",
+                    "value": "$.Payments[(@.length-1)].paymentDetails[0].totalDue"
+                  }
+                ]
+              },
+              {
+                "path": "http://echallan-services.egov:8080/echallan-services/eChallan/v1/_search",
+                "queryParam": "tenantId=$.tenantId",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "actualcollection",
+                    "value": "$.challans[(@.length-1)].totalAmount"
+                  }
+                ]
+              },
+              {
+                "path": "http://echallan-services.egov:8080/echallan-services/eChallan/v1/_lastMonthSummary",
+                "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "actualpayment",
+                    "value": "$.LastMonthSummary.previousMonthCollection"
+                  },
+                  {
+                    "variable": "newexpenditure",
+                    "value": "$.LastMonthSummary.previousMonthNewExpense"
+                  },
+                  {
+                    "variable": "pendingexpenditure",
+                    "value": "$.LastMonthSummary.cumulativePendingExpense"
+                  },
+                  {
+                    "variable": "pendingcollection",
+                    "value": "$.LastMonthSummary.cumulativePendingCollection"
+                  },
+                  {
+                    "variable": "newdemand",
+                    "value": "$.LastMonthSummary.newDemand"
+                  },
+                  {
+                    "variable": "actualcollection",
+                    "value": "$.LastMonthSummary.actualCollection"
+                  },
+                  {
+                    "variable": "previousMonthYear",
+                    "value": "$.LastMonthSummary.previousMonthYear"
                   }
                 ]
               }
