@@ -867,7 +867,7 @@
       },
       "receipt-table-value": {
         "color": "#484848",
-        "fontSize": 10,
+        "fontSize": 8,
         "fontWeight": 400,
         "text-alight": "right",
         "margin": [
@@ -897,7 +897,7 @@
         "fontWeight": 500,
         "text-alight": "left",
         "margin": [
-          0,
+          4,
           2,
           0,
           0

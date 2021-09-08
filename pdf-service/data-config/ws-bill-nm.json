@@ -434,21 +434,9 @@
                 }
               },
               {
-                "variable": "payerName",
-                "value": {
-                  "path": "$.payerName"
-                }
-              },
-              {
                 "variable": "mobileNo",
                 "value": {
                   "path": "$.mobileNumber"
-                }
-              },
-              {
-                "variable": "payerAddress",
-                "value": {
-                  "path": "$.payerAddress"
                 }
               },
               {
@@ -477,7 +465,7 @@
                   "path": "$.billDate"
                 },
                 "type": "date",
-                "format":"DD/MM/YYYY HH:mm A"
+                "format":"DD/MM/YYYY HH:mm "
               },
               {
                 "variable": "billDueDate",
@@ -651,6 +639,12 @@
                   },{
                     "variable": "serviceType",
                     "value": "$.WaterConnection[(@.length-1)].connectionType"
+                  },{
+                    "variable": "payerName",
+                    "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].name"
+                  },{
+                    "variable": "payerAddress",
+                    "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].permanentAddress"
                   }
                 ]
               },

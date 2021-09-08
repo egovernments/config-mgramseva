@@ -458,21 +458,9 @@
                 }
               },
               {
-                "variable": "payerName",
-                "value": {
-                  "path": "$.payerName"
-                }
-              },
-              {
                 "variable": "mobileNo",
                 "value": {
                   "path": "$.mobileNumber"
-                }
-              },
-              {
-                "variable": "payerAddress",
-                "value": {
-                  "path": "$.payerAddress"
                 }
               },
               {
@@ -501,7 +489,7 @@
                   "path": "$.instrumentDate"
                 },
                 "type": "date",
-                "format":"DD/MM/YYYY HH:mm A"
+                "format":"DD/MM/YYYY HH:mm "
               },
               {
                 "variable": "ason_date",
@@ -509,7 +497,7 @@
                   "path": "$.instrumentDate"
                 },
                 "type": "date",
-                "format":"DD/MM/YYYY HH:mm A"
+                "format":"DD/MM/YYYY HH:mm "
               },
               {
                 "variable": "paymentmode",
@@ -661,6 +649,12 @@
                   },{
                     "variable": "serviceType",
                     "value": "$.WaterConnection[(@.length-1)].connectionType"
+                  },{
+                    "variable": "payerName",
+                    "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].name"
+                  },{
+                    "variable": "payerAddress",
+                    "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].permanentAddress"
                   }
                 ]
               },
