@@ -649,7 +649,7 @@
                 ]
               },
               {
-                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_search",
+                "path": "http://ws-services.egov:8080/ws-services/wc/_search",
                 "queryParam": "tenantId=$.tenantId,connectionNumber=$.paymentDetails[0].bill.consumerCode",
                 "apiRequest": null,
                 "responseMapping": [
@@ -663,7 +663,7 @@
                 ]
               },
               {
-                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_getfeedback",
+                "path": "http://ws-services.egov:8080/ws-services/wc/_getfeedback",
                 "queryParam": "tenantId=$.tenantId,",
                 "apiRequest": null,
                 "responseMapping": [
@@ -697,7 +697,7 @@
                 ]
               },
               {
-                "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_search",
+                "path": "http://echallan-services.egov:8080/echallan-services/eChallan/v1/_search",
                 "queryParam": "tenantId=$.tenantId",
                 "apiRequest": null,
                 "responseMapping": [
@@ -708,7 +708,7 @@
                 ]
               },
               {
-                "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
+                "path": "http://echallan-services.egov:8080/echallan-services/eChallan/v1/_lastMonthSummary",
                 "queryParam": "tenantId=$.tenantId,currentDate=$.transactionDate",
                 "apiRequest": null,
                 "responseMapping": [
