@@ -594,7 +594,7 @@
               "responseMapping": [
                 {
                   "variable": "ws_charge",
-                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[?(@.taxHeadCode == 'WS_CHARGE')].amount"
+                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[?(@.taxHeadCode == '10101')].amount"
                 },
                 {
                   "variable": "total_arrear",
