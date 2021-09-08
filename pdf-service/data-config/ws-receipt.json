@@ -603,7 +603,7 @@
                     "localisation":{
                       "required":true,
                       "prefix": "TENANT_TENANTS",
-                      "module":"rainmaker-common"
+                      "module":"mgramseva-common"
                       }
                   }
                 ]
