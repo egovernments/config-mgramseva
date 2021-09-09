@@ -448,14 +448,14 @@
               {
                 "variable": "fromPeriod",
                 "value": {
-                  "path": "$.billDetails[0].fromPeriod"
+                  "path": "$.billDetails[(@.length-1)].fromPeriod"
                 },
                 "type": "date"
               },
               {
                 "variable": "toPeriod",
                 "value": {
-                  "path": "$.billDetails[0].toPeriod"
+                  "path": "$.billDetails[(@.length-1)].toPeriod"
                 },
                 "type": "date"
               },
@@ -530,26 +530,35 @@
                      "path":"$.billDetails"                              
                 },
                 "type":"function",
-                "format":"var y=0,x=arguments[0];for( var i=0;i<x.length;i++){if(x[i].billAccountDetails[0].taxHeadCode=='10102'){ y=y+x[i].amount;}} return y;" 
+                "format":"var y=0,x=arguments[0];for( var i=0;i<x.length-1;i++){y=y+x[i].amount;} return y;" 
               },{
                 "variable": "arrears",
                 "value": {
                      "path":"$.billDetails"                              
                 },
                 "type":"function",
-                "format":"var y=[],x=arguments[0];for( var i=0;i<x.length;i++){if(x[i].billAccountDetails[0].taxHeadCode=='10102'){y.push({'text':'Water Charges '+(new Date(x[i].fromPeriod).toLocaleString().split(/[,| ]/)[0])+' - '+(new Date(x[i].toPeriod).toLocaleString().split(/[,| ]/)[0]),'value':'₹  '+x[i].amount});}} return y;" 
+                "format":"var y=[],x=arguments[0];for( var i=0;i<x.length-1;i++){y.push({'text':'Water Charges '+(new Date(x[i].fromPeriod).toLocaleString('en-GB',{ timeZone: 'Asia/Kolkata' }).split(/[,| ]/)[0])+' - '+(new Date(x[i].toPeriod).toLocaleString('en-GB',{ timeZone: 'Asia/Kolkata' }).split(/[,| ]/)[0]),'value':'₹  '+x[i].amount});} return y;" 
               }
             ]
           },
           {
             "derived": [
-             
+              {
+                "variable":"waterquality_rate_value",
+                "formula":"{{waterquality_rate}}>0 ? {{waterquality_rate}}:0"
+              },{
+               "variable":"watersupply_rate_value",
+               "formula":"{{watersupply_rate}}>0 ? {{watersupply_rate}}:0"
+             },{
+               "variable":"supplyregula_rate_value",
+               "formula":"{{supplyregula_rate}}>0 ? {{supplyregula_rate}}:0"
+             }
             ]
           },
           {
             "externalAPI": [
               { 
-                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "path": "http://egov-mdms-service.mgramseva:8080/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.tenantId}&filter=%5B?(@.code=='{$.tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping":[
@@ -588,13 +597,13 @@
                   }
                 ]
             },{
-              "path": "http://billing-service:8080/billing-service//bill/v2/_fetchbill",
+              "path": "http://billing-service.mgramseva:8080/billing-service//bill/v2/_fetchbill",
               "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
               "apiRequest": null,
               "responseMapping": [
                 {
                   "variable": "ws_charge",
-                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[?(@.taxHeadCode == '10101')].amount"
+                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[(@.length-1)].amount"
                 },
                 {
                   "variable": "total_arrear",
@@ -602,7 +611,7 @@
                 }
               ]
             },{
-                "path": "http://billing-service:8080/billing-service/demand/_search",
+                "path": "http://billing-service.mgramseva:8080/billing-service/demand/_search",
                 "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
                 "apiRequest": null,
                 "responseMapping": [
@@ -638,7 +647,12 @@
                     "value": "$.WaterConnection[(@.length-1)].meterId"
                   },{
                     "variable": "serviceType",
-                    "value": "$.WaterConnection[(@.length-1)].connectionType"
+                    "value": "$.WaterConnection[(@.length-1)].connectionType",
+                    "localisation":{
+                      "required":true,
+                      "prefix": null,
+                      "module":"mgramseva-common"
+                      }
                   },{
                     "variable": "payerName",
                     "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].name"
@@ -668,7 +682,7 @@
                 ]
               },
               {
-                "path": "http://collection-services:8080/collection-services/payments/_search",
+                "path": "http://collection-services.mgramseva:8080/collection-services/payments/_search",
                 "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,businessServices=WS",
                 "apiRequest": null,
                 "responseMapping": [
