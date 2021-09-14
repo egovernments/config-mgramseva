@@ -448,14 +448,14 @@
               {
                 "variable": "fromPeriod",
                 "value": {
-                  "path": "$.billDetails[(@.length-1)].fromPeriod"
+                  "path": "$.billDetails[0].fromPeriod"
                 },
                 "type": "date"
               },
               {
                 "variable": "toPeriod",
                 "value": {
-                  "path": "$.billDetails[(@.length-1)].toPeriod"
+                  "path": "$.billDetails[0].toPeriod"
                 },
                 "type": "date"
               },
@@ -530,14 +530,14 @@
                      "path":"$.billDetails"                              
                 },
                 "type":"function",
-                "format":"var y=0,x=arguments[0];for( var i=0;i<x.length-1;i++){y=y+x[i].amount;} return y;" 
+                "format":"var y=0,x=arguments[0];for( var i=1;i<x.length;i++){y=y+x[i].amount;} return y;" 
               },{
                 "variable": "arrears",
                 "value": {
                      "path":"$.billDetails"                              
                 },
                 "type":"function",
-                "format":"var y=[],x=arguments[0];for( var i=0;i<x.length-1;i++){y.push({'text':'Water Charges '+(new Date(x[i].fromPeriod).toLocaleString('en-GB',{ timeZone: 'Asia/Kolkata' }).split(/[,| ]/)[0])+' - '+(new Date(x[i].toPeriod).toLocaleString('en-GB',{ timeZone: 'Asia/Kolkata' }).split(/[,| ]/)[0]),'value':'₹  '+x[i].amount});} return y;" 
+                "format":"var y=[],x=arguments[0];for( var i=1;i<x.length;i++){y.push({'text':'Water Charges '+(new Date(x[i].fromPeriod).toLocaleString('en-GB',{ timeZone: 'Asia/Kolkata' }).split(/[,| ]/)[0])+' - '+(new Date(x[i].toPeriod).toLocaleString('en-GB',{ timeZone: 'Asia/Kolkata' }).split(/[,| ]/)[0]),'value':'₹  '+x[i].amount});} return y;" 
               }
             ]
           },
@@ -603,7 +603,7 @@
               "responseMapping": [
                 {
                   "variable": "ws_charge",
-                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[(@.length-1)].amount"
+                  "value": "$.Bill[(@.length-1)].billDetails[0].billAccountDetails[(@.length-1)].amount"
                 },
                 {
                   "variable": "total_arrear",
