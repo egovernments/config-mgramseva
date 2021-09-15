@@ -549,7 +549,7 @@
                         "style": "receipt-table-value"
                       },
                       {
-                        "text": "{{watersupply_rate_value}} / 5",
+                        "text": "{{watersupply_rate_value}}",
                         "border": [
                           false,
                           false,
@@ -571,7 +571,7 @@
                         "style": "receipt-table-value"
                       },
                       {
-                        "text": "{{waterquality_rate_value}} / 5",
+                        "text": "{{waterquality_rate_value}}",
                         "border": [
                           false,
                           false,
@@ -593,7 +593,7 @@
                         "style":"receipt-table-value"
                       },
                       {
-                        "text": "{{supplyregula_rate_value}} / 5",
+                        "text": "{{supplyregula_rate_value}} ",
                         "border": [
                           false,
                           false,

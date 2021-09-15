@@ -605,47 +605,7 @@
                       }
                   }
                 ]
-            },{
-              "path": "http://billing-service.mgramseva:8080/billing-service//bill/v2/_fetchbill",
-              "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
-              "apiRequest": null,
-              "responseMapping": [
-                {
-                  "variable": "ws_charge1",
-                  "value": "$.Bill[(@.length-1)].billDetails[0].billAccountDetails[(@.length-1)].amount"
-                },
-                {
-                  "variable": "total_arrear",
-                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[?(@.taxHeadCode == '10102')].amount"
-                }
-              ]
-            },{
-                "path": "http://billing-service.mgramseva:8080/billing-service/demand/_search",
-                "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
-                "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "ws_advanceAmount",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')].taxAmount"
-                  },
-                  {
-                    "variable": "ws_roundoff",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_Round_Off')].taxAmount"
-                  },
-                  {
-                    "variable": "ws_water_cess",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_WATER_CESS')].taxAmount"
-                  },
-                  {
-                    "variable": "ws_time_interest",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_INTEREST')].taxAmount"
-                  },
-                  {
-                    "variable": "ws_time_penalty",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
-                  }
-                ]
-              },
+            },
               {
                 "path": "http://ws-services.mgramseva:8080/ws-services/wc/_search",
                 "queryParam": "tenantId=$.tenantId,connectionNumber=$.consumerCode",
@@ -687,32 +647,6 @@
                   {
                     "variable": "supplyregula_rate",
                     "value": "$.feedback.WATER_SUPPLY_REGULAR"
-                  }
-                ]
-              },
-              {
-                "path": "http://collection-services.mgramseva:8080/collection-services/payments/_search",
-                "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,businessServices=WS",
-                "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "actualcollection",
-                    "value": "$.Payments[(@.length-1)].paymentDetails[0].totalAmountPaid"
-                  },
-                  {
-                    "variable": "dueAmount",
-                    "value": "$.Payments[(@.length-1)].paymentDetails[0].totalDue"
-                  }
-                ]
-              },
-              {
-                "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_search",
-                "queryParam": "tenantId=$.tenantId",
-                "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "actualcollection",
-                    "value": "$.challans[(@.length-1)].totalAmount"
                   }
                 ]
               },
