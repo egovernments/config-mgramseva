@@ -567,7 +567,7 @@
           {
             "externalAPI": [
               { 
-                "path": "http://localhost:8094/egov-mdms-service/v1/_get",
+                "path": "http://egov-mdms-service.mgramseva:8080/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.tenantId}&filter=%5B?(@.code=='{$.tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping":[
@@ -606,7 +606,7 @@
                   }
                 ]
             },{
-              "path": "http://localhost:8088/billing-service//bill/v2/_fetchbill",
+              "path": "http://billing-service.mgramseva:8080/billing-service//bill/v2/_fetchbill",
               "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
               "apiRequest": null,
               "responseMapping": [
@@ -620,7 +620,7 @@
                 }
               ]
             },{
-                "path": "http://localhost:8088/billing-service/demand/_search",
+                "path": "http://billing-service.mgramseva:8080/billing-service/demand/_search",
                 "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
                 "apiRequest": null,
                 "responseMapping": [
@@ -647,7 +647,7 @@
                 ]
               },
               {
-                "path": "http://localhost:8047/ws-services/wc/_search",
+                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_search",
                 "queryParam": "tenantId=$.tenantId,connectionNumber=$.consumerCode",
                 "apiRequest": null,
                 "responseMapping": [
@@ -672,7 +672,7 @@
                 ]
               },
               {
-                "path": "http://localhost:8047/ws-services/wc/_getfeedback",
+                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_getfeedback",
                 "queryParam": "tenantId=$.tenantId,",
                 "apiRequest": null,
                 "responseMapping": [
@@ -691,7 +691,7 @@
                 ]
               },
               {
-                "path": "http://localhost:8092/collection-services/payments/_search",
+                "path": "http://collection-services.mgramseva:8080/collection-services/payments/_search",
                 "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,businessServices=WS",
                 "apiRequest": null,
                 "responseMapping": [
@@ -706,7 +706,7 @@
                 ]
               },
               {
-                "path": "http://localhost:8036/echallan-services/eChallan/v1/_search",
+                "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_search",
                 "queryParam": "tenantId=$.tenantId",
                 "apiRequest": null,
                 "responseMapping": [
@@ -717,7 +717,7 @@
                 ]
               },
               {
-                "path": "http://localhost:8036/echallan-services/eChallan/v1/_lastMonthSummary",
+                "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
                 "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
                 "apiRequest": null,
                 "responseMapping": [
