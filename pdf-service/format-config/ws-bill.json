@@ -2,8 +2,8 @@
   "key": "ws-bill",
   "config": {
     "defaultStyle": {
-      "font": "Cambay",
-      "fontSize": 10
+      "font": "Roboto",
+      "fontSize": 12
     },
     "content": [
       {
