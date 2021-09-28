@@ -650,7 +650,7 @@
                   "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].name"
                 },{
                   "variable": "payerAddress",
-                  "value": "$.WaterConnection[(@.length-1)].additionalDetails.doorNo" + ", " + "$.WaterConnection[(@.length-1)].additionalDetails.locality"
+                  "value": "$.WaterConnection[(@.length-1)].additionalDetails.locality"
                 }
               ]
             },
