@@ -508,7 +508,7 @@
                 },
                 "localisation": {
                   "required": true,
-                  "prefix": "PDF_PAYMODE",
+                  "prefix": "PDF_PAYMODE_CASH",
                   "module": "mgramseva-common"
                 }
               },
