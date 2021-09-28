@@ -449,7 +449,7 @@
                         "style": "receipt-table"
                       },
                       {
-                        "text": "₹  {{current_charges}}",
+                        "text": "₹ {{current_charges}}",
                         "border": [
                           false,
                           false,
