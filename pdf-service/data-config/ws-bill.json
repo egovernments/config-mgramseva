@@ -641,10 +641,10 @@
                 "responseMapping": [
                   {
                     "variable": "currentmeterreading",
-                    "value": "$.meterReadings[(@.length-1)].currentReading"
+                    "value": "$.meterReadings[0].currentReading"
                   },{
                     "variable": "lastmeterreading",
-                    "value": "$.meterReadings[(@.length-1)].lastReading"
+                    "value": "$.meterReadings[0].lastReading"
                   },
                   {
                     "variable": "meterreading_date",
