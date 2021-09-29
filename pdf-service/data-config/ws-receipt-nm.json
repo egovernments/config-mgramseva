@@ -563,7 +563,11 @@
               {
                 "variable": "dueason_date",
                 "formula": "{{totalPaid}}>{{totalAmountDue}}?0:{{totalPaid}}-{{totalAmountDue}}"
-             }
+             },
+              {
+              "variable":"address",
+              "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
+            }
             ]
           },
           {
@@ -659,7 +663,21 @@
                   },{
                     "variable": "serviceType",
                     "value": "$.WaterConnection[(@.length-1)].connectionType"
-                  }
+                  },
+                   {
+                    "variable": "doorHouseNo",
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.doorNo",
+                    "type":"setEmpty"
+                },
+                {
+                    "variable": "streetName",
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.street",
+                    "type":"setEmpty"
+                },
+                {
+                    "variable": "mohalla",
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.locality"
+                }
                 ]
               },
               {
