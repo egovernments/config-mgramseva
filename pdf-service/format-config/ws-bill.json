@@ -159,7 +159,7 @@
                 "style": "receipt-table"
               },
                {
-                   "text":"{{doorHouseNo}}, {{streetName}}, {{mohalla}}, {{GPWSC}}",
+                   "text":"{{doorHouseNo}}, {{streetName}}, {{mohalla}}",
                     "border":[
                       false,
                       false,
