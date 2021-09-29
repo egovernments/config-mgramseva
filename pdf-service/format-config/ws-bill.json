@@ -158,16 +158,16 @@
                 ],
                 "style": "receipt-table"
               },
-              {
-                "text": "{{payerAddress}}",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table-value"
-              }
+               {
+                   "text":"{{doorHouseNo}}, {{streetName}}, {{mohalla}}, {{GPWSC}}",
+                    "border":[
+                      false,
+                      false,
+                      false,
+                      false
+                      ],
+                 "style": "receipt-table-value-down"
+               }
             ],
             [
               {
