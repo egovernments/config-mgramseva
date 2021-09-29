@@ -579,7 +579,12 @@
                     "value":"$.MdmsRes.tenant.tenants[0].address"
                   },{             
                     "variable":"GPWSC",
-                    "value":"$.MdmsRes.tenant.tenants[0].city.ddrName"
+                    "value":"$.MdmsRes.tenant.tenants[0].city.ddrName",
+                    "localisation":{
+                      "required":true,
+                      "prefix": "TENANT_TENANTS",
+                      "module":"mgramseva-common"
+                      }
                   },
                   {
                     "variable":"phoneNumber",
@@ -628,10 +633,32 @@
                   },{
                     "variable": "payerName",
                     "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].name"
-                  },{
-                    "variable": "payerAddress",
-                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.locality"
-                  }
+                  },
+                   {
+                    "variable": "doorHouseNo",
+                    "value": {
+                      "path": "$.WaterConnection[(@.length-1)].additionalDetails.doorNo"
+                    },
+                    "type":"setEmpty"
+                },
+                {
+                    "variable": "streetName",
+                    "value": {
+                      "path": "$.WaterConnection[(@.length-1)].additionalDetails.street"
+                    },
+                    "type":"setEmpty"
+                },
+                {
+                    "variable": "mohalla",
+                    "value": {
+                      "path": "$.WaterConnection[(@.length-1)].additionalDetails.locality"
+                    },
+                    "localisation":{
+                      "required":true,
+                      "prefix": "TENANTS_MOHALLA",
+                      "module": "mgramseva-common"
+                   }
+                }
                 ]
               },
               {
