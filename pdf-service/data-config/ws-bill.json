@@ -564,6 +564,11 @@
              },{
               "variable":"meterreading",
               "formula":"{{currentmeterreading}}-{{lastmeterreading}}"
+            },
+            
+            {
+              "variable":"address",
+              "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
             }
             ]
           },
@@ -631,23 +636,17 @@
                   },
                    {
                     "variable": "doorHouseNo",
-                    "value": {
-                      "path": "$.WaterConnection[(@.length-1)].additionalDetails.doorNo"
-                    },
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.doorNo",
                     "type":"setEmpty"
                 },
                 {
                     "variable": "streetName",
-                    "value": {
-                      "path": "$.WaterConnection[(@.length-1)].additionalDetails.street"
-                    },
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.street",
                     "type":"setEmpty"
                 },
                 {
                     "variable": "mohalla",
-                    "value": {
-                      "path": "$.WaterConnection[(@.length-1)].additionalDetails.locality"
-                    }
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.locality"
                 }
                 ]
               },
