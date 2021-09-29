@@ -159,7 +159,7 @@
                 "style": "receipt-table"
               },
               {
-                "text": "{{payerAddress}}",
+                "text": "{{address}}",
                 "border": [
                   false,
                   false,
