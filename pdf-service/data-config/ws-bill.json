@@ -568,7 +568,7 @@
             
             {
               "variable":"address",
-              "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}', {{GPWSC}}].filter(x=>x != 'NA').join(', ')"
+              "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
             }
             ]
           },
