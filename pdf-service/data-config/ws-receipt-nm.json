@@ -562,7 +562,11 @@
            },{
              "variable":"supplyregula_rate_value",
              "formula":"'{{supplyregula_rate}}'=='NA' ?'NA' : '{{supplyregula_rate}}'/5"
-           }
+           },
+            {
+              "variable":"address",
+              "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
+            }
             ]
           },
           {
@@ -626,10 +630,20 @@
                   },{
                     "variable": "payerName",
                     "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].name"
-                  },{
-                    "variable": "payerAddress",
-                    "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].permanentAddress"
-                  }
+                  }, {
+                    "variable": "doorHouseNo",
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.doorNo",
+                    "type":"setEmpty"
+                },
+                {
+                    "variable": "streetName",
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.street",
+                    "type":"setEmpty"
+                },
+                {
+                    "variable": "mohalla",
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.locality"
+                }
                 ]
               },
               {
