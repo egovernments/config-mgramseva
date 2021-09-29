@@ -434,21 +434,9 @@
                 }
               },
               {
-                "variable": "payerName",
-                "value": {
-                  "path": "$.payerName"
-                }
-              },
-              {
                 "variable": "mobileNo",
                 "value": {
                   "path": "$.mobileNumber"
-                }
-              },
-              {
-                "variable": "payerAddress",
-                "value": {
-                  "path": "$.payerAddress"
                 }
               },
               {
@@ -460,16 +448,18 @@
               {
                 "variable": "fromPeriod",
                 "value": {
-                  "path": "$.billDetails[0].fromPeriod"
+                  "path": "$.billDetails"
                 },
-                "type": "date"
+                "type":"function",
+                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].fromPeriod).getDate())<10?'0'+new Date(x[0].fromPeriod).getDate():new Date(x[0].fromPeriod).getDate())+'/'+((new Date(x[0].fromPeriod).getMonth()+1)<10?'0'+(new Date(x[0].fromPeriod).getMonth()+1):(new Date(x[0].fromPeriod).getMonth()+1))+'/'+new Date(x[0].fromPeriod).getFullYear())" 
               },
               {
                 "variable": "toPeriod",
                 "value": {
-                  "path": "$.billDetails[0].toPeriod"
+                  "path": "$.billDetails"
                 },
-                "type": "date"
+                "type":"function",
+                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].toPeriod).getDate())<10?('0'+new Date(x[0].toPeriod).getDate()):new Date(x[0].toPeriod).getDate())+'/'+((new Date(x[0].toPeriod).getMonth()+1)<10?('0'+(new Date(x[0].toPeriod).getMonth()+1)):(new Date(x[0].toPeriod).getMonth()+1))+'/'+new Date(x[0].toPeriod).getFullYear())" 
               },
               {
                 "variable": "billIssueDate",
@@ -477,7 +467,7 @@
                   "path": "$.billDate"
                 },
                 "type": "date",
-                "format":"DD/MM/YYYY HH:mm A"
+                "format":"DD/MM/YYYY HH:mm "
               },
               {
                 "variable": "billDueDate",
@@ -542,26 +532,42 @@
                      "path":"$.billDetails"                              
                 },
                 "type":"function",
-                "format":"var y=0,x=arguments[0];for( var i=0;i<x.length;i++){if(x[i].billAccountDetails[0].taxHeadCode=='10102'){ y=y+x[i].amount;}} return y;" 
+                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){y=y+x[i].amount;} return y;" 
               },{
                 "variable": "arrears",
                 "value": {
                      "path":"$.billDetails"                              
                 },
                 "type":"function",
-                "format":"var y=[],x=arguments[0];for( var i=0;i<x.length;i++){if(x[i].billAccountDetails[0].taxHeadCode=='10102'){y.push({'text':'Water Charges '+(new Date(x[i].fromPeriod).toLocaleString().split(/[,| ]/)[0])+' - '+(new Date(x[i].toPeriod).toLocaleString().split(/[,| ]/)[0]),'value':'₹  '+x[i].amount});}} return y;" 
+                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){y.push({'text':'Water Charges '+(((new Date(x[i].fromPeriod).getDate())<10?('0'+new Date(x[i].fromPeriod).getDate()):new Date(x[i].fromPeriod).getDate())+'/'+((new Date(x[i].fromPeriod).getMonth()+1)<10?('0'+(new Date(x[i].fromPeriod).getMonth()+1)):(new Date(x[i].fromPeriod).getMonth()+1))+'/'+new Date(x[i].fromPeriod).getFullYear())+' - '+(((new Date(x[i].toPeriod).getDate())<10?('0'+new Date(x[i].toPeriod).getDate()):new Date(x[i].toPeriod).getDate())+'/'+((new Date(x[i].toPeriod).getMonth()+1)<10?('0'+(new Date(x[i].toPeriod).getMonth()+1)):(new Date(x[i].toPeriod).getMonth()+1))+'/'+new Date(x[i].toPeriod).getFullYear()),'value':'₹  '+x[i].amount});} return y;" 
+              },{
+                "variable": "ws_charge",
+                "value": {
+                     "path":"$.billDetails"                              
+                },
+                "type":"function",
+                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return x[0].amount;" 
               }
             ]
           },
           {
             "derived": [
-             
+              {
+                "variable":"waterquality_rate_value",
+                "formula":"'{{waterquality_rate}}'=='NA'? 'NA' : '{{waterquality_rate}}'/5"
+              },{
+               "variable":"watersupply_rate_value",
+               "formula":"'{{watersupply_rate}}' =='NA'?'NA' : '{{watersupply_rate}}'/5"
+             },{
+               "variable":"supplyregula_rate_value",
+               "formula":"'{{supplyregula_rate}}'=='NA' ?'NA' : '{{supplyregula_rate}}'/5"
+             }
             ]
           },
           {
             "externalAPI": [
               { 
-                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "path": "http://egov-mdms-service.mgramseva:8080/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.tenantId}&filter=%5B?(@.code=='{$.tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping":[
@@ -599,49 +605,9 @@
                       }
                   }
                 ]
-            },{
-              "path": "http://billing-service:8080/billing-service//bill/v2/_fetchbill",
-              "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
-              "apiRequest": null,
-              "responseMapping": [
-                {
-                  "variable": "ws_charge",
-                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[?(@.taxHeadCode == 'WS_CHARGE')].amount"
-                },
-                {
-                  "variable": "total_arrear",
-                  "value": "$.Bill[(@.length-1)].billDetails[(@.length-1)].billAccountDetails[?(@.taxHeadCode == '10102')].amount"
-                }
-              ]
-            },{
-                "path": "http://billing-service:8080/billing-service/demand/_search",
-                "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
-                "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "ws_advanceAmount",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')].taxAmount"
-                  },
-                  {
-                    "variable": "ws_roundoff",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_Round_Off')].taxAmount"
-                  },
-                  {
-                    "variable": "ws_water_cess",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_WATER_CESS')].taxAmount"
-                  },
-                  {
-                    "variable": "ws_time_interest",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_INTEREST')].taxAmount"
-                  },
-                  {
-                    "variable": "ws_time_penalty",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
-                  }
-                ]
-              },
+            },
               {
-                "path": "http://ws-services.egov:8080/ws-services/wc/_search",
+                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_search",
                 "queryParam": "tenantId=$.tenantId,connectionNumber=$.consumerCode",
                 "apiRequest": null,
                 "responseMapping": [
@@ -650,12 +616,23 @@
                     "value": "$.WaterConnection[(@.length-1)].meterId"
                   },{
                     "variable": "serviceType",
-                    "value": "$.WaterConnection[(@.length-1)].connectionType"
+                    "value": "$.WaterConnection[(@.length-1)].connectionType",
+                    "localisation":{
+                      "required":true,
+                      "prefix": "WS",
+                      "module":"mgramseva-common"
+                      }
+                  },{
+                    "variable": "payerName",
+                    "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].name"
+                  },{
+                    "variable": "payerAddress",
+                    "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].permanentAddress"
                   }
                 ]
               },
               {
-                "path": "http://ws-services.egov:8080/ws-services/wc/_getfeedback",
+                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_getfeedback",
                 "queryParam": "tenantId=$.tenantId,",
                 "apiRequest": null,
                 "responseMapping": [
@@ -674,33 +651,7 @@
                 ]
               },
               {
-                "path": "http://collection-services:8080/collection-services/payments/_search",
-                "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,businessServices=WS",
-                "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "actualcollection",
-                    "value": "$.Payments[(@.length-1)].paymentDetails[0].totalAmountPaid"
-                  },
-                  {
-                    "variable": "dueAmount",
-                    "value": "$.Payments[(@.length-1)].paymentDetails[0].totalDue"
-                  }
-                ]
-              },
-              {
-                "path": "http://echallan-services.egov:8080/echallan-services/eChallan/v1/_search",
-                "queryParam": "tenantId=$.tenantId",
-                "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "actualcollection",
-                    "value": "$.challans[(@.length-1)].totalAmount"
-                  }
-                ]
-              },
-              {
-                "path": "http://echallan-services.egov:8080/echallan-services/eChallan/v1/_lastMonthSummary",
+                "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
                 "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
                 "apiRequest": null,
                 "responseMapping": [
