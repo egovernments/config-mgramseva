@@ -666,6 +666,7 @@
                 {
                     "variable": "mohalla",
                     "value": "$.WaterConnection[(@.length-1)].additionalDetails.locality"
+                }
               ]
             },
               {
