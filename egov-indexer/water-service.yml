@@ -90,7 +90,7 @@ ServiceMaps:
             queryParam: consumerCodes=$.connectionNo,tenantId=$.tenantId,businessService=WS
             apiRequest: {"RequestInfo":{"apiId":"org.egov.pt","ver":"1.0","ts":1502890899493,"action":"asd","did":"4354648646","key":"xyz","msgId":"654654","requesterId":"61","authToken":"d9994555-7656-4a67-ab3a-a952a0d4dfc8","userInfo":{"id":1,"uuid":"1fec8102-0e02-4d0a-b283-cd80d5dab067","type":"EMPLOYEE","tenantId":"pb.amritsar","roles":[{"name":"Employee","code":"FSM_EDITOR_EMP","tenantId":"pb.amritsar"}]}}}
             uriResponseMapping:
-            - inJsonPath: $.Payments[0]
+            - inJsonPath: $.Payments
               outJsonPath: $.Data.payments
           - path: http://billing-service.egov:8080/billing-service/demand/_search
             queryParam: consumerCode=$.connectionNo,tenantId=$.tenantId,businessService=WS
@@ -188,7 +188,7 @@ ServiceMaps:
             queryParam: consumerCodes=$.connectionNo,tenantId=$.tenantId,businessService=WS
             apiRequest: {"RequestInfo":{"apiId":"org.egov.pt","ver":"1.0","ts":1502890899493,"action":"asd","did":"4354648646","key":"xyz","msgId":"654654","requesterId":"61","authToken":"d9994555-7656-4a67-ab3a-a952a0d4dfc8","userInfo":{"id":1,"uuid":"1fec8102-0e02-4d0a-b283-cd80d5dab067","type":"EMPLOYEE","tenantId":"pb.amritsar","roles":[{"name":"Employee","code":"FSM_EDITOR_EMP","tenantId":"pb.amritsar"}]}}}
             uriResponseMapping:
-            - inJsonPath: $.Payments[0]
+            - inJsonPath: $.Payments
               outJsonPath: $.Data.payments
           - path: http://billing-service.egov:8080/billing-service/demand/_search
             queryParam: consumerCode=$.connectionNo,tenantId=$.tenantId,businessService=WS
@@ -292,7 +292,7 @@ ServiceMaps:
             queryParam: consumerCodes=$.connectionNo,tenantId=$.tenantId,businessService=WS
             apiRequest: {"RequestInfo":{"apiId":"org.egov.pt","ver":"1.0","ts":1502890899493,"action":"asd","did":"4354648646","key":"xyz","msgId":"654654","requesterId":"61","authToken":"d9994555-7656-4a67-ab3a-a952a0d4dfc8","userInfo":{"id":1,"uuid":"1fec8102-0e02-4d0a-b283-cd80d5dab067","type":"EMPLOYEE","tenantId":"pb.amritsar","roles":[{"name":"Employee","code":"FSM_EDITOR_EMP","tenantId":"pb.amritsar"}]}}}
             uriResponseMapping:
-            - inJsonPath: $.Payments[0]
+            - inJsonPath: $.Payments
               outJsonPath: $.Data.payments
 
   - topic: ws-connection-legacyIndex
