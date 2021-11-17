@@ -666,8 +666,31 @@
                 ]
               },
               {
+                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_lastMonthSummary",
+                "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
+                "apiRequest": null,
+                "responseMapping": [                  
+                  {
+                    "variable": "pendingcollection",
+                    "value": "$.LastMonthSummary.cumulativePendingCollection"
+                  },                
+                  {
+                    "variable": "newdemand",
+                    "value": "$.LastMonthSummary.newDemand"
+                  },
+                  {
+                    "variable": "actualcollection",
+                    "value": "$.LastMonthSummary.actualCollection"
+                  },
+                  {
+                    "variable": "previousMonthYear",
+                    "value": "$.LastMonthSummary.previousMonthYear"
+                  }
+                ]
+                },
+              {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
-                "queryParam": "tenantId=$.tenantId,currentDate=$.transactionDate",
+                "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
                 "apiRequest": null,
                 "responseMapping": [
                   {
@@ -683,18 +706,6 @@
                     "value": "$.LastMonthSummary.cumulativePendingExpense"
                   },
                   {
-                    "variable": "pendingcollection",
-                    "value": "$.LastMonthSummary.cumulativePendingCollection"
-                  },
-                  {
-                    "variable": "newdemand",
-                    "value": "$.LastMonthSummary.newDemand"
-                  },
-                  {
-                    "variable": "actualcollection",
-                    "value": "$.LastMonthSummary.actualCollection"
-                  },
-                  {
                     "variable": "previousMonthYear",
                     "value": "$.LastMonthSummary.previousMonthYear"
                   }
@@ -702,8 +713,3 @@
               }
             ]
           }
-        ]
-      }
-    ]
-  }
-}
