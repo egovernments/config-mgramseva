@@ -689,22 +689,10 @@
                 ]
               },
               {
-                "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
-                "queryParam": "tenantId=$.tenantId,currentDate=$.transactionDate",
+               "path": "http://ws-services.mgramseva:8080/ws-services/wc/_lastMonthSummary",
+                "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
                 "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "actualpayment",
-                    "value": "$.LastMonthSummary.previousMonthCollection"
-                  },
-                  {
-                    "variable": "newexpenditure",
-                    "value": "$.LastMonthSummary.previousMonthNewExpense"
-                  },
-                  {
-                    "variable": "pendingexpenditure",
-                    "value": "$.LastMonthSummary.cumulativePendingExpense"
-                  },
+                "responseMapping": [                  
                   {
                     "variable": "pendingcollection",
                     "value": "$.LastMonthSummary.cumulativePendingCollection"
@@ -722,11 +710,29 @@
                     "value": "$.LastMonthSummary.previousMonthYear"
                   }
                 ]
+},
+              {
+                "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
+                "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "actualpayment",
+                    "value": "$.LastMonthSummary.previousMonthCollection"
+                  },
+                  {
+                    "variable": "newexpenditure",
+                    "value": "$.LastMonthSummary.previousMonthNewExpense"
+                  },
+                  {
+                    "variable": "pendingexpenditure",
+                    "value": "$.LastMonthSummary.cumulativePendingExpense"
+                  },
+                  {
+                    "variable": "previousMonthYear",
+                    "value": "$.LastMonthSummary.previousMonthYear"
+                  }
+                ]
               }
             ]
           }
-        ]
-      }
-    ]
-  }
-}
