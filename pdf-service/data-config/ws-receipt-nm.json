@@ -667,7 +667,7 @@
               },
               {
                 "path": "http://ws-services.mgramseva:8080/ws-services/wc/_lastMonthSummary",
-                "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
+                "queryParam": "tenantId=$.tenantId,currentDate=$.transactionDate",
                 "apiRequest": null,
                 "responseMapping": [                  
                   {
@@ -690,7 +690,7 @@
                 },
               {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
-                "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
+                "queryParam": "tenantId=$.tenantId,currentDate=$.transactionDate",
                 "apiRequest": null,
                 "responseMapping": [
                   {
