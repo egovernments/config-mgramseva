@@ -553,16 +553,16 @@
               {
                 "variable": "dueason_date",
                 "formula": "{{totalPaid}}>{{totalAmountDue}}?{{totalPaid}}-{{totalAmountDue}}:{{totalAmountDue}}-{{totalPaid}}"
-             }, {
-              "variable":"waterquality_rate_value",
-              "formula":"'{{waterquality_rate}}'=='NA'? 'NA' : '{{waterquality_rate}}'/5"
-            },{
-             "variable":"watersupply_rate_value",
-             "formula":"'{{watersupply_rate}}' =='NA'?'NA' : '{{watersupply_rate}}'/5"
-           },{
-             "variable":"supplyregula_rate_value",
-             "formula":"'{{supplyregula_rate}}'=='NA' ?'NA' : '{{supplyregula_rate}}'/5"
-           },{
+             },{
+                "variable":"waterquality_rate_value",
+                "formula":"'{{waterquality_rate}}'=='NA'? 'NA' : '{{waterquality_rate}}/5'"
+              },{
+               "variable":"watersupply_rate_value",
+               "formula":"('{{watersupply_rate}}' =='NA' || {{watersupply_rate}} ==0 )? 'NA' : '{{watersupply_rate}}/5'"
+             },{
+               "variable":"supplyregula_rate_value",
+               "formula":"'{{supplyregula_rate}}'=='NA' ? 'NA' : '{{supplyregula_rate}}/5'"
+             },{
             "variable":"meterreading",
             "formula":"{{currentmeterreading}}-{{lastmeterreading}}"
           },
