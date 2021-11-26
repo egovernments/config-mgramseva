@@ -7,7 +7,7 @@ serviceMaps:
     fromTopic: save-user-events
     isTransaction: true
     queryMaps:
-    - query: INSERT INTO eg_usrevents_events(tenantid, id, source, eventtype, category, name, postedby, referenceid, description, status, eventdetails, actions, recepient, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+    - query: INSERT INTO eg_usrevents_events(tenantid, id, source, eventtype, category, name, postedby, referenceid, description, status, eventdetails, actions, recepient, additionaldetails, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
       basePath: events.*
       jsonMaps:
@@ -44,6 +44,10 @@ serviceMaps:
       - jsonPath: $.events.*.recepient
         type: JSON
         dbType: JSONB
+        
+      - jsonPath: $.events.*.additionalDetails
+        type: JSON
+        dbType: JSONB
 
       - jsonPath: $.events.*.auditDetails.createdBy
 
@@ -75,7 +79,7 @@ serviceMaps:
     fromTopic: update-user-events
     isTransaction: true
     queryMaps:
-    - query: UPDATE eg_usrevents_events SET description = ?, status = ?, name = ?, category = ?, eventdetails = ?, actions = ?, recepient = ? , lastmodifiedby = ?, lastmodifiedtime = ? WHERE id = ?;
+    - query: UPDATE eg_usrevents_events SET description = ?, status = ?, name = ?, category = ?, eventdetails = ?, actions = ?, recepient = ?, additionaldetails = ?,  lastmodifiedby = ?, lastmodifiedtime = ? WHERE id = ?;
 
       basePath: events.*
       jsonMaps:
@@ -97,6 +101,10 @@ serviceMaps:
         dbType: JSONB
       
       - jsonPath: $.events.*.recepient
+        type: JSON
+        dbType: JSONB
+        
+      - jsonPath: $.events.*.additionalDetails
         type: JSON
         dbType: JSONB
 
@@ -148,7 +156,6 @@ serviceMaps:
       - jsonPath: $.lastAccessDetails.lastAccessTime   
       
       - jsonPath: $.lastAccessDetails.lastAccessTime   
-
 
 
 
