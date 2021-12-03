@@ -205,6 +205,18 @@
                 }
               },
               {
+                "variable": "bill_note",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WS_BILL_NOTE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
                 "variable": "customer_rating",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_CUSTOMER_RATING"
