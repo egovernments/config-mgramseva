@@ -87,6 +87,33 @@
           "expression": "complainNumber"
         }
       ]
+    },
+    ,
+    {
+      "id": "4",
+      "domain": "WS",
+      "indexName": "water-services",
+      "documentType": "",
+      "query": "{\"query\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.connectionNo\":\"value\"}}]}}}",
+      "targetReferences": [
+        {
+          "fieldName": "connectionNo",
+          "argument": "Data.connectionNo",
+          "dataType": "String",
+          "value": "$value",
+          "seperator": " ",
+          "expression": "connectionNo"
+        }
+      ],
+      "sourceReferences": [
+        {
+          "fieldName": "consumerCode",
+          "argument": "Data.connectionNo",
+          "value": "$value",
+          "seperator": " ",
+          "expression": "connectionNo"
+        }
+      ]
     }
   ]
 }
