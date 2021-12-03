@@ -644,6 +644,18 @@
                         ],
                         "style": "receipt-table-value"
                       }
+                    ],[
+                      {
+                        "colSpan":2,
+                        "text": "{{bill_note}}",
+                        "border": [
+                          false,
+                          false,
+                          false,
+                          false
+                        ],
+                        "style": "receipt-table"
+                      }
                     ]
                   ]
                 }
