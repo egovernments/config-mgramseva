@@ -13,7 +13,7 @@
             "additionalDetails": "additionalDetails",
             "meterId": "meterId",
             "meterInstallationDate": "meterInstallationDate",
-            "applicationType": "NEW_WATER_CONNECTION",
+            "applicationType": "applicationType",
             "propertyId": "propertyId",
             "ward": "ward"
         }
