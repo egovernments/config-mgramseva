@@ -116,7 +116,7 @@
         },
         {
             "id": "5",
-            "domain": "eChallan",
+            "domain": "EXPENSE.SALARY",
             "indexName": "echallan-services",
             "documentType": "",
             "query": "{\"query\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.challanNo\":\"value\"}}]}}}",
