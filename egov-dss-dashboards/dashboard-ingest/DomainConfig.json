@@ -139,6 +139,58 @@
                     "expression": "challanNo"
                 }
             ]
+        },
+        {
+            "id": "6",
+            "domain": "EXPENSE.ELECTRICITY_BILL",
+            "indexName": "echallan-services",
+            "documentType": "",
+            "query": "{\"query\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.challanNo\":\"value\"}}]}}}",
+            "targetReferences": [
+                {
+                    "fieldName": "challanNo",
+                    "argument": "Data.challanNo",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "challanNo"
+                }
+            ],
+            "sourceReferences": [
+                {
+                    "fieldName": "consumerCode",
+                    "argument": "Data.challanNo",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "challanNo"
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "domain": "EXPENSE.OM",
+            "indexName": "echallan-services",
+            "documentType": "",
+            "query": "{\"query\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.challanNo\":\"value\"}}]}}}",
+            "targetReferences": [
+                {
+                    "fieldName": "challanNo",
+                    "argument": "Data.challanNo",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "challanNo"
+                }
+            ],
+            "sourceReferences": [
+                {
+                    "fieldName": "consumerCode",
+                    "argument": "Data.challanNo",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "challanNo"
+                }
+            ]
         }
     ]
 }
