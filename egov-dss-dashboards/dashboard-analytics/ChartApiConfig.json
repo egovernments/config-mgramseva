@@ -4873,7 +4873,7 @@
       }
     ],
     "chartType": "line",
-    "valueType": "amount",
+    "valueType": "number",
     "action": "",
     "drillChart": "none",
     "documentType": "_doc",
