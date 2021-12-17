@@ -4878,8 +4878,8 @@
     "drillChart": "none",
     "documentType": "_doc",
     "aggregationPaths": [
-      "WaterServiceCount",
-      "ExpenseServiceCount"
+      "WaterService",
+      "ExpenseService"
     ],
     "isCumulative": true,
     "interval": "month",
