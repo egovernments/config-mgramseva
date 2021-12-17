@@ -4405,7 +4405,7 @@
       ]
     },
     {
-      "name": "DSS_MGRAMSEVA_WC_DASHBOARD",
+      "name": "DSS_MGRAMSEVA_DASHBOARD",
       "id": "mgramseva-wc",
       "isActive": "",
       "style": "linear",
@@ -4423,23 +4423,23 @@
               },
               "vizType": "chart",
               "label": "",
-              "noUnit": false,
-              "isCollapsible": true,
+              "noUnit": true,
+              "isCollapsible": false,
               "charts": [
                 {
-                  "id": "collectionsData",
-                  "name": "DSS_MGRAMSEVA_WC_COLLECTIONS",
+                  "id": "revenueAndExpenditureTrendOne",
+                  "name": "DSS_MGRAMSEVA_COLLECTIONS_DATA_ONE",
                   "code": "",
-                  "chartType": "table",
+                  "chartType": "bar",
                   "filter": "",
                   "headers": [],
-                  "tabName": "Collections"
+                  "tabName": "Graphical"
                 },
                 {
-                  "id": "ecpenditureData",
-                  "name": "DSS_MGRAMSEVA_WC_EXPENDITURE",
+                  "id": "revenueAndExpenditureTrendTwo",
+                  "name": "DSS_MGRAMSEVA_COLLECTIONS_DATA_TWO",
                   "code": "",
-                  "chartType": "table",
+                  "chartType": "line",
                   "filter": "",
                   "headers": [],
                   "tabName": "Expenditure"
@@ -4450,5 +4450,5 @@
         }
       ]
     }
-    ]
+  ]
 }
