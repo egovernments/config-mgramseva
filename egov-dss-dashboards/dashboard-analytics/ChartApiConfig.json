@@ -4904,7 +4904,7 @@
     "documentType": "_doc",
     "drillChart": "none",
     "aggregationPaths": [
-      "ExpenseService",
+      "Expense",
       "WaterService"
     ],
     "isCumulative": false,
