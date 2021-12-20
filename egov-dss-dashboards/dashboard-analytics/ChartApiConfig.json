@@ -4904,8 +4904,8 @@
     "documentType": "_doc",
     "drillChart": "none",
     "aggregationPaths": [
-      "Expense",
-      "WaterService"
+      "ExpenseType",
+      "Property Type"
     ],
     "isCumulative": false,
     "interval": "month",
