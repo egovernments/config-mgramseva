@@ -4881,7 +4881,7 @@
       "WaterService",
       "ExpenseService"
     ],
-    "isCumulative": true,
+    "isCumulative": false,
     "interval": "month",
     "insight": {},
     "_comment": " "
