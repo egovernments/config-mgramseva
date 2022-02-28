@@ -2,7 +2,7 @@
     {
         "operation": "shift",
         "spec": {
-            "tenantid": "tenantId",
+            "tenantId": "tenantId",
             "applicationNo": "applicationNo",
             "applicationStatus": "applicationStatus",
             "status": "status",
@@ -13,9 +13,8 @@
             "additionalDetails": "additionalDetails",
             "meterId": "meterId",
             "meterInstallationDate": "meterInstallationDate",
-            "applicationType": "NEW_WATER_CONNECTION",
-            "propertyId": "propertyId",
-            "ward": "ward"
+            "applicationType": "applicationType",
+            "propertyId": "propertyId"
         }
     }
 ]
