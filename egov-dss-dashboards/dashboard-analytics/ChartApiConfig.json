@@ -4861,92 +4861,55 @@
     },
     "_comment": ""
   },
-  "collectionsData": {
-    "chartName": "DSS_MGRAMSEVA_WC_COLLECTIONS",
+  "revenueAndExpenditureTrendTwo": {
+    "chartName": "DSS_MGRAMSEVA_COLLECTIONS_DATA_TWO",
     "queries": [
       {
-        "module": "MGRAMSEVA-WC",
-        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\"}",
-        "dateRefField": "Data.@timestamp",
-        "indexName": "water-services",
-        "aggrQuery":"{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Connections\":{\"terms\":{\"field\":\"Data.oldConnectionNo.keyword\",\"size\":1000},\"aggs\":{\"Name\":{\"terms\":{\"field\":\"Data.connectionHolders.name.keyword\"}}}}}}}}" 
+        "module": "WS",
+        "dateRefField": "dataObject.paymentDetails.receiptDate",
+        "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\"module\" : \"dataObject.Bill.billDetails.businessService.keyword\", \"tenantId\" : \"dataObject.tenantId\", \"district\" : \"dataObject.tenantData.cityDistrictCode\"}",
+        "indexName": "dss-collection_v2",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"dataObject.paymentDetails.bill.status.keyword\":[\"Cancelled\"]}}]}},\"aggs\":{\"Water_Service\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"dataObject.paymentDetails.bill.businessService.keyword\":[\"WS\"]}}]}},\"aggs\":{\"WaterService\":{\"date_histogram\":{\"field\":\"dataObject.paymentDetails.receiptDate\",\"interval\":\"month\"},\"aggs\":{\"Count\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}},\"Expense_Service\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"dataObject.paymentDetails.bill.businessService.keyword\":[\"EXPENSE.SALARY\",\"EXPENSE.OM\",\"EXPENSE.ELECTRICITY_BILL\"]}}]}},\"aggs\":{\"ExpenseService\":{\"date_histogram\":{\"field\":\"dataObject.paymentDetails.receiptDate\",\"interval\":\"month\"},\"aggs\":{\"Count\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}}}}}"
       }
     ],
-    "filterKeys": [
-      {"key": "connectionNo", "column": "connection_Id"}
-    ],
-    "isPostResponseHandler": true,
-    "chartType": "xtable",
+    "chartType": "line",
     "valueType": "number",
     "action": "",
-    "isRoundOff": true,
-    "documentType": "_doc",
     "drillChart": "none",
-    "plotLabel":"connection_Id",
+    "documentType": "_doc",
     "aggregationPaths": [
-       "Collections",	
-      "Name"
+      "WaterService",
+      "ExpenseService"
     ],
-    "pathDataTypeMapping": [
-      {
-        "Collections" : "Number"
-      },
-      {
-        "Name" : "String"
-      }
-    ],
-    "isCumulative": true,
+    "isCumulative": false,
     "interval": "month",
-    "insight": {
-    },
+    "insight": {},
     "_comment": " "
   },
-  "ecpenditureData": {
-    "chartName": "DSS_MGRAMSEVA_WC_EXPENDITURE",
+  "revenueAndExpenditureTrendOne": {
+    "chartName": "DSS_MGRAMSEVA_COLLECTIONS_DATA_ONE",
     "queries": [
       {
-        "module": "MGRAMSEVA",
-        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId.keyword\"}",
-        "dateRefField": "Data.@timestamp",
-        "indexName": "echallan-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Vendor\":{\"terms\":{\"field\":\"Data.vendor.keyword\",\"size\":1000},\"aggs\":{\"Expense Type\":{\"terms\":{\"field\":\"Data.typeOfExpense.keyword\"}},\"Amount\":{\"terms\":{\"field\":\"Data.totalAmount.keyword\"}},\"Bill Date\":{\"terms\":{\"field\":\"Data.billDate.keyword\"}},\"Paid Date\":{\"terms\":{\"field\":\"Data.paidDate.keyword\"}}}}}}}}"
+        "module": "WS",
+        "dateRefField": "dataObject.paymentDetails.receiptDate",
+        "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\"module\" : \"dataObject.Bill.billDetails.businessService.keyword\", \"tenantId\" : \"dataObject.tenantId\", \"district\" : \"dataObject.tenantData.cityDistrictCode\"}",
+        "indexName": "dss-collection_v2",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"dataObject.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"dataObject.paymentDetails.bill.status.keyword\":[\"Cancelled\"]}}],\"must\":[{\"terms\":{\"dataObject.paymentDetails.bill.businessService.keyword\":[\"WS\",\"EXPENSE.SALARY\",\"EXPENSE.OM\",\"EXPENSE.ELECTRICITY_BILL\"]}}]}},\"aggs\":{\"WaterService\":{\"date_histogram\":{\"field\":\"dataObject.paymentDetails.receiptDate\",\"interval\":\"month\"},\"aggs\":{\"WaterService\":{\"terms\":{\"field\":\"domainObject.additionalDetails.propertyType.keyword\"},\"aggs\":{\"Count\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}},\"ExpenseType\":{\"date_histogram\":{\"field\":\"dataObject.paymentDetails.receiptDate\",\"interval\":\"month\"},\"aggs\":{\"ExpenseType\":{\"terms\":{\"field\":\"domainObject.typeOfExpense.keyword\"},\"aggs\":{\"Count\":{\"sum\":{\"field\":\"dataObject.paymentDetails.bill.billDetails.amountPaid\"}}}}}}}}}}"
       }
     ],
-    "filterKeys": [
-      {"key": "vendor", "column": "Vendor"}
-    ],
-    "isPostResponseHandler": true,
-    "chartType": "xtable",
+    "chartType": "line",
     "valueType": "number",
     "action": "",
     "isRoundOff": true,
     "documentType": "_doc",
     "drillChart": "none",
-    "plotLabel":"Vehicle_No",
     "aggregationPaths": [
-     "Expense Type",
-      "Amount",
-      "Bill Date",
-      "Paid Date"
+      "WaterService",
+      "ExpenseType"
     ],
-    "pathDataTypeMapping": [
-      {
-        "Expense Type" : "String"
-      },
-      {
-        "Amount" : "number"
-      },
-      {
-        "Bill Date" : "String"
-      },
-      {
-        "Paid Date" : "String"
-      }
-    ],
-    "isCumulative": true,
+    "isCumulative": false,
     "interval": "month",
-    "insight": {
-    },
+    "insight": {},
     "_comment": " "
   }
 }
