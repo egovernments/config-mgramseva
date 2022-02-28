@@ -1,0 +1,21 @@
+[
+    {
+        "operation": "shift",
+        "spec": {
+            "tenantid": "tenantId",
+            "applicationNo": "applicationNo",
+            "applicationStatus": "applicationStatus",
+            "status": "status",
+            "connectionNo": "connectionNo",
+            "oldConnectionNo": "oldConnectionNo",
+            "connectionHolders": "connectionHolders",
+            "connectionType": "connectionType",
+            "additionalDetails": "additionalDetails",
+            "meterId": "meterId",
+            "meterInstallationDate": "meterInstallationDate",
+            "applicationType": "NEW_WATER_CONNECTION",
+            "propertyId": "propertyId",
+            "ward": "ward"
+        }
+    }
+]
