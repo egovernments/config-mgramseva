@@ -1,0 +1,20 @@
+[
+    {
+        "operation": "shift",
+        "spec": {
+            "tenantId": "tenantId",
+            "challanNo": "challanNo",
+            "amount": "amount",
+            "typeOfExpense": "typeOfExpense",
+            "vendorName": "vendorName",
+            "businessService": "businessService",
+            "isBillPaid": "isBillPaid",
+            "applicationStatus": "applicationStatus",
+            "additionalDetails": "additionalDetails",
+            "taxPeriodFrom": "taxPeriodFrom",
+            "taxPeriodTo": "taxPeriodTo",
+            "billDate": "billDate",
+            "paidDate": "paidDate"
+        }
+    }
+]
