@@ -220,11 +220,11 @@ serviceMaps:
 
        - jsonPath: $.WaterConnection.arrears
 
-        - jsonPath: $.WaterConnection.paymentType
+       - jsonPath: $.WaterConnection.paymentType
 
-        - jsonPath: $.WaterConnection.penalty
+       - jsonPath: $.WaterConnection.penalty
 
-        - jsonPath: $.WaterConnection.advance
+       - jsonPath: $.WaterConnection.advance
  
        - jsonPath: $.WaterConnection.additionalDetails
          type: JSON
