@@ -544,7 +544,7 @@
                      "path":"$.billDetails"                              
                 },
                 "type":"function",
-                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){y=y+x[i].amount;} return y;" 
+                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.toPeriod - a.toPeriod});for( var i=1;i<x.length;i++){y=y+x[i].amount;} return y;" 
               },{
                 "variable": "arrears",
                 "value": {
@@ -558,7 +558,7 @@
                      "path":"$.billDetails"                              
                 },
                 "type":"function",
-                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return x[0].amount;" 
+                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.toPeriod - a.toPeriod}); return x[0].amount;" 
               }
             ]
           },
