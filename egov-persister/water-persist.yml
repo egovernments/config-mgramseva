@@ -7,7 +7,7 @@ serviceMaps:
    fromTopic: save-ws-connection
    isTransaction: true
    queryMaps: 
-    - query: INSERT INTO eg_ws_connection (id, tenantid, property_id, applicationno, applicationstatus, status, connectionno, oldconnectionno,roadcuttingarea,action,roadtype, createdby, lastmodifiedby, createdtime, lastmodifiedtime, applicationtype, dateEffectiveFrom, locality, isoldapplication,additionaldetails,previousReadingDate,arrears) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?);
+    - query: INSERT INTO eg_ws_connection (id, tenantid, property_id, applicationno, applicationstatus, status, connectionno, oldconnectionno,roadcuttingarea,action,roadtype, createdby, lastmodifiedby, createdtime, lastmodifiedtime, applicationtype, dateEffectiveFrom, locality, isoldapplication,additionaldetails,previousReadingDate,arrears,paymentType,penalty,advance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
       basePath: $.WaterConnection
       jsonMaps:
         - jsonPath: $.WaterConnection.id 
@@ -55,7 +55,13 @@ serviceMaps:
 
         - jsonPath: $.WaterConnection.arrears
 
-       
+        - jsonPath: $.WaterConnection.paymentType
+
+        - jsonPath: $.WaterConnection.penalty
+
+        - jsonPath: $.WaterConnection.advance
+        
+        
     - query: INSERT INTO eg_ws_service(connection_id,connectionCategory,connectionType,waterSource,meterId,meterInstallationDate,pipeSize,noOfTaps,connectionexecutiondate,proposedPipeSize,proposedTaps, appCreatedDate, createdby, lastmodifiedby, createdtime, lastmodifiedtime) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
       basePath: $.WaterConnection
       jsonMaps:
@@ -168,7 +174,7 @@ serviceMaps:
       jsonMaps:
       - jsonPath: $.WaterConnection.id
       
-    - query: UPDATE eg_ws_connection SET applicationstatus=?, status=?, connectionno=?, oldconnectionno=?, action=?, roadCuttingArea=?, roadType=?, adhocpenalty=?, adhocrebate=?, adhocpenaltyreason=?, adhocpenaltycomment=?, adhocrebatereason=?, adhocrebatecomment=?, lastModifiedBy=?, lastModifiedTime=?, dateEffectiveFrom=?, locality=?, previousReadingDate=?, isoldapplication=?, property_id=?, arrears=?, additionaldetails=? WHERE id=?;
+    - query: UPDATE eg_ws_connection SET applicationstatus=?, status=?, connectionno=?, oldconnectionno=?, action=?, roadCuttingArea=?, roadType=?, adhocpenalty=?, adhocrebate=?, adhocpenaltyreason=?, adhocpenaltycomment=?, adhocrebatereason=?, adhocrebatecomment=?, lastModifiedBy=?, lastModifiedTime=?, dateEffectiveFrom=?, locality=?, previousReadingDate=?, isoldapplication=?, property_id=?, arrears=?, paymentType=?, penalty=?,advance=?, additionaldetails=? WHERE id=?;
       basePath: $.WaterConnection
       jsonMaps:
 
@@ -213,6 +219,12 @@ serviceMaps:
        - jsonPath: $.WaterConnection.propertyId
 
        - jsonPath: $.WaterConnection.arrears
+       
+       - jsonPath: $.WaterConnection.paymentType
+
+       - jsonPath: $.WaterConnection.penalty
+
+       - jsonPath: $.WaterConnection.advance
  
        - jsonPath: $.WaterConnection.additionalDetails
          type: JSON
