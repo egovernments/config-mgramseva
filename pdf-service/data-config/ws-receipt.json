@@ -205,6 +205,42 @@
                 }
               },
               {
+                "variable": "total_bill_amount",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_BILL_AMOUNT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "advance_adjusted_amount",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_ADVANCE_ADJUSTED_AMOUNT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "net_amount_due",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_NET_AMOUNT_DUE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
                 "variable": "due_amouont_ason",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_DUE_ASON"
@@ -522,6 +558,12 @@
                 "variable": "totalPayment",
                 "value": {
                   "path": "$.paymentDetails[0].bill.billDetails[0].amountPaid"
+                }
+              },
+              {
+                "variable": "netAmountDue",
+                "value": {
+                  "path": "$.paymentDetails[0].bill.totalAmount"
                 }
               },
               {
