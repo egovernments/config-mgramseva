@@ -193,18 +193,6 @@
                 }
               },
               {
-                "variable": "total_paid",
-                "value": {
-                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_PAID"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "mgramseva-common"
-                }
-              },
-              {
                 "variable": "total_bill_amount",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_TOTAL_BILL_AMOUNT"
@@ -232,6 +220,18 @@
                 "variable": "net_amount_due",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_NET_AMOUNT_DUE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "total_paid",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_PAID"
                 },
                 "type": "label",
                 "localisation": {
@@ -480,7 +480,6 @@
                   "module": "mgramseva-common"
                 }
               },
-              
               {
                 "variable": "totalAmountDue",
                 "value": {
@@ -560,12 +559,7 @@
                   "path": "$.paymentDetails[0].bill.billDetails[0].amountPaid"
                 }
               },
-              {
-                "variable": "netAmountDue",
-                "value": {
-                  "path": "$.paymentDetails[0].bill.totalAmount"
-                }
-              },
+      
               {
                 "variable": "totalArrears",
                 "value": {
@@ -758,9 +752,13 @@
                 "apiRequest": null,
                 "responseMapping": [
                   {
-                    "variable": "ws_advanceAmount",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')].taxAmount"
+                    "variable": "advanceAdjustedAmount",
+                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')].collectionAmount"
                   },
+                   {
+                    "variable": "totalBillAmount",
+                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == '10101')].taxAmount"
+                  }
                   {
                     "variable": "ws_time_penalty",
                     "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
