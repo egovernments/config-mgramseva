@@ -753,7 +753,7 @@
                 "responseMapping": [
                   {
                     "variable": "advanceAdjustedAmount",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')].collectionAmount"
+                    "value": "$.Demands[0].demandDetails[(@.length-1)][?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')].collectionAmount"
                   },
                    {
                     "variable": "totalBillAmount",
