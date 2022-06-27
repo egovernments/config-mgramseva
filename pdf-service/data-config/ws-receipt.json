@@ -746,26 +746,23 @@
                     "value": "$.LastMonthSummary.previousMonthYear"
                   }
                 ]
-},{
-                "path": "http://billing-service.mgramseva:8080/billing-service/demand/_search",
-                "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
-                "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "advanceAdjustedAmount",
-                    "value": "$.Demands[0].demandDetails[(@.length-1)][?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')].collectionAmount"
-                  },
-                   {
-                    "variable": "totalBillAmount",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == '10101')].taxAmount"
-                  }
-                  {
-                    "variable": "ws_time_penalty",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
-                  }
-                ]
-              },
-            },
+}, {
+							"path": "http://billing-service.mgramseva:8080/billing-service/demand/_search",
+							"queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=WS",
+							"apiRequest": null,
+							"responseMapping": [{
+									"variable": "advanceAdjustedAmount",
+									"value": "$.Demands[0].demandDetails[(@.length-1)][?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')].collectionAmount"
+								},
+								{
+									"variable": "totalBillAmount",
+									"value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == '10101')].taxAmount"
+								}, {
+									"variable": "ws_time_penalty",
+									"value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
+								}
+							]
+						},
               {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
                 "queryParam": "tenantId=$.tenantId,currentDate=$.transactionDate",
