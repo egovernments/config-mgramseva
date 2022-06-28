@@ -748,7 +748,7 @@
                 ]
 		}, {
 			"path": "http://billing-service.mgramseva:8080/billing-service/demand/_history",
-			"queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=$.paymentDetails[0].bill.businessService",
+			"queryParam": "tenantId=$.tenantId,consumerCode=$.paymentDetails[0].bill.consumerCode,businessService=$.paymentDetails[0].bill.businessService",
 			"apiRequest": null,
 			"responseMapping": [{
 				"variable": "advanceAdjustedAmount",
