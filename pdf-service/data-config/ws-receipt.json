@@ -605,7 +605,11 @@
             {
               "variable":"address",
               "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
-            }
+            },
+		{
+            "variable":"advanceAdjustedAmount",
+            "formula":"{{advanceAdjustedAmountOne}}+{{advanceAdjustedAmountTwo}}"
+          }
             ]
           },
           {
@@ -751,8 +755,12 @@
 			"queryParam": "tenantId=$.tenantId,consumerCode=$.paymentDetails[0].bill.consumerCode,businessService=$.paymentDetails[0].bill.businessService",
 			"apiRequest": null,
 			"responseMapping": [{
-				"variable": "advanceAdjustedAmount",
-				"value": "$.Demands[0].id"
+				"variable": "advanceAdjustedAmountOne",
+				"value": "$.Demands[0].demandDetails[(@.length-1)].collectionAmount"
+			},
+			{
+				"variable": "advanceAdjustedAmountTwo",
+				"value": "$.Demands[0].demandDetails[(@.length-2)].collectionAmount"
 			},
 			{
 				"variable": "totalBillAmount",
