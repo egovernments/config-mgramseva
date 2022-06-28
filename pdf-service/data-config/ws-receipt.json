@@ -752,7 +752,7 @@
 			"apiRequest": null,
 			"responseMapping": [{
 				"variable": "advanceAdjustedAmount",
-				"value": "$.Demands[0].demandDetails[(@.length-1)].collectionAmount"
+				"value": "$.Demands[0].id"
 			},
 			{
 				"variable": "totalBillAmount",
