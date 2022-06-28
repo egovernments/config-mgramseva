@@ -608,7 +608,15 @@
             },
 		{
             "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOne}}+{{advanceAdjustedAmountTwo}}"
+            "formula":"{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
+          },
+		    {
+            "variable":"totalBillAmount",
+            "formula":"{{totalBillTaxAmount}}"
+          },
+	{
+            "variable":"netAmountDue",
+            "formula":"{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}"
           }
             ]
           },
@@ -763,9 +771,12 @@
 				"value": "$.Demands[0].demandDetails[(@.length-2)].collectionAmount"
 			},
 			{
-				"variable": "totalBillAmount",
+				"variable": "totalBillTaxAmount",
 				"value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].taxAmount"
-			}, {
+			},{
+				"variable": "totalBillCollectionAmount",
+				"value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].collectionAmount"
+			},{
 				"variable": "ws_time_penalty",
 				"value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
 			}
