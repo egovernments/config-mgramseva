@@ -583,7 +583,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{totalAmountDue}}",
+                              "text": "₹ {{netAmountDue}}",
                               "border": [
                                 false,
                                 false,
