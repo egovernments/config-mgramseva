@@ -227,6 +227,18 @@
                   "prefix": null,
                   "module": "mgramseva-common"
                 }
+              }, 
+		 {
+                "variable": "net_amount_due_with_penalty",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_NET_AMOUNT_DUE_WITH_PENALTY"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
               },
               {
                 "variable": "total_paid",
@@ -614,6 +626,10 @@
 	        {
             "variable":"netAmountDue",
             "formula":"{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}"
+          },
+	{
+            "variable":"netAmountDueWithPenalty",
+            "formula":"{{netAmountDue}}+{{ws_time_penalty}}"
           }
             ]
           },
@@ -742,11 +758,11 @@
                   "apiRequest": null,
                   "responseMapping": [{
                     "variable": "advanceAdjustedAmountOne",
-                    "value": "$.Demands[0].demandDetails[(@.length-1)].collectionAmount"
+                    "value": "$.Demands[0].demandDetails[(@.length-2)].collectionAmount"
                   },
                   {
                     "variable": "advanceAdjustedAmountTwo",
-                    "value": "$.Demands[0].demandDetails[(@.length-2)].collectionAmount"
+                    "value": "$.Demands[0].demandDetails[(@.length-3)].collectionAmount"
                   },
                   {
                     "variable": "totalBillTaxAmount",
