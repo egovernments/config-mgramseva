@@ -595,6 +595,28 @@
                           ],
                           [
                             {
+                              "text": "{{net_amount_due_with_penalty}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table"
+                            },
+                            {
+                              "text": "₹ {{netAmountDueWithPenalty}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table-value"
+                            }
+                          ],
+                          [
+                            {
                               "text": "{{total_paid}}",
                               "border": [
                                 false,
