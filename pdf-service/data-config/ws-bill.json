@@ -180,6 +180,54 @@
                   "module": "mgramseva-common"
                 }
               },
+               {
+                "variable": "total_bill_amount",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_BILL_AMOUNT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "advance_adjusted_amount",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_ADVANCE_ADJUSTED_AMOUNT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "net_amount_due",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_NET_AMOUNT_DUE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+		          {
+                "variable": "net_amount_due_with_penalty",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_NET_AMOUNT_DUE_WITH_PENALTY"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
               {
                 "variable": "total_due",
                 "value": {
@@ -580,7 +628,23 @@
             {
               "variable":"address",
               "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
-            }
+            },
+             {
+            "variable":"advanceAdjustedAmount",
+            "formula":"{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
+          },
+		     {
+            "variable":"totalBillAmount",
+            "formula":"{{totalBillTaxAmount}}"
+          },
+	        {
+            "variable":"netAmountDue",
+            "formula":"{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}"
+          },
+	        {
+            "variable":"netAmountDueWithPenalty",
+            "formula":"{{netAmountDue}}+{{ws_time_penalty}}"
+          }
             ]
           },
           {
@@ -720,6 +784,30 @@
                   }
                 ]
                    },
+                {
+              "path": "http://billing-service.mgramseva:8080/billing-service/demand/_history",
+              "queryParam": "tenantId=$.tenantId,consumerCode=$.paymentDetails[0].bill.consumerCode,businessService=$.paymentDetails[0].bill.businessService",
+              "apiRequest": null,
+              "responseMapping": [{
+                "variable": "advanceAdjustedAmountOne",
+                "value": "$.Demands[0].demandDetails[(@.length-2)].collectionAmount"
+              },
+              {
+                "variable": "advanceAdjustedAmountTwo",
+                "value": "$.Demands[0].demandDetails[(@.length-3)].collectionAmount"
+              },
+              {
+                "variable": "totalBillTaxAmount",
+                "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].taxAmount"
+              },{
+                "variable": "totalBillCollectionAmount",
+                "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].collectionAmount"
+              },{
+                "variable": "ws_time_penalty",
+                "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
+              }
+              ]
+            },
               {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
                 "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
