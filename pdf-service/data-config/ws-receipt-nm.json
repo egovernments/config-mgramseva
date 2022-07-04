@@ -647,7 +647,7 @@
           },
 	{
             "variable":"netAmountDueWithPenalty",
-            "formula":"{{netAmountDue}}+{{ws_time_penalty}}"
+            "formula":"{{netAmountDue}}+{{ws_time_adhoc_penalty}}"
           }
             ]
           },
