@@ -216,6 +216,18 @@
                   "module": "mgramseva-common"
                 }
               },
+		    {
+                "variable": "penalty_after_due_date",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_PENALTY_AFTER_DUE_DATE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
 		          {
                 "variable": "net_amount_due_with_penalty",
                 "value": {
