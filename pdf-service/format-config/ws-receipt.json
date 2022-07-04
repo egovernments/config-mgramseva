@@ -605,7 +605,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{ws_time_penalty}}",
+                              "text": "₹ {{ws_time_adhoc_penalty}}",
                               "border": [
                                 false,
                                 false,
