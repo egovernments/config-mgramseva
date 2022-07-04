@@ -598,6 +598,28 @@
                           ],
                           [
                             {
+                              "text": "{{penalty_after_due_date}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table"
+                            },
+                            {
+                              "text": "₹ {{ws_time_penalty}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table-value"
+                            }
+                          ],
+                          [
+                            {
                               "text": "{{net_amount_due_with_penalty}}",
                               "border": [
                                 false,
