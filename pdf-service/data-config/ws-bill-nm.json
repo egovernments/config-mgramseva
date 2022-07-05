@@ -521,6 +521,11 @@
                 "type":"function",
                 "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].toPeriod+19800000).getDate())<10?('0'+new Date(x[0].toPeriod+19800000).getDate()):new Date(x[0].toPeriod+19800000).getDate())+'/'+((new Date(x[0].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[0].toPeriod+19800000).getMonth()+1)):(new Date(x[0].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].toPeriod+19800000).getFullYear())" 
               },
+		    {
+                "variable": "penaltyDueDate",
+                "type":"function",
+                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.penaltyDue - a.penaltyDue}); return (((new Date(x[0].penaltyDue+19800000).getDate())<10?'0'+new Date(x[0].penaltyDue+19800000).getDate():new Date(x[0].penaltyDue+19800000).getDate())+'/'+((new Date(x[0].penaltyDue+19800000).getMonth()+1)<10?'0'+(new Date(x[0].penaltyDue+19800000).getMonth()+1):(new Date(x[0].penaltyDue+19800000).getMonth()+1))+'/'+new Date(x[0].penaltyDue+19800000).getFullYear())" 
+              }
               {
                 "variable": "billIssueDate",
                 "value": {
@@ -589,7 +594,7 @@
 		    {
                 "variable": "ws_time_adhoc_penalty",
                 "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadMasterCode == '10201')].taxAmount"
+                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == '10201')].taxAmount"
                 }
               },
               {
@@ -647,6 +652,10 @@
         {
                   "variable":"netAmountDueWithPenalty",
                   "formula":"{{netAmountDue}}+{{ws_time_adhoc_penalty}}"
+                },
+		    {
+                  "variable":"penaltyDue",
+                  "formula":"{{billExpiry}}+{{demandIssuedDate}}"
                 }
             ]
           },
@@ -774,11 +783,11 @@
               "apiRequest": null,
               "responseMapping": [{
                 "variable": "advanceAdjustedAmountOne",
-                "value": "$.Demands[0].demandDetails[(@.length-2)].collectionAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
               },
               {
                 "variable": "advanceAdjustedAmountTwo",
-                "value": "$.Demands[0].demandDetails[(@.length-3)].collectionAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-3)].collectionAmount"
               },
               {
                 "variable": "totalBillTaxAmount",
@@ -786,6 +795,14 @@
               },{
                 "variable": "totalBillCollectionAmount",
                 "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].collectionAmount"
+              },
+		{
+                "variable": "billExpiry",
+                "value": "$.Demands[(@.length-1)].billExpiryTime"
+              },
+		{
+                "variable": "demandIssuedDate",
+                "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].auditDetails[0].createdTime"
               }
               ]
             },
