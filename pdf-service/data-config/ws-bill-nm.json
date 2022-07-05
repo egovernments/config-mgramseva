@@ -525,7 +525,7 @@
                 "variable": "penaltyDueDate",
                 "type":"function",
                 "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.penaltyDue - a.penaltyDue}); return (((new Date(x[0].penaltyDue+19800000).getDate())<10?'0'+new Date(x[0].penaltyDue+19800000).getDate():new Date(x[0].penaltyDue+19800000).getDate())+'/'+((new Date(x[0].penaltyDue+19800000).getMonth()+1)<10?'0'+(new Date(x[0].penaltyDue+19800000).getMonth()+1):(new Date(x[0].penaltyDue+19800000).getMonth()+1))+'/'+new Date(x[0].penaltyDue+19800000).getFullYear())" 
-              }
+              },
               {
                 "variable": "billIssueDate",
                 "value": {
