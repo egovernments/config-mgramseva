@@ -521,6 +521,14 @@
                 "type":"function",
                 "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].toPeriod+19800000).getDate())<10?('0'+new Date(x[0].toPeriod+19800000).getDate()):new Date(x[0].toPeriod+19800000).getDate())+'/'+((new Date(x[0].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[0].toPeriod+19800000).getMonth()+1)):(new Date(x[0].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].toPeriod+19800000).getFullYear())" 
               },
+		    {
+                "variable": "penaltyDueDate",
+                "value": {
+                  "path": "$.billDetails"
+                },
+                "type":"function",
+                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.penaltyDueDate - a.penaltyDueDate}); return (((new Date(x[0].penaltyDueDate+19800000).getDate())<10?'0'+new Date(x[0].penaltyDueDate+19800000).getDate():new Date(x[0].penaltyDueDate+19800000).getDate())+'/'+((new Date(x[0].penaltyDueDate+19800000).getMonth()+1)<10?'0'+(new Date(x[0].penaltyDueDate+19800000).getMonth()+1):(new Date(x[0].penaltyDueDate+19800000).getMonth()+1))+'/'+new Date(x[0].penaltyDueDate+19800000).getFullYear())" 
+              }
               {
                 "variable": "billIssueDate",
                 "value": {
@@ -649,7 +657,7 @@
                   "formula":"{{netAmountDue}}+{{ws_time_adhoc_penalty}}"
                 },
 		    {
-                  "variable":"penaltyDueDate",
+                  "variable":"penaltyDue",
                   "formula":"{{billExpiry}}+{{demandIssuedDate}}"
                 }
             ]
