@@ -774,11 +774,11 @@
               "apiRequest": null,
               "responseMapping": [{
                 "variable": "advanceAdjustedAmountOne",
-                "value": "$.Demands[0].demandDetails[(@.length-2)].collectionAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
               },
               {
                 "variable": "advanceAdjustedAmountTwo",
-                "value": "$.Demands[0].demandDetails[(@.length-3)].collectionAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-3)].collectionAmount"
               },
               {
                 "variable": "totalBillTaxAmount",
@@ -786,6 +786,14 @@
               },{
                 "variable": "totalBillCollectionAmount",
                 "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].collectionAmount"
+              },
+		{
+                "variable": "billExpiry",
+                "value": "$.Demands[(@.length-1)].billExpiryTime"
+              },
+		{
+                "variable": "demandIssuedDate",
+                "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].auditDetails[0].createdTime"
               }
               ]
             },
