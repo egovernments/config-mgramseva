@@ -583,6 +583,12 @@
                   "path": "$.paymentDetails[0].bill.billDetails[0].amountPaid"
                 }
               },
+		    {
+                "variable": "ws_time_adhoc_penalty",
+                "value": {
+                  "path": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == '10201')].taxAmount"
+                }
+              },
       
               {
                 "variable": "totalArrears",
@@ -644,7 +650,7 @@
           },
 	{
             "variable":"netAmountDueWithPenalty",
-            "formula":"{{netAmountDue}}+{{ws_time_penalty}}"
+            "formula":"{{netAmountDue}}+{{ws_time_adhoc_penalty}}"
           }
             ]
           },
@@ -804,9 +810,6 @@
 			},{
 				"variable": "totalBillCollectionAmount",
 				"value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].collectionAmount"
-			},{
-				"variable": "ws_time_penalty",
-				"value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
 			}
 			]
 		},
