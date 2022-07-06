@@ -526,7 +526,7 @@
                 "value": {
                   "path": "$.penaltyDue"
                 },
-		"type":"date",
+		"type":"date"
               },
               {
                 "variable": "billIssueDate",
