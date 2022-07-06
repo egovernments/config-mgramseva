@@ -532,7 +532,7 @@
                           ],
                           [
                             {
-                              "text": "{{penalty_after_due_date}} {{penaltyDue}}",
+                              "text": "{{penalty_after_due_date}} {{penaltyDueDate}}",
                               "border": [
                                 false,
                                 false,
