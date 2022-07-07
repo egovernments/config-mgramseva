@@ -586,7 +586,7 @@
 		    {
                 "variable": "ws_time_adhoc_penalty",
                 "value": {
-                  "path": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == '10201')].taxAmount"
+                  "path": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadCode == '10201')].taxAmount"
                 }
               },
       
@@ -651,7 +651,12 @@
 	{
             "variable":"netAmountDueWithPenalty",
             "formula":"{{netAmountDue}}+{{ws_time_adhoc_penalty}}"
-          }
+          },
+		    {
+                  "variable":"penaltyDueDate",
+                  "formula":"{{billExpiry}}+{{demandIssuedDate}}",
+		"type":"date"
+                }
             ]
           },
           {
@@ -797,20 +802,28 @@
 			"queryParam": "tenantId=$.tenantId,consumerCode=$.paymentDetails[0].bill.consumerCode,businessService=$.paymentDetails[0].bill.businessService",
 			"apiRequest": null,
 			"responseMapping": [{
-				"variable": "advanceAdjustedAmountOne",
-				"value": "$.Demands[0].demandDetails[(@.length-2)].collectionAmount"
-			},
-			{
-				"variable": "advanceAdjustedAmountTwo",
-				"value": "$.Demands[0].demandDetails[(@.length-3)].collectionAmount"
-			},
-			{
-				"variable": "totalBillTaxAmount",
-				"value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].taxAmount"
-			},{
-				"variable": "totalBillCollectionAmount",
-				"value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].collectionAmount"
-			}
+                "variable": "advanceAdjustedAmountOne",
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
+              },
+              {
+                "variable": "advanceAdjustedAmountTwo",
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-3)].collectionAmount"
+              },
+              {
+                "variable": "totalBillTaxAmount",
+                "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].taxAmount"
+              },{
+                "variable": "totalBillCollectionAmount",
+                "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].collectionAmount"
+              },
+		{
+                "variable": "billExpiry",
+                "value": "$.Demands[(@.length-1)].billExpiryTime"
+              },
+		{
+                "variable": "demandIssuedDate",
+                "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].auditDetails.createdTime"
+              }
 			]
 		},
               {
