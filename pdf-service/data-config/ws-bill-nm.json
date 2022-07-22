@@ -798,7 +798,7 @@
               },
 		{
                 "variable": "demandIssuedDate",
-                "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].auditDetails.createdTime"
+                "value": "$.Demands[(@.length-1)].auditDetails.createdTime"
               }
               ]
             },
