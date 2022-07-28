@@ -822,7 +822,17 @@
                   {
                     "variable": "previousMonthYear",
                     "value": "$.LastMonthSummary.previousMonthYear"
+                  },
+			{
+                "path": "http://ws-calculator.mgramseva:8080/ws-calculator/waterCalculator/_updateDemand",
+                "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,isGetPenaltyEstimate=true",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "demandList",
+                    "value": "$.Demands"
                   }
+             
                 ]
               }
             ]
