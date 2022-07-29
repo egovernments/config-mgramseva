@@ -180,6 +180,18 @@
                   "module": "mgramseva-common"
                 }
               },
+		    {
+                "variable": "total_bill_amount",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_BILL_AMOUNT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
                {
                 "variable": "advance_adjusted_amount",
                 "value": {
