@@ -646,7 +646,7 @@
                 },
         {
                   "variable":"netAmountDueWithPenalty",
-                  "formula":"{{netAmountDue}}+{{ws_time_adhoc_penalty}}"
+                  "formula":"{{netAmountDue}}+{{totalApplicablePenalty}}"
                 },
 		    {
                   "variable":"penaltyDueDate",
@@ -824,13 +824,13 @@
                     "value": "$.LastMonthSummary.previousMonthYear"
                   },
 			{
-                "path": "http://ws-calculator.mgramseva:8080/ws-calculator/waterCalculator/_updateDemand",
+                "path": "http://ws-calculator.mgramseva:8080/ws-calculator/waterCalculator/_getPenaltyDetails",
                 "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,isGetPenaltyEstimate=true",
                 "apiRequest": null,
                 "responseMapping": [
                   {
-                    "variable": "demandList",
-                    "value": "$.Demands"
+                    "variable": "totalApplicablePenalty",
+                    "value": "$.totalApplicablePenalty"
                   }
              
                 ]
