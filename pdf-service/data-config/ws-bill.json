@@ -657,7 +657,7 @@
           },
 	        {
             "variable":"netAmountDue",
-            "formula":"{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}"
+            "formula":"{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}+{{totalArrears}}"
           },
 	        {
             "variable":"netAmountDueWithPenalty",
