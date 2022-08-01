@@ -555,7 +555,7 @@
                           ],
                             [
                             {
-                              "text": "{{net_amount_due_with_penalty}}",
+                              "text": "{{net_amount_due_with_penalty}} {{penaltyDueDate}}",
                               "border": [
                                 false,
                                 false,
