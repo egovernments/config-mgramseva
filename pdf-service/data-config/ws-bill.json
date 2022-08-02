@@ -661,7 +661,7 @@
           },
 	        {
             "variable":"netAmountDueWithPenalty",
-            "formula":"{{netAmountDue}}+{{ws_time_adhoc_penalty}}"
+            "formula":"{{netAmountDue}}+{{totalApplicablePenalty}}"
           },
 	{
                   "variable":"penaltyDueDate",
@@ -835,6 +835,16 @@
                 "value": "$.Demands[(@.length-1)].auditDetails.createdTime"
               }]
             },
+		     {
+                "path": "http://ws-calculator.mgramseva:8080/ws-calculator/waterCalculator/_getPenaltyDetails",
+                "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,isGetPenaltyEstimate=true",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "totalApplicablePenalty",
+                    "value": "$.totalApplicablePenalty"
+                  }]
+		    },
               {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
                 "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
