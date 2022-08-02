@@ -618,7 +618,7 @@
             "derived": [
               {
                 "variable": "dueason_date",
-                "formula": "{{totalPaid}}>{{totalAmountDue}}?{{totalPaid}}-{{totalAmountDue}}:{{totalAmountDue}}-{{totalPaid}}"
+                "formula": "{{totalPaid}}>{{totalAmountDue}}?(-{{totalPaid}}-{{totalAmountDue}}):{{totalAmountDue}}-{{totalPaid}}"
              }, {
                 "variable":"waterquality_rate_value",
                 "formula":"'{{waterquality_rate}}'=='NA'? 'NA' : '{{waterquality_rate}}/5'"
@@ -639,15 +639,23 @@
           },
 		        {
             "variable":"totalBillAmount",
-            "formula":"{{totalBillTaxAmount}}"
+            "formula":"{{totalBillTaxAmount}}<0?0:{{totalAmountDue}}"
           },
 	        {
-            "variable":"netAmountDue",
+            "variable":"netAmount",
             "formula":"{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}+{{totalArrears}}"
           },
+		     {
+            "variable":"netAmountDue",
+            "formula":"{{netAmount}}<0?0:{{netAmount}}"
+          },
 	{
-            "variable":"netAmountDueWithPenalty",
+            "variable":"netAmountDueWithPenaltyVal",
             "formula":"{{netAmountDue}}+{{totalApplicablePenalty}}"
+          },
+		    {
+            "variable":"netAmountDueWithPenalty",
+            "formula":"{{netAmountDueWithPenaltyVal}}<0?0:{{netAmountDueWithPenaltyVal}}"
           },
 		    {
                   "variable":"penaltyDueDate",
