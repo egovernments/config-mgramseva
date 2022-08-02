@@ -228,30 +228,6 @@
                   "module": "mgramseva-common"
                 }
               },
-		        {
-                "variable": "penalty_after_due_date",
-                "value": {
-                  "path": "PDF_STATIC_LABEL_WATER_PENALTY_AFTER_DUE_DATE"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "mgramseva-common"
-                }
-              },
-		 {
-                "variable": "net_amount_due_with_penalty",
-                "value": {
-                  "path": "PDF_STATIC_LABEL_WATER_NET_AMOUNT_DUE_WITH_PENALTY"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "mgramseva-common"
-                }
-              },
               {
                 "variable": "total_paid",
                 "value": {
@@ -583,13 +559,6 @@
                   "path": "$.paymentDetails[0].bill.billDetails[0].amountPaid"
                 }
               },
-		    {
-                "variable": "ws_time_adhoc_penalty",
-                "value": {
-                  "path": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadCode == '10201')].taxAmount"
-                }
-              },
-      
               {
                 "variable": "totalArrears",
                 "value": {
@@ -618,7 +587,7 @@
             "derived": [
               {
                 "variable": "dueason_date",
-                "formula": "{{totalPaid}}>{{totalAmountDue}}?{{totalPaid}}-{{totalAmountDue}}:{{totalAmountDue}}-{{totalPaid}}"
+                "formula": "{{totalPaid}}>{{totalAmountDue}}?-({{totalPaid}}-{{totalAmountDue}}):{{totalAmountDue}}-{{totalPaid}}"
              },{
                 "variable":"waterquality_rate_value",
                 "formula":"'{{waterquality_rate}}'=='NA'? 'NA' : '{{waterquality_rate}}/5'"
@@ -642,21 +611,12 @@
           },
 		    {
             "variable":"totalBillAmount",
-            "formula":"{{totalBillTaxAmount}}"
+            "formula":"{{totalBillTaxAmount}}<0?{{totalAmountDue}}:{{totalBillTaxAmount}}"
           },
 	{
             "variable":"netAmountDue",
-            "formula":"{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}+{{totalArrears}}"
-          },
-	{
-            "variable":"netAmountDueWithPenalty",
-            "formula":"{{netAmountDue}}+{{totalApplicablePenalty}}"
-          },
-		    {
-                  "variable":"penaltyDueDate",
-                  "formula":"{{billExpiry}}+{{demandIssuedDate}}",
-		"type":"date"
-                }
+            "formula":"{{totalBillTaxAmount}}<0?0:{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}+{{totalArrears}}"
+          }
             ]
           },
           {
@@ -815,27 +775,9 @@
               },{
                 "variable": "totalBillCollectionAmount",
                 "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].collectionAmount"
-              },
-		{
-                "variable": "billExpiry",
-                "value": "$.Demands[(@.length-1)].billExpiryTime"
-              },
-		{
-                "variable": "demandIssuedDate",
-                "value": "$.Demands[(@.length-1)].auditDetails.createdTime"
               }
 			]
 		},
-		    {
-                "path": "http://ws-calculator.mgramseva:8080/ws-calculator/waterCalculator/_getPenaltyDetails",
-                "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,isGetPenaltyEstimate=true",
-                "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "totalApplicablePenalty",
-                    "value": "$.totalApplicablePenalty"
-                  }]
-		    },
               {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
                 "queryParam": "tenantId=$.tenantId,currentDate=$.transactionDate",
