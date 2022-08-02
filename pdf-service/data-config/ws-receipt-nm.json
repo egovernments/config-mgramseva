@@ -612,12 +612,8 @@
             "formula":"{{totalBillTaxAmount}}<0?{{totalAmountDue}}:{{totalBillTaxAmount}}"
           },
 	        {
-            "variable":"netAmount",
-            "formula":"{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}+{{totalArrears}}"
-          },
-		     {
             "variable":"netAmountDue",
-            "formula":"{{totalBillTaxAmount}}<0?0:{{netAmount}}"
+            "formula":"{{totalBillTaxAmount}}<0?0:{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}+{{totalArrears}}"
           }
             ]
           },
