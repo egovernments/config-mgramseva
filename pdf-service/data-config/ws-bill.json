@@ -598,12 +598,6 @@
                   "path": "$.billDetails[0].amountPaid"
                 }
               },
-		     {
-                "variable": "ws_time_adhoc_penalty",
-                "value": {
-                  "path": "$.billDetails[0].billAccountDetails[?(@.taxHeadCode == '10201')].taxAmount"
-                }
-              },
               {
                 "variable": "totalArrears",
                 "value": {
