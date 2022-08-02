@@ -532,50 +532,6 @@
                             }
                           ],
                             [
-                            {
-                              "text": "{{penalty_after_due_date}} {{penaltyDueDate}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table"
-                            },
-                            {
-                              "text": "₹ {{totalApplicablePenalty}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table-value"
-                            }
-                          ],
-                            [
-                            {
-                              "text": "{{net_amount_due_with_penalty}} {{penaltyDueDate}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table"
-                            },
-                            {
-                              "text": "₹ {{netAmountDueWithPenalty}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table-value"
-                            }
-                          ],
-                            [
                               {
                                 "text": "{{total_paid}}",
                                 "border": [
