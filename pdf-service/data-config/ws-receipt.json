@@ -605,17 +605,9 @@
               "variable":"address",
               "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
             },
-		{
-            "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
-          },
 		    {
             "variable":"totalBillAmount",
             "formula":"{{totalAmountDue}}"
-          },
-	{
-            "variable":"netAmountDue",
-            "formula":"{{totalBillTaxAmount}}<0?0:{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}+{{totalArrears}}"
           }
             ]
           },
@@ -757,26 +749,6 @@
                     "value": "$.LastMonthSummary.previousMonthYear"
                   }
                 ]
-		}, {
-			"path": "http://billing-service.mgramseva:8080/billing-service/demand/_history",
-			"queryParam": "tenantId=$.tenantId,consumerCode=$.paymentDetails[0].bill.consumerCode,businessService=$.paymentDetails[0].bill.businessService",
-			"apiRequest": null,
-			"responseMapping": [{
-                "variable": "advanceAdjustedAmountOne",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
-              },
-              {
-                "variable": "advanceAdjustedAmountTwo",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-3)].collectionAmount"
-              },
-              {
-                "variable": "totalBillTaxAmount",
-                "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].taxAmount"
-              },{
-                "variable": "totalBillCollectionAmount",
-                "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].collectionAmount"
-              }
-			]
 		},
               {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
