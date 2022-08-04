@@ -611,7 +611,7 @@
           },
 		    {
             "variable":"totalBillAmount",
-            "formula":"{{totalBillTaxAmount}}<0?{{totalAmountDue}}:{{totalBillTaxAmount}}"
+            "formula":"{{totalAmountDue}}"
           },
 	{
             "variable":"netAmountDue",
