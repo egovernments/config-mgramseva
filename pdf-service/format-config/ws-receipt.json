@@ -551,50 +551,6 @@
                           ],
                           [
                             {
-                              "text": "{{advance_adjusted_amount}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table"
-                            },
-                            {
-                              "text": "₹ {{advanceAdjustedAmount}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table-value"
-                            }
-                          ],
-                          [
-                            {
-                              "text": "{{net_amount_due}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table"
-                            },
-                            {
-                              "text": "₹ {{netAmountDue}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table-value"
-                            }
-                          ],
-                          [
-                            {
                               "text": "{{total_paid}}",
                               "border": [
                                 false,
