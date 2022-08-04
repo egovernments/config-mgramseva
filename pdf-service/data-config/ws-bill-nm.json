@@ -644,11 +644,11 @@
           },
 		    {
             "variable":"totalBillAmount",
-            "formula":"{{totalBillTaxAmount}}"
+            "formula":"{{ws_charge}} + {{totalArrears}}"
           },
         {
                   "variable":"netAmountDue",
-                  "formula":"{{totalBillTaxAmount}}-{{totalBillCollectionAmount}}+{{totalArrears}}"
+                  "formula":"{{totalBillAmount}}+{{advanceAdjustedAmount}}"
                 },
         {
                   "variable":"netAmountDueWithPenalty",
