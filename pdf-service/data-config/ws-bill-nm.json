@@ -663,10 +663,6 @@
                   "variable":"totalArrear",
                   "formula":"{{totalArrears}}<0?0:{{totalArrears}}"
                 },
-		    {
-                  "variable":"arrear",
-                  "formula":"{{arrears}}<0?0:{{arrears}}"
-                },
 		     {
                   "variable":"ws_charge_val",
                   "formula":"{{ws_charge}}==0?{{waterChargeAdjusted}}:{{ws_charge}}"
