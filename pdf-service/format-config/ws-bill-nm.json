@@ -389,7 +389,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹  {{ws_charge}}",
+                              "text": "₹  {{ws_charge_val}}",
                               "border": [
                                 false,
                                 false,
@@ -411,7 +411,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{totalArrears}}",
+                              "text": "₹ {{totalArrear}}",
                               "border": [
                                 false,
                                 false,
@@ -443,7 +443,7 @@
                           "70%",
                           "30%"
                         ],
-                        "body": ["{{#arrears}}[{\"text\":\"{{text}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table2\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value2\"}]{{/arrears}}"]
+                        "body": ["{{#arrear}}[{\"text\":\"{{text}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table2\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value2\"}]{{/arrear}}"]
                       }
                     }
                   ],
