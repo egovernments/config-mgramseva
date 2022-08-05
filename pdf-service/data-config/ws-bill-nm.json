@@ -658,6 +658,18 @@
                   "variable":"penaltyDueDate",
                   "formula":"{{billExpiry}}+{{demandIssuedDate}}",
 		"type":"date"
+                },
+		    {
+                  "variable":"totalArrears",
+                  "formula":"{{totalArrears}}<0?0:{{totalArrears}}"
+                },
+		    {
+                  "variable":"arrears",
+                  "formula":"{{arrears}}<0?0:{{arrears}}"
+                },
+		     {
+                  "variable":"ws_charge",
+                  "formula":"{{ws_charge}}==0?{{waterChargeAdjusted}}:{{ws_charge}}"
                 }
             ]
           },
@@ -785,11 +797,11 @@
               "apiRequest": null,
               "responseMapping": [{
                 "variable": "advanceAdjustedAmountOne",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-1)].collectionAmount"
               },
               {
                 "variable": "advanceAdjustedAmountTwo",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-3)].collectionAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
               },
               {
                 "variable": "totalBillTaxAmount",
@@ -805,6 +817,10 @@
 		{
                 "variable": "demandIssuedDate",
                 "value": "$.Demands[(@.length-1)].auditDetails.createdTime"
+              },
+				   {
+                "variable": "waterChargeAdjusted",
+                "value": "$.Demands[?(@.consumerType == 'waterConnection')].demandDetails[(@.length-1)].collectionAmount"
               }
               ]
             },
