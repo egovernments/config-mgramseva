@@ -443,7 +443,7 @@
                           "70%",
                           "30%"
                         ],
-                        "body": ["{{#arrear}}[{\"text\":\"{{text}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table2\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value2\"}]{{/arrear}}"]
+                        "body": ["{{#arrears}}[{\"text\":\"{{text}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table2\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value2\"}]{{/arrears}}"]
                       }
                     }
                   ],
