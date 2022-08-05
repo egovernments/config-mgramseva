@@ -644,7 +644,7 @@
           },
 		    {
             "variable":"totalBillAmount",
-            "formula":"{{ws_charge}} + {{totalArrears}}"
+            "formula":"{{ws_charge}} + {{totalArrear}}"
           },
         {
                   "variable":"netAmountDue",
