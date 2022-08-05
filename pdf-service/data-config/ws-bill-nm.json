@@ -660,15 +660,15 @@
 		"type":"date"
                 },
 		    {
-                  "variable":"totalArrears",
+                  "variable":"totalArrear",
                   "formula":"{{totalArrears}}<0?0:{{totalArrears}}"
                 },
 		    {
-                  "variable":"arrears",
+                  "variable":"arrear",
                   "formula":"{{arrears}}<0?0:{{arrears}}"
                 },
 		     {
-                  "variable":"ws_charge",
+                  "variable":"ws_charge_val",
                   "formula":"{{ws_charge}}==0?{{waterChargeAdjusted}}:{{ws_charge}}"
                 }
             ]
