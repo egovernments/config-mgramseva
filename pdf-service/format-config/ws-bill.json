@@ -455,7 +455,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{ws_charge}}",
+                              "text": "₹ {{ws_charge_val}}",
                               "border": [
                                 false,
                                 false,
@@ -477,7 +477,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{totalArrears}}",
+                              "text": "₹ {{totalArrear}}",
                               "border": [
                                 false,
                                 false,
