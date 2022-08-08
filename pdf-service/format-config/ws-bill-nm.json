@@ -389,7 +389,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹  {{ws_charge_value}}",
+                              "text": "₹  {{ws_charge}}",
                               "border": [
                                 false,
                                 false,
