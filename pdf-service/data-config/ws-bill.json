@@ -611,7 +611,7 @@
                      "path":"$.billDetails"                              
                 },
                 "type":"function",
-                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){x[i].amount=x[i].amount<0?0:x[i].amount; y.push({'text':'Water Charges '+(((new Date(x[i].fromPeriod+19800000).getDate())<10?('0'+new Date(x[i].fromPeriod+19800000).getDate()):new Date(x[i].fromPeriod+19800000).getDate())+'/'+((new Date(x[i].fromPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].fromPeriod+19800000).getMonth()+1)):(new Date(x[i].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].fromPeriod+19800000).getFullYear())+' - '+(((new Date(x[i].toPeriod+19800000).getDate())<10?('0'+new Date(x[i].toPeriod+19800000).getDate()):new Date(x[i].toPeriod+19800000).getDate())+'/'+((new Date(x[i].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].toPeriod+19800000).getMonth()+1)):(new Date(x[i].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].toPeriod+19800000).getFullYear()),'value':'₹ '+x[i].amount});} return y;"  
+                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){ x[i].amount=x[i].amount<0?0:x[i].amount; y.push({'text':'Water Charges '+(((new Date(x[i].fromPeriod+19800000).getDate())<10?('0'+new Date(x[i].fromPeriod+19800000).getDate()):new Date(x[i].fromPeriod+19800000).getDate())+'/'+((new Date(x[i].fromPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].fromPeriod+19800000).getMonth()+1)):(new Date(x[i].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].fromPeriod+19800000).getFullYear())+' - '+(((new Date(x[i].toPeriod+19800000).getDate())<10?('0'+new Date(x[i].toPeriod+19800000).getDate()):new Date(x[i].toPeriod+19800000).getDate())+'/'+((new Date(x[i].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].toPeriod+19800000).getMonth()+1)):(new Date(x[i].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].toPeriod+19800000).getFullYear()),'value':'₹ '+x[i].amount});} return y;"  
               },{
                 "variable": "ws_charge",
                 "value": {
@@ -643,11 +643,19 @@
             },
              {
             "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
+            "formula":"{{advanceAdjustedAmountOneTax}}=={{advanceAdjustedAmountOne}}?0:{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
           },
-		     {
+		    {
+            "variable":"ws_charge_amt",
+            "formula":"{{ws_charge}}==0.00?-{{advanceAdjustedAmount}}:{{ws_charge}}"
+          },
+		    {
+            "variable":"totalArrear",
+            "formula":"{{totalArrears}}<0?0:{{totalArrears}}"
+          },
+		    {
             "variable":"totalBillAmount",
-            "formula":"{{ws_charge_val}}+{{totalArrear}}"
+            "formula":"{{ws_charge_amt}} + {{totalArrear}}"
           },
 	        {
             "variable":"netAmountDue",
@@ -661,14 +669,6 @@
                   "variable":"penaltyDueDate",
                   "formula":"{{billExpiry}}+{{demandIssuedDate}}",
 		"type":"date"
-                },
-		     {
-                  "variable":"totalArrear",
-                  "formula":"{{totalArrears}}<0?0:{{totalArrears}}"
-                },
-		     {
-                  "variable":"ws_charge_val",
-                  "formula":"{{ws_charge}}==0?{{waterChargeAdjusted}}:{{ws_charge}}"
                 }
             ]
           },
@@ -835,10 +835,9 @@
 		{
                 "variable": "demandIssuedDate",
                 "value": "$.Demands[(@.length-1)].auditDetails.createdTime"
-              },
-				  {
-                "variable": "waterChargeAdjusted",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection')].demandDetails[(@.length-1)].collectionAmount"
+              },{
+                "variable": "advanceAdjustedAmountOneTax",
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-1)].taxAmount"
               }]
             },
 		     {
