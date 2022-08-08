@@ -661,7 +661,7 @@
                 },
 		    {
             "variable":"ws_charge_amt",
-            "formula":"{{ws_charge}}==0?-{{advanceAdjustedAmount}}:{{ws_charge}}"
+            "formula":"{{ws_charge}}==0.00?-{{advanceAdjustedAmount}}:{{ws_charge}}"
           }
             ]
           },
