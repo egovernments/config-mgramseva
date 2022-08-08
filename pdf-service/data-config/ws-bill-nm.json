@@ -644,7 +644,7 @@
           },
 		    {
             "variable":"totalBillAmount",
-            "formula":"{{ws_charge}} + {{totalArrears}}"
+            "formula":"{{ws_charge_amt}} + {{totalArrears}}"
           },
         {
                   "variable":"netAmountDue",
@@ -658,7 +658,11 @@
                   "variable":"penaltyDueDate",
                   "formula":"{{billExpiry}}+{{demandIssuedDate}}",
 		"type":"date"
-                }
+                },
+		    {
+            "variable":"ws_charge_amt",
+            "formula":"{{ws_charge}}==0?-{{advanceAdjustedAmount}}:{{ws_charge}}"
+          }
             ]
           },
           {
