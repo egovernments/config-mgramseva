@@ -411,7 +411,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{totalArrear}}",
+                              "text": "₹ {{totalArrears}}",
                               "border": [
                                 false,
                                 false,
