@@ -665,7 +665,7 @@
                 },
 		     {
                   "variable":"ws_charge_value",
-                  "formula":"({{ws_charge}}==0 && {{advanceAdjustedAmount}}<0)?{{totalArrear}}-{{advanceAdjustedAmount}}:{{ws_charge}}"
+                  "formula":"{{ws_charge}}==0?{{totalArrear}}-{{advanceAdjustedAmount}}:{{ws_charge}}"
                 }
             ]
           },
