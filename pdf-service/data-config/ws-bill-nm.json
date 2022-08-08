@@ -640,7 +640,7 @@
             },
               {
             "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOne}}=={{advanceAdjustedAmountOneTax}}?0:{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
+            "formula":"{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
           },
 		    {
             "variable":"totalBillAmount",
