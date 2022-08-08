@@ -643,8 +643,16 @@
             "formula":"{{advanceAdjustedAmountOneTax}}=={{advanceAdjustedAmountOne}}?0:{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
           },
 		    {
+            "variable":"ws_charge_amt",
+            "formula":"{{ws_charge}}==0.00?-{{advanceAdjustedAmount}}:{{ws_charge}}"
+          },
+		    {
+            "variable":"totalArrear",
+            "formula":"{{totalArrears}}<0?0:{{totalArrears}}"
+          },
+		    {
             "variable":"totalBillAmount",
-            "formula":"{{ws_charge_amt}} + {{totalArrears}}"
+            "formula":"{{ws_charge_amt}} + {{totalArrear}}"
           },
         {
                   "variable":"netAmountDue",
@@ -658,11 +666,8 @@
                   "variable":"penaltyDueDate",
                   "formula":"{{billExpiry}}+{{demandIssuedDate}}",
 		"type":"date"
-                },
-		    {
-            "variable":"ws_charge_amt",
-            "formula":"{{ws_charge}}==0.00?-{{advanceAdjustedAmount}}:{{ws_charge}}"
-          }
+                }
+		    
             ]
           },
           {
