@@ -805,10 +805,6 @@
 		{
                 "variable": "demandIssuedDate",
                 "value": "$.Demands[(@.length-1)].auditDetails.createdTime"
-              },
-		{
-                "variable": "advanceAdjustedAmountOneTax",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-1)].taxAmount"
               }
               ]
             },
