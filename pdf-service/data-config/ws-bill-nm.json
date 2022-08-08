@@ -640,11 +640,11 @@
             },
               {
             "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
+            "formula":"{{advanceAdjustedAmountOneTax}}=={{advanceAdjustedAmountOne}}?0:{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
           },
 		    {
             "variable":"totalBillAmount",
-            "formula":"{{ws_charge}} + {{totalArrear}}"
+            "formula":"{{ws_charge}} + {{totalArrears}}"
           },
         {
                   "variable":"netAmountDue",
@@ -805,7 +805,11 @@
 		{
                 "variable": "demandIssuedDate",
                 "value": "$.Demands[(@.length-1)].auditDetails.createdTime"
-              }
+              },
+		{
+                "variable": "advanceAdjustedAmountOneTax",
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-1)].taxAmount"
+              },
               ]
             },
 		    {
