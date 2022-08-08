@@ -644,7 +644,7 @@
           },
 		    {
             "variable":"totalBillAmount",
-            "formula":"{{ws_charge_val}} + {{totalArrear}}"
+            "formula":"{{ws_charge}} + {{totalArrears}}"
           },
         {
                   "variable":"netAmountDue",
@@ -658,14 +658,6 @@
                   "variable":"penaltyDueDate",
                   "formula":"{{billExpiry}}+{{demandIssuedDate}}",
 		"type":"date"
-                },
-		    {
-                  "variable":"totalArrear",
-                  "formula":"{{totalArrears}}<0?0:{{totalArrears}}"
-                },
-		     {
-                  "variable":"ws_charge_val",
-                  "formula":"{{ws_charge}}==0?{{waterChargeAdjusted}}:{{ws_charge}}"
                 }
             ]
           },
@@ -813,10 +805,6 @@
 		{
                 "variable": "demandIssuedDate",
                 "value": "$.Demands[(@.length-1)].auditDetails.createdTime"
-              },
-				   {
-                "variable": "waterChargeAdjusted",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection')].demandDetails[(@.length-1)].collectionAmount"
               }
               ]
             },
