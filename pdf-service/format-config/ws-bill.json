@@ -455,7 +455,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{ws_charge_val}}",
+                              "text": "₹ {{ws_charge_amt}}",
                               "border": [
                                 false,
                                 false,
