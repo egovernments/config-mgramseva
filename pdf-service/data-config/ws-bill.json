@@ -847,7 +847,7 @@
                 "responseMapping": [
                   {
                     "variable": "totalApplicablePenalty",
-                    "value": "$.totalApplicablePenalty"
+                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
                   }]
 		    },
               {
