@@ -9,7 +9,7 @@ ServiceMaps:
       type: fiscalevent
       id: $.id, $.tenantId
       jsonPath: $.fiscalEvent
-      timeStampField: $.auditDetail.createdTime
+      timeStampField: $.auditDetails.createdTime
       customJsonMapping:
         indexMapping: { "Data": {} }
         fieldMapping:
