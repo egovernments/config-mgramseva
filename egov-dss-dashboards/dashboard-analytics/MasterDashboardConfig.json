@@ -4449,6 +4449,247 @@
           ]
         }
       ]
+    },
+    {
+      "name": "DSS_IFIX_DASHBOARD",
+      "id": "ifix",
+      "isActive": "",
+      "style": "linear",
+      "visualizations": [
+        {
+          "row": 1,
+          "name": "DSS_OVERVIEW",
+          "vizArray": [
+            {
+              "id": 341,
+              "name": "DSS_IFIX_REVENUE",
+              "dimensions": {
+                "height": 350,
+                "width": 5
+              },
+              "vizType": "metric-collection",
+              "label": "DSS_IFIX_REVENUE_METRICS",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "dssIfixSurplusCollection",
+                  "name": "DSS_IFIX_SURPLUS_COLLECTION",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": {
+                    "title": "TODAY"
+                  },
+                  "headers": []
+                },
+                {
+                  "id": "dssIfixOutstandingCollection",
+                  "name": "DSS_IFIX_OUTSTANDING_COLLECTION",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "dssIfixGpwscsAtRisk",
+                  "name": "DSS_IFIX_GPWSCS_AT_RISK",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "dssIfixOutstandingEBills",
+                  "name": "DSS_IFIX_OUTSTANDING_E_BILLS",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            },
+            {
+              "id": 323,
+              "name": "DSS_IFIX_PENDING_COLLECTIONS",
+              "dimensions": {
+                "height": 350,
+                "width": 4
+              },
+              "vizType": "chart",
+              "label": "",
+              "noUnit": false,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "dssIfixPendingCollections",
+                  "name": "DSS_IFIX_PENDING_COLLECTIONS",
+                  "code": "",
+                  "chartType": "donut",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            },
+            {
+              "id": 342,
+              "name": "DSS_IFIX_PENDING_EXPENDITURE",
+              "dimensions": {
+                "height": 350,
+                "width": 4
+              },
+              "vizType": "chart",
+              "label": "",
+              "noUnit": false,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "dssIfixPendingExpenditure",
+                  "name": "DSS_IFIX_PENDING_EXPENDITURE",
+                  "code": "",
+                  "chartType": "donut",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 2,
+          "name": "DSS_OVERVIEW",
+          "vizArray": [
+            {
+              "id": 211,
+              "name": "DSS_IFIX_COLLECTIONS_VS_EXPENDITURE",
+              "dimensions": {
+                "height": 350,
+                "width": 10
+              },
+              "vizType": "chart",
+              "isCollapsible": false,
+              "label": "",
+              "charts": [
+                {
+                  "id": "dssIfixCollectionsVsExpenditure",
+                  "name": "Monthly",
+                  "code": "",
+                  "chartType": "line",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 3,
+          "name": "DSS_OVERVIEW",
+          "vizArray": [
+            {
+              "id": 326,
+              "name": "DSS_IFIX_COLLECTIONS_AND_EXPENDITURE_ACTUAL",
+              "dimensions": {
+                "height": 450,
+                "width": 5
+              },
+              "vizType": "chart",
+              "isCollapsible": false,
+              "label": "",
+              "charts": [
+                {
+                  "id": "dssIfixCollectionsAndExpenditureActual",
+                  "name": "Monthly",
+                  "code": "",
+                  "chartType": "bar",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 4,
+          "name": "DSS_OVERVIEW",
+          "vizArray": [
+            {
+              "id": 326,
+              "name": "DSS_IFIX_EXPENDITURE_COMPOSITION",
+              "dimensions": {
+                "height": 450,
+                "width": 5
+              },
+              "vizType": "chart",
+              "isCollapsible": false,
+              "label": "",
+              "charts": [
+                {
+                  "id": "dssIfixExpenditureComposition",
+                  "name": "Monthly",
+                  "code": "",
+                  "chartType": "bar",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 5,
+          "name": "DSS_OVERVIEW",
+          "vizArray": [
+            {
+              "id": 231,
+              "name": "Comparision of Administrative Entities",
+              "dimensions": {
+                "height": 350,
+                "width": 12
+              },
+              "vizType": "chart",
+              "noUnit": false,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "dssIfixDemandAndBillMetricsByZone",
+                  "name": "DSS_IFIX_DEMAND_AND_BILL_METRICS_BY_ZONE",
+                  "code": "",
+                  "chartType": "table",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 6,
+          "name": "DSS_OVERVIEW",
+          "vizArray": [
+            {
+              "id": 231,
+              "name": "Underperforming GPWSCs",
+              "dimensions": {
+                "height": 350,
+                "width": 12
+              },
+              "vizType": "chart",
+              "noUnit": false,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "dssIfixUnderperformingGPWSCs",
+                  "name": "DSS_IFIX_UNDERPERFORMING_GPWSCS",
+                  "code": "",
+                  "chartType": "table",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
     ]
 }
