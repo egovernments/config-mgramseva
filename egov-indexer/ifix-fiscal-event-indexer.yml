@@ -8,7 +8,6 @@ ServiceMaps:
     - name: ifix-fiscal-events
       type: fiscalevent
       id: $.id, $.tenantId
-      isBulk: true
       jsonPath: $.fiscalEvent
       timeStampField: $.auditDetail.createdTime
       customJsonMapping:
