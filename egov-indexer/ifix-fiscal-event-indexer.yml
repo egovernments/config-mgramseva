@@ -1,0 +1,18 @@
+ServiceMaps:
+ serviceName: Fiscal Event Publishing Service
+ version: 1.0.0
+ mappings:
+  - topic: index-fiscal-events
+    configKey: INDEX
+    indexes:
+    - name: ifix-fiscal-events
+      type: fiscalevent
+      id: $.id, $.tenantId
+      isBulk: true
+      jsonPath: $.FiscalEvent
+      timeStampField: $.auditDetail.createdTime
+      customJsonMapping:
+        indexMapping: { "Data": {} }
+        fieldMapping:
+        - inJsonPath: $
+          outJsonPath: $.Data
