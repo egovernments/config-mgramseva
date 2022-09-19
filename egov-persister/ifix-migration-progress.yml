@@ -1,0 +1,22 @@
+serviceMaps:
+  serviceName: ifix-migration-toolkit
+  mappings:
+  - version: 1.0
+    description: Persists migration related information in tables
+    fromTopic: migration-progress-topic
+    isTransaction: true
+    queryMaps:
+    - query: INSERT INTO ifix_fiscal_events_migration(id, tenantid, pagenumber, batchsize, totalnumberofrecordsmigrated, createdtime) VALUES (?, ?, ?, ?, ?, ?);
+      basePath: $.MigrationCount
+      jsonMaps:
+      - jsonPath: $.MigrationCount.id
+
+      - jsonPath: $.MigrationCount.tenantId
+
+      - jsonPath: $.MigrationCount.pageNumber
+
+      - jsonPath: $.MigrationCount.batchSize
+
+      - jsonPath: $.MigrationCount.totalNumberOfRecordsMigrated
+
+      - jsonPath: $.MigrationCount.createdTime
