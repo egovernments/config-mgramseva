@@ -4940,7 +4940,7 @@
       {
         "module": "IFIX",
         "indexName": "ifix-fiscal-events",
-        "aggrQuery": "{\"aggs\":{\"totalOutstandingAmount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Demand\",\"Collection\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.netAmount\"}}}}}}",
+        "aggrQuery": "{\"aggs\":{\"totalOutstandingAmount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Demand\",\"Receipt\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.netAmount\"}}}}}}",
         "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\r\n  \"module\" : \"dataObject.paymentDetails.businessService.keyword\", \n\"tenantId\" : \"dataObject.tenantId\"}",
         "dateRefField": "Data.eventTime"
       }
