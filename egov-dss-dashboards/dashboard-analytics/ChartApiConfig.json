@@ -5110,7 +5110,7 @@
         "dateRefField": "Data.eventTime",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.tenantData.code\" ,  \"district\" : \"Data.tenantData.city.districtCode\"}",
         "indexName": "ifix-fiscal-events",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"terms\":{\"Data.eventType.keyword\":[\"Demand\",\"Receipt\",\"Bill\"]}}]}},\"aggs\":{\"Expense\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Collection By Expenditure\":{\"terms\":{\"field\":\"Data.attributes.expenditure.code.keyword\"},\"aggs\":{\"Amount\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Payment\"]}},\"aggs\":{\"Electricity\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.electricityHeadAmount\"}}}},\"Operations\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.operationsHeadAmount\"}}}},\"Salary\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.salaryHeadAmount\"}}}},\"Other\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.otherHeadAmount\"}}}}}}}}"
       }
     ],
     "chartType": "line",
@@ -5119,7 +5119,10 @@
     "drillChart": "none",
     "documentType": "_doc",
     "aggregationPaths": [
-      "Collection By Expenditure"
+      "Electricity",
+      "Operations",
+      "Salary",
+      "Other"
     ],
     "isCumulative": false,
     "interval": "month",
