@@ -4919,7 +4919,7 @@
         "module": "IFIX",
         "indexName": "ifix-fiscal-events",
         "aggrQuery": "{\"aggs\":{\"totalOutstandingAmount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Demand\",\"Bill\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.netAmount\"}}}}}}",
-        "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\r\n  \"module\" : \"dataObject.paymentDetails.businessService.keyword\", \n\"tenantId\" : \"dataObject.tenantId\"}",
+        "requestQueryMap": "{\"Zone\":\"Data.hierarchyMap.Zone.keyword\",\"Circle\":\"Data.hierarchyMap.Circle.keyword\",\"Department\":\"Data.hierarchyMap.Department.keyword\",\"GP\":\"Data.hierarchyMap.GP.keyword\",\"Division\":\"Data.hierarchyMap.Division.keyword\",\"Sub Division\":\"Data.hierarchyMap.SubDivision.keyword\",\"Section\":\"Data.hierarchyMap.Section.keyword\"}",
         "dateRefField": "Data.eventTime"
       }
     ],
