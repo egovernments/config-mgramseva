@@ -4940,8 +4940,8 @@
       {
         "module": "IFIX",
         "indexName": "ifix-fiscal-events",
-        "aggrQuery": "{\"Zone\":\"Data.hierarchyMap.Zone.keyword\",\"Circle\":\"Data.hierarchyMap.Circle.keyword\",\"Department\":\"Data.hierarchyMap.Department.keyword\",\"GP\":\"Data.hierarchyMap.GP.keyword\",\"Division\":\"Data.hierarchyMap.Division.keyword\",\"Sub Division\":\"Data.hierarchyMap.Sub_Division.keyword\",\"Section\":\"Data.hierarchyMap.Section.keyword\"}",
-        "requestQueryMap": "{\"wardId\" : \"domainObject.ward.name.keyword\",\r\n  \"module\" : \"dataObject.paymentDetails.businessService.keyword\", \n\"tenantId\" : \"dataObject.tenantId\"}",
+        "aggrQuery": "{\"aggs\":{\"totalOutstandingAmount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Demand\",\"Receipt\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.netAmount\"}}}}}}",
+        "requestQueryMap": "{\"Zone\":\"Data.hierarchyMap.Zone.keyword\",\"Circle\":\"Data.hierarchyMap.Circle.keyword\",\"Department\":\"Data.hierarchyMap.Department.keyword\",\"GP\":\"Data.hierarchyMap.GP.keyword\",\"Division\":\"Data.hierarchyMap.Division.keyword\",\"Sub Division\":\"Data.hierarchyMap.Sub_Division.keyword\",\"Section\":\"Data.hierarchyMap.Section.keyword\"}",
         "dateRefField": "Data.eventTime"
       }
     ],
