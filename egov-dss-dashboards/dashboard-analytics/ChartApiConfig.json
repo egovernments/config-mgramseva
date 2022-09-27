@@ -5217,5 +5217,37 @@
     "insight": {
     },
     "_comment": ""
+  },
+  "dssIfixEBillsUnpaid": {
+    "chartName": "DSS_IFIX_EBILLS_UNPAID",
+    "queries": [
+      {
+        "module": "IFIX",
+        "requestQueryMap": "{\"ward\" : \"ward.keyword\",\"ulb\" : \"ulb.keyword\"}",
+        "dateRefField": "Data.eventTime",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"Department\":{\"terms\":{\"field\":\"Data.hierarchyMap.Zone.keyword\"},\"aggs\":{\"Pending Amount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Bill\",\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.electricityExpenseNetAmount\"}}}}}}}}"
+      }
+    ],
+    "isMdmsEnabled": false,
+    "chartType": "table",
+    "valueType": "number",
+    "action": "",
+    "plotLabel": "GPWSCS",
+    "isPostResponseHandler": true,
+    "postAggregationTheory" : "repsonseToDifferenceOfDates",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Pending Amount"
+    ],
+    "pathDataTypeMapping": [
+      {
+        "Pending Amount": "amount"
+      }
+    ],
+    "insight": {
+    },
+    "_comment": ""
   }
 }
