@@ -5008,7 +5008,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.keyword\", \"district\" : \"Data.district.keyword\", \"tenantId\" : \"Data.tenantId.keyword\"}",
         "dateRefField": "Data.eventTime",
         "indexName": "ifix-fiscal-events",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"terms\":{\"Data.eventType.keyword\":[\"Bill\",\"Payment\"]}}]}},\"aggs\":{\"Pending Collections\":{\"terms\":{\"field\":\"Data.eventType.keyword\"},\"aggs\":{\"Amount\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.eventType.keyword\":[\"Demand\",\"Receipt\"]}}]}},\"aggs\":{\"Pending Collections\":{\"terms\":{\"field\":\"Data.eventType.keyword\"},\"aggs\":{\"Amount\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
@@ -5031,7 +5031,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.keyword\", \"district\" : \"Data.district.keyword\", \"tenantId\" : \"Data.tenantId.keyword\"}",
         "dateRefField": "Data.eventTime",
         "indexName": "ifix-fiscal-events",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"terms\":{\"Data.eventType.keyword\":[\"Demand\",\"Receipt\"]}}]}},\"aggs\":{\"Pending Collections\":{\"terms\":{\"field\":\"Data.eventType.keyword\"},\"aggs\":{\"Amount\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.eventType.keyword\":[\"Bill\",\"Payment\"]}}]}},\"aggs\":{\"Pending Collections\":{\"terms\":{\"field\":\"Data.eventType.keyword\"},\"aggs\":{\"Amount\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
