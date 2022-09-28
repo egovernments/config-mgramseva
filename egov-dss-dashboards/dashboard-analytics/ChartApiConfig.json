@@ -4984,7 +4984,7 @@
       {
         "module": "IFIX",
         "indexName": "ifix-fiscal-events",
-        "aggrQuery": "{\"aggs\":{\"totalOutstandingAmount\":{\"sum\":{\"script\":{\"lang\":\"painless\",\"source\":\"long totalAmountPaid=0;long totalBillAmount=0;if(params['_source']['Data']['eventType']=='Bill'){for(int i=0;i<params['_source']['Data']['amountDetails'].length;++i){totalBillAmount=totalBillAmount+params['_source']['Data']['amountDetails'][i]['amount'];}}else if(params['_source']['Data']['eventType']=='Receipt'){for(int i=0;i<params['_source']['Data']['amountDetails'].length;++i){totalAmountPaid=totalAmountPaid+params['_source']['Data']['amountDetails'][i]['amount'];}}return totalBillAmount-totalAmountPaid;\"}}}}}",
+        "aggrQuery": "{\"aggs\":{\"totalOutStandingAmount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Bill\",\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.electricityExpenseNetAmount\"}}}}}}",
         "requestQueryMap": "{\"Zone\":\"Data.hierarchyMap.Zone.keyword\",\"Circle\":\"Data.hierarchyMap.Circle.keyword\",\"Department\":\"Data.hierarchyMap.Department.keyword\",\"GP\":\"Data.hierarchyMap.GP.keyword\",\"Division\":\"Data.hierarchyMap.Division.keyword\",\"Sub Division\":\"Data.hierarchyMap.Sub_Division.keyword\",\"Section\":\"Data.hierarchyMap.Section.keyword\"}",
         "dateRefField": "Data.eventTime"
       }
