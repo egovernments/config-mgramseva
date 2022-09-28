@@ -4984,7 +4984,7 @@
       {
         "module": "IFIX",
         "indexName": "ifix-fiscal-events",
-        "aggrQuery": "{\"aggs\":{\"totalOutStandingAmount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Bill\",\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.electricityExpenseNetAmount\"}}}}}}",
+        "aggrQuery": "{\"aggs\":{\"totalOutstandingAmount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Bill\",\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.electricityExpenseNetAmount\"}}}}}}",
         "requestQueryMap": "{\"Zone\":\"Data.hierarchyMap.Zone.keyword\",\"Circle\":\"Data.hierarchyMap.Circle.keyword\",\"Department\":\"Data.hierarchyMap.Department.keyword\",\"GP\":\"Data.hierarchyMap.GP.keyword\",\"Division\":\"Data.hierarchyMap.Division.keyword\",\"Sub Division\":\"Data.hierarchyMap.Sub_Division.keyword\",\"Section\":\"Data.hierarchyMap.Section.keyword\"}",
         "dateRefField": "Data.eventTime"
       }
