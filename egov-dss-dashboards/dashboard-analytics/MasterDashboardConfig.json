@@ -4637,7 +4637,7 @@
               "id": 326,
               "name": "DSS_IFIX_COLLECTIONS_AND_EXPENDITURE_ACTUAL",
               "dimensions": {
-                "height": 450,
+                "height": 350,
                 "width": 5
               },
               "vizType": "chart",
@@ -4653,18 +4653,12 @@
                   "headers": []
                 }
               ]
-            }
-          ]
-        },
-        {
-          "row": 5,
-          "name": "DSS_OVERVIEW",
-          "vizArray": [
+            },
             {
-              "id": 326,
+              "id": 327,
               "name": "DSS_IFIX_EXPENDITURE_COMPOSITION",
               "dimensions": {
-                "height": 450,
+                "height": 350,
                 "width": 5
               },
               "vizType": "chart",
@@ -4684,7 +4678,7 @@
           ]
         },
         {
-          "row": 6,
+          "row": 5,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
@@ -4711,7 +4705,7 @@
           ]
         },
         {
-          "row": 7,
+          "row": 6,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
@@ -4738,7 +4732,7 @@
           ]
         },
         {
-          "row": 8,
+          "row": 7,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
