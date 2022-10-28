@@ -5073,6 +5073,60 @@
     },
     "_comment": ""
   },
+  "dssIfixBillsVsPayments": {
+    "chartName": "DSS_IFIX_BILLS_VS_PAYMENTS",
+    "queries": [
+      {
+        "module": "IFIX",
+        "dateRefField": "Data.eventTime",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"Bills\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Bills\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Bill\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}},\"Payments\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Payments\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "amount",
+    "action": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Bills",
+      "Payments"
+
+    ],
+    "isCumulative": false,
+    "interval": "month",
+    "insight": {
+    },
+    "_comment": ""
+  },
+  "dssIfixDemandVsReceipt": {
+    "chartName": "DSS_IFIX_DEMAND_VS_RECEIPT",
+    "queries": [
+      {
+        "module": "IFIX",
+        "dateRefField": "Data.eventTime",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"Demand\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Bills\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Demand\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}},\"Receipt\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Receipt\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Receipt\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "amount",
+    "action": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Demand",
+      "Receipt"
+
+    ],
+    "isCumulative": false,
+    "interval": "month",
+    "insight": {
+    },
+    "_comment": ""
+  },
   "dssIfixCollectionsAndExpenditureActual": {
     "chartName": "DSS_IFIX_COLLECTIONS_AND_EXPENDITURE_ACTUAL",
     "queries": [
