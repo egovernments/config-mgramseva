@@ -4590,7 +4590,7 @@
               "name": "DSS_IFIX_BILLS_VS_PAYMENTS",
               "dimensions": {
                 "height": 350,
-                "width": 10
+                "width": 5
               },
               "vizType": "chart",
               "isCollapsible": false,
@@ -4605,19 +4605,13 @@
                   "headers": []
                 }
               ]
-            }
-          ]
-        },
-        {
-          "row": 4,
-          "name": "DSS_OVERVIEW",
-          "vizArray": [
+            },
             {
-              "id": 211,
+              "id": 212,
               "name": "DSS_IFIX_DEMAND_VS_RECEIPT",
               "dimensions": {
                 "height": 350,
-                "width": 10
+                "width": 5
               },
               "vizType": "chart",
               "isCollapsible": false,
@@ -4636,7 +4630,7 @@
           ]
         },
         {
-          "row": 5,
+          "row": 4,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
@@ -4663,7 +4657,7 @@
           ]
         },
         {
-          "row": 6,
+          "row": 5,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
@@ -4690,7 +4684,7 @@
           ]
         },
         {
-          "row": 7,
+          "row": 6,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
@@ -4717,7 +4711,7 @@
           ]
         },
         {
-          "row": 8,
+          "row": 7,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
@@ -4744,7 +4738,7 @@
           ]
         },
         {
-          "row": 9,
+          "row": 8,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
