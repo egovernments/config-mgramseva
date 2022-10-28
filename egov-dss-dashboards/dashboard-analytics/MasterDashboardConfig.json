@@ -4586,6 +4586,60 @@
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
+              "id": 211,
+              "name": "DSS_IFIX_BILLS_VS_PAYMENTS",
+              "dimensions": {
+                "height": 350,
+                "width": 10
+              },
+              "vizType": "chart",
+              "isCollapsible": false,
+              "label": "",
+              "charts": [
+                {
+                  "id": "dssIfixBillsVsPayments",
+                  "name": "Monthly",
+                  "code": "",
+                  "chartType": "line",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 4,
+          "name": "DSS_OVERVIEW",
+          "vizArray": [
+            {
+              "id": 211,
+              "name": "DSS_IFIX_DEMAND_VS_RECEIPT",
+              "dimensions": {
+                "height": 350,
+                "width": 10
+              },
+              "vizType": "chart",
+              "isCollapsible": false,
+              "label": "",
+              "charts": [
+                {
+                  "id": "dssIfixDemandVsReceipt",
+                  "name": "Monthly",
+                  "code": "",
+                  "chartType": "line",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 5,
+          "name": "DSS_OVERVIEW",
+          "vizArray": [
+            {
               "id": 326,
               "name": "DSS_IFIX_COLLECTIONS_AND_EXPENDITURE_ACTUAL",
               "dimensions": {
@@ -4609,7 +4663,7 @@
           ]
         },
         {
-          "row": 4,
+          "row": 6,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
@@ -4636,7 +4690,7 @@
           ]
         },
         {
-          "row": 5,
+          "row": 7,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
@@ -4663,7 +4717,7 @@
           ]
         },
         {
-          "row": 6,
+          "row": 8,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
@@ -4690,7 +4744,7 @@
           ]
         },
         {
-          "row": 7,
+          "row": 9,
           "name": "DSS_OVERVIEW",
           "vizArray": [
             {
