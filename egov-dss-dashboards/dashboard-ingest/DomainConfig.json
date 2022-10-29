@@ -1,0 +1,196 @@
+{
+    "domainConfig": [
+        {
+            "id": "1",
+            "domain": "PT",
+            "indexName": "ptindex-v1",
+            "documentType": "",
+            "query": "{\"query\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.propertyDetails.assessmentNumber\":\"value\"}},{\"match_phrase\":{\"Data.propertyId\":\"value\"}}]}}}",
+            "targetReferences": [
+                {
+                    "fieldName": "propertyId",
+                    "argument": "Data.propertyId",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "propertyId"
+                },
+                {
+                    "fieldName": "assessmentNumber",
+                    "argument": "Data.propertyDetails.assessmentNumber",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "assessmentNumber"
+                }
+            ],
+            "sourceReferences": [
+                {
+                    "fieldName": "consumerCode",
+                    "argument": "Bill.billDetails.consumerCode",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": ":",
+                    "expression": "propertyId:assessmentNumber"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "domain": "TL",
+            "indexName": "tlindex-v1",
+            "documentType": "",
+            "query": "{\"query\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.tradelicense.applicationnumber\":\"value\"}}]}}}",
+            "targetReferences": [
+                {
+                    "fieldName": "applicationnumber",
+                    "argument": "Data.tradelicense.applicationnumber",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "applicationnumber"
+                }
+            ],
+            "sourceReferences": [
+                {
+                    "fieldName": "consumerCode",
+                    "argument": "Data.tradelicense.applicationnumber",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "applicationnumber"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "domain": "PGR",
+            "indexName": "pgrindex-v1",
+            "documentType": "",
+            "query": "{}",
+            "targetReferences": [
+                {
+                    "fieldName": "complainNumber",
+                    "argument": "Data.complainNumber",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "complainNumber"
+                }
+            ],
+            "sourceReferences": [
+                {
+                    "fieldName": "consumerCode",
+                    "argument": "Data.complainNumber",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "complainNumber"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "domain": "WS",
+            "indexName": "water-services",
+            "documentType": "",
+            "query": "{\"query\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.connectionNo\":\"value\"}}]}}}",
+            "targetReferences": [
+                {
+                    "fieldName": "connectionNo",
+                    "argument": "Data.connectionNo",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "connectionNo"
+                }
+            ],
+            "sourceReferences": [
+                {
+                    "fieldName": "consumerCode",
+                    "argument": "Data.connectionNo",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "connectionNo"
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "domain": "EXPENSE.SALARY",
+            "indexName": "echallan-services",
+            "documentType": "",
+            "query": "{\"query\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.challanNo\":\"value\"}}]}}}",
+            "targetReferences": [
+                {
+                    "fieldName": "challanNo",
+                    "argument": "Data.challanNo",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "challanNo"
+                }
+            ],
+            "sourceReferences": [
+                {
+                    "fieldName": "consumerCode",
+                    "argument": "Data.challanNo",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "challanNo"
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "domain": "EXPENSE.ELECTRICITY_BILL",
+            "indexName": "echallan-services",
+            "documentType": "",
+            "query": "{\"query\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.challanNo\":\"value\"}}]}}}",
+            "targetReferences": [
+                {
+                    "fieldName": "challanNo",
+                    "argument": "Data.challanNo",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "challanNo"
+                }
+            ],
+            "sourceReferences": [
+                {
+                    "fieldName": "consumerCode",
+                    "argument": "Data.challanNo",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "challanNo"
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "domain": "EXPENSE.OM",
+            "indexName": "echallan-services",
+            "documentType": "",
+            "query": "{\"query\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.challanNo\":\"value\"}}]}}}",
+            "targetReferences": [
+                {
+                    "fieldName": "challanNo",
+                    "argument": "Data.challanNo",
+                    "dataType": "String",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "challanNo"
+                }
+            ],
+            "sourceReferences": [
+                {
+                    "fieldName": "consumerCode",
+                    "argument": "Data.challanNo",
+                    "value": "$value",
+                    "seperator": " ",
+                    "expression": "challanNo"
+                }
+            ]
+        }
+    ]
+}
