@@ -52,12 +52,8 @@ serviceMaps:
             - jsonPath: $.departmentEntity.*.hierarchyLevel
 
             - jsonPath: $.departmentEntity.*.children
-            
-            - jsonPath: $.departmentEntity.*.createdBy
 
             - jsonPath: $.departmentEntity.*.lastModifiedBy
-
-            - jsonPath: $.departmentEntity.*.createdTime
 
             - jsonPath: $.departmentEntity.*.lastModifiedTime
 
