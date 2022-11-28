@@ -37,7 +37,7 @@ serviceMaps:
       fromTopic: update-dept-entity-application
       isTransaction: true
       queryMaps:
-        - query: UPDATE department_entity SET tenant_id = ?,department_id = ?,code = ?,name = ?, hierarchy_level = ?, children = ?, created_by = ?, last_modified_by = ?, created_time = ?, last_modified_time = ? WHERE id=?;
+        - query: UPDATE department_entity SET tenant_id = ?,department_id = ?,code = ?,name = ?, hierarchy_level = ?, children = ?, last_modified_by = ?, last_modified_time = ? WHERE id=?;
           basePath: departmentEntity.*
           jsonMaps:
 
