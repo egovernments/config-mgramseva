@@ -1,0 +1,89 @@
+serviceMaps:
+  serviceName: department-entity-services
+  mappings:
+    - version: 1.0
+      description: Save departemnt entity details in tables
+      fromTopic: save-dept-entity-application
+      isTransaction: true
+      queryMaps:
+
+        - query: INSERT INTO department_entity(id, tenant_id, department_id, code, name, hierarchy_level, children, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+          basePath: departmentEntity.*
+          jsonMaps:
+            - jsonPath: $.departmentEntity.*.id
+
+            - jsonPath: $.departmentEntity.*.tenantId
+
+            - jsonPath: $.departmentEntity.*.departmentId
+
+            - jsonPath: $.departmentEntity.*.code
+
+            - jsonPath: $.departmentEntity.*.name
+
+            - jsonPath: $.departmentEntity.*.hierarchyLevel
+
+            - jsonPath: $.departmentEntity.*.children
+            
+            - jsonPath: $.departmentEntity.*.createdBy
+
+            - jsonPath: $.departmentEntity.*.lastModifiedBy
+
+            - jsonPath: $.departmentEntity.*.createdTime
+
+            - jsonPath: $.departmentEntity.*.lastModifiedTime
+
+    - version: 1.0
+      description: Update departemnt entity details in tables
+      fromTopic: update-dept-entity-application
+      isTransaction: true
+      queryMaps:
+        - query: UPDATE department_entity SET tenant_id = ?,department_id = ?,code = ?,name = ?, hierarchy_level = ?, children = ?, last_modified_by = ?, last_modified_time = ? WHERE id=?;
+          basePath: departmentEntity.*
+          jsonMaps:
+
+            - jsonPath: $.departmentEntity.*.tenantId
+
+            - jsonPath: $.departmentEntity.*.departmentId
+
+            - jsonPath: $.departmentEntity.*.code
+
+            - jsonPath: $.departmentEntity.*.name
+
+            - jsonPath: $.departmentEntity.*.hierarchyLevel
+
+            - jsonPath: $.departmentEntity.*.children
+
+            - jsonPath: $.departmentEntity.*.lastModifiedBy
+
+            - jsonPath: $.departmentEntity.*.lastModifiedTime
+
+            - jsonPath: $.departmentEntity.*.id
+
+    - version: 1.0
+      description: Save department hierarchy level in table
+      fromTopic: save-dept-entity-hierarchy-application
+      isTransaction: true
+      queryMaps:
+
+        - query: INSERT INTO department_hierarchy_level(id, tenant_id, department_id, label, parent, level, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+          basePath: departmentHierarchyLevel.*
+          jsonMaps:
+            - jsonPath: $.departmentHierarchyLevel.*.id
+
+            - jsonPath: $.departmentHierarchyLevel.*.tenantId
+
+            - jsonPath: $.departmentHierarchyLevel.*.departmentId
+
+            - jsonPath: $.departmentHierarchyLevel.*.label
+
+            - jsonPath: $.departmentHierarchyLevel.*.parent
+
+            - jsonPath: $.departmentHierarchyLevel.*.level
+
+            - jsonPath: $.departmentHierarchyLevel.*.createdBy
+
+            - jsonPath: $.departmentHierarchyLevel.*.lastModifiedBy
+
+            - jsonPath: $.departmentHierarchyLevel.*.createdTime
+
+            - jsonPath: $.departmentHierarchyLevel.*.lastModifiedTime
