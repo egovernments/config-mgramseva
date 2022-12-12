@@ -455,7 +455,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{ws_charge}}",
+                              "text": "₹ {{ws_charge_amt}}",
                               "border": [
                                 false,
                                 false,
@@ -477,7 +477,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{totalArrears}}",
+                              "text": "₹ {{totalArrear}}",
                               "border": [
                                 false,
                                 false,
@@ -530,6 +530,116 @@
                           "30%"
                         ],
                         "body": [
+                             [
+                            {
+                              "text": "{{total_bill_amount}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table"
+                            },
+                            {
+                              "text": "₹ {{totalBillAmount}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table-value"
+                            }
+                          ],
+                          [
+                            {
+                              "text": "{{advance_adjusted_amount}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table"
+                            },
+                            {
+                              "text": "₹ {{advanceAdjustedAmount}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table-value"
+                            }
+                          ],
+                          [
+                            {
+                              "text": "{{net_amount_due}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table"
+                            },
+                            {
+                              "text": "₹ {{netAmountDue}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table-value"
+                            }
+                          ],
+                          [
+                            {
+                              "text": "{{penalty_after_due_date}} {{penaltyDueDate}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table"
+                            },
+                            {
+                              "text": "₹ {{totalApplicablePenalty}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table-value"
+                            }
+                          ],
+                          [
+                            {
+                              "text": "{{net_amount_due_with_penalty}} {{penaltyDueDate}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table"
+                            },
+                            {
+                              "text": "₹ {{netAmountDueWithPenalty}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table-value"
+                            }
+                          ],
                           [
                             {
                               "text": "{{total_due}}",
