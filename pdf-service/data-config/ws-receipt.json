@@ -193,6 +193,42 @@
                 }
               },
               {
+                "variable": "total_bill_amount",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_TOTAL_BILL_AMOUNT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "advance_adjusted_amount",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_ADVANCE_ADJUSTED_AMOUNT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "net_amount_due",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_NET_AMOUNT_DUE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
                 "variable": "total_paid",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_TOTAL_PAID"
@@ -444,7 +480,6 @@
                   "module": "mgramseva-common"
                 }
               },
-              
               {
                 "variable": "totalAmountDue",
                 "value": {
@@ -483,7 +518,7 @@
                   "path": "$.paymentDetails[0].bill.billDetails"
                 },
                 "type":"function",
-                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].toPeriod+19800000).getDate())<10?('0'+new Date(x[0].toPeriod+19800000).getDate()):new Date(x[0].toPeriod+19800000).getDate())+'/'+((new Date(x[0].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[0].toPeriod+19800000).getMonth()+1)):(new Date(x[0].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].toPeriod+19800000).getFullYear())" 
+                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.toPeriod - a.toPeriod}); return (((new Date(x[0].toPeriod+19800000).getDate())<10?('0'+new Date(x[0].toPeriod+19800000).getDate()):new Date(x[0].toPeriod+19800000).getDate())+'/'+((new Date(x[0].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[0].toPeriod+19800000).getMonth()+1)):(new Date(x[0].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].toPeriod+19800000).getFullYear())" 
               },
               {
                 "variable": "billIssueDate",
@@ -552,7 +587,7 @@
             "derived": [
               {
                 "variable": "dueason_date",
-                "formula": "{{totalPaid}}>{{totalAmountDue}}?{{totalPaid}}-{{totalAmountDue}}:{{totalAmountDue}}-{{totalPaid}}"
+                "formula": "{{totalPaid}}>{{totalAmountDue}}?-({{totalPaid}}-{{totalAmountDue}}):{{totalAmountDue}}-{{totalPaid}}"
              },{
                 "variable":"waterquality_rate_value",
                 "formula":"'{{waterquality_rate}}'=='NA'? 'NA' : '{{waterquality_rate}}/5'"
@@ -569,7 +604,11 @@
             {
               "variable":"address",
               "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
-            }
+            },
+		    {
+            "variable":"totalBillAmount",
+            "formula":"{{totalAmountDue}}"
+          }
             ]
           },
           {
@@ -710,7 +749,7 @@
                     "value": "$.LastMonthSummary.previousMonthYear"
                   }
                 ]
-},
+		},
               {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
                 "queryParam": "tenantId=$.tenantId,currentDate=$.transactionDate",
