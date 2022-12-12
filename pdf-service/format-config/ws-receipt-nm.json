@@ -466,6 +466,28 @@
                           ],
                           "body": [
                             [
+                               {
+                              "text": "{{total_bill_amount}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table"
+                            },
+                            {
+                              "text": "₹ {{totalBillAmount}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table-value"
+                            }
+                          ],
+                            [
                               {
                                 "text": "{{total_paid}}",
                                 "border": [
