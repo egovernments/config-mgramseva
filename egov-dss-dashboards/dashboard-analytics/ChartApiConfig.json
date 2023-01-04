@@ -1,0 +1,376 @@
+{
+  "dssIfixSurplusCollection": {
+    "chartName": "DSS_IFIX_SURPLUS_COLLECTION",
+    "queries": [
+      {
+        "module": "IFIX",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"totalOutstandingAmount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Demand\",\"Bill\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.netAmount\"}}}}}}",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "dateRefField": "Data.eventTime"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "amount",
+    "action": "",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "totalOutstandingAmount"
+    ],
+    "insight": {},
+    "_comment": "IFIX Surplus Collection"
+  },
+  "dssIfixOutstandingCollection": {
+    "chartName": "DSS_IFIX_OUTSTANDING_COLLECTION",
+    "queries": [
+      {
+        "module": "IFIX",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"totalOutstandingAmount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Demand\",\"Receipt\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.netAmount\"}}}}}}",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "dateRefField": "Data.eventTime"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "amount",
+    "action": "",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "totalOutstandingAmount"
+    ],
+    "insight": {},
+    "_comment": "IFIX Surplus Collection"
+  },
+  "dssIfixGpwscsAtRisk": {
+    "chartName": "DSS_IFIX_GPWSCS_AT_RISK",
+    "queries": [
+      {
+        "module": "IFIX",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"GP\":{\"terms\":{\"field\":\"Data.hierarchyMap.GPWSC.keyword\"},\"aggs\":{\"Demand\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Demand\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}},\"Billed\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Bill\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}},\"Paid\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}},\"gpwsc-under-risk\":{\"bucket_script\":{\"buckets_path\":{\"demandAmount\":\"Demand>Total\",\"billedAmount\":\"Billed>Total\",\"paidAmount\":\"Paid>Total\"},\"script\":\"if(params.billedAmount-params.paidAmount>params.demandAmount){return 1;}\"}}}},\"count\":{\"sum_bucket\":{\"buckets_path\":\"GP>gpwsc-under-risk\"}}}}",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "dateRefField": "Data.eventTime"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "action": "",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "count"
+    ],
+    "insight": {},
+    "_comment": "IFIX Surplus Collection"
+  },
+  "dssIfixOutstandingEBills": {
+    "chartName": "DSS_IFIX_OUTSTANDING_E_BILLS",
+    "queries": [
+      {
+        "module": "IFIX",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"totalOutstandingAmount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Bill\",\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.electricityExpenseNetAmount\"}}}}}}",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "dateRefField": "Data.eventTime"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "amount",
+    "action": "",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "totalOutstandingAmount"
+    ],
+    "insight": {},
+    "_comment": "IFIX Surplus Collection"
+  },
+  "dssIfixPendingCollections": {
+    "chartName": "DSS_IFIX_PENDING_COLLECTIONS",
+    "queries": [
+      {
+        "module": "IFIX",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "dateRefField": "Data.eventTime",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.eventType.keyword\":[\"Demand\",\"Receipt\"]}}]}},\"aggs\":{\"Pending Collections\":{\"terms\":{\"field\":\"Data.eventType.keyword\"},\"aggs\":{\"Amount\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "amount",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Pending Collections"
+    ],
+    "insight": {},
+    "_comment": "Pending Collections"
+  },
+  "dssIfixPendingExpenditure": {
+    "chartName": "DSS_IFIX_PENDING_EXPENDITURE",
+    "queries": [
+      {
+        "module": "IFIX",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "dateRefField": "Data.eventTime",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.eventType.keyword\":[\"Bill\",\"Payment\"]}}]}},\"aggs\":{\"Pending Collections\":{\"terms\":{\"field\":\"Data.eventType.keyword\"},\"aggs\":{\"Amount\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "amount",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Pending Collections"
+    ],
+    "insight": {},
+    "_comment": "Pending Collections"
+  },
+  "dssIfixCollectionsVsExpenditure": {
+    "chartName": "DSS_IFIX_COLLECTIONS_VS_EXPENDITURE",
+    "queries": [
+      {
+        "module": "IFIX",
+        "dateRefField": "Data.eventTime",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"Total Collection\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Collection\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Receipt\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}},\"Total Expenditure\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Expenditure\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "amount",
+    "action": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Total Collection",
+      "Total Expenditure"
+    ],
+    "isCumulative": false,
+    "interval": "month",
+    "insight": {},
+    "_comment": ""
+  },
+  "dssIfixBillsVsPayments": {
+    "chartName": "DSS_IFIX_BILLS_VS_PAYMENTS",
+    "queries": [
+      {
+        "module": "IFIX",
+        "dateRefField": "Data.eventTime",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"Bills\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Bills\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Bill\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}},\"Payments\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Payments\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "amount",
+    "action": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Bills",
+      "Payments"
+    ],
+    "isCumulative": false,
+    "interval": "month",
+    "insight": {},
+    "_comment": ""
+  },
+  "dssIfixDemandVsReceipt": {
+    "chartName": "DSS_IFIX_DEMAND_VS_RECEIPT",
+    "queries": [
+      {
+        "module": "IFIX",
+        "dateRefField": "Data.eventTime",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"Demand\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Bills\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Demand\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}},\"Receipt\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Receipt\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Receipt\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "amount",
+    "action": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Demand",
+      "Receipt"
+    ],
+    "isCumulative": false,
+    "interval": "month",
+    "insight": {},
+    "_comment": ""
+  },
+  "dssIfixCollectionsAndExpenditureActual": {
+    "chartName": "DSS_IFIX_COLLECTIONS_AND_EXPENDITURE_ACTUAL",
+    "queries": [
+      {
+        "module": "IFIX",
+        "dateRefField": "Data.eventTime",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"Current Demand\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"currentDemandAmount\":{\"sum\":{\"script\":{\"lang\":\"painless\",\"source\":\"long currentDemandAmount=0;if(params['_source']['Data']['eventType']=='Demand'||params['_source']['Data']['eventType']=='Bill'){long currentEventTime=params['_source']['Data']['eventTime'];for(int i=0;i<params['_source']['Data']['amountDetails'].length;++i){if(currentEventTime>=params['_source']['Data']['amountDetails'][i]['fromBillingPeriod']&&currentEventTime<=params['_source']['Data']['amountDetails'][i]['toBillingPeriod']){currentDemandAmount=currentDemandAmount+params['_source']['Data']['amountDetails'][i]['amount'];}}}return currentDemandAmount;\"}}}}},\"Arrear Demand\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"arrearDemandAmount\":{\"sum\":{\"script\":{\"lang\":\"painless\",\"source\":\"long currentDemandAmount=0;if(params['_source']['Data']['eventType']=='Receipt'){long currentEventTime=params['_source']['Data']['eventTime'];for(int i=0;i<params['_source']['Data']['amountDetails'].length;++i){if(currentEventTime>params['_source']['Data']['amountDetails'][i]['toBillingPeriod']){currentDemandAmount=currentDemandAmount+params['_source']['Data']['amountDetails'][i]['amount'];}}}return currentDemandAmount;\"}}}}},\"Current Bill\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"currentBillAmount\":{\"sum\":{\"script\":{\"lang\":\"painless\",\"source\":\"long currentBillAmount=0;if(params['_source']['Data']['eventType']=='Payment'){long currentEventTime=params['_source']['Data']['eventTime'];for(int i=0;i<params['_source']['Data']['amountDetails'].length;++i){if(currentEventTime<=params['_source']['Data']['amountDetails'][i]['toBillingPeriod']&& currentEventTime>=params['_source']['Data']['amountDetails'][i]['fromBillingPeriod']){currentBillAmount=currentBillAmount+params['_source']['Data']['amountDetails'][i]['amount'];}}}return currentBillAmount;\"}}}}},\"Old Bill\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"oldBillAmount\":{\"sum\":{\"script\":{\"lang\":\"painless\",\"source\":\"long currentBillAmount=0;if(params['_source']['Data']['eventType']=='Payment'){long currentEventTime=params['_source']['Data']['eventTime'];for(int i=0;i<params['_source']['Data']['amountDetails'].length;++i){if(currentEventTime>params['_source']['Data']['amountDetails'][i]['toBillingPeriod']){currentBillAmount=currentBillAmount+params['_source']['Data']['amountDetails'][i]['amount'];}}}return currentBillAmount;\"}}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "amount",
+    "action": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Current Demand",
+      "Arrear Demand",
+      "Current Bill",
+      "Old Bill"
+    ],
+    "isCumulative": false,
+    "interval": "month",
+    "insight": {},
+    "_comment": " "
+  },
+  "dssIfixExpenditureComposition": {
+    "chartName": "DSS_IFIX_EXPENDITURE_COMPOSITION",
+    "queries": [
+      {
+        "module": "IFIX",
+        "dateRefField": "Data.eventTime",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Payment\"]}},\"aggs\":{\"Electricity\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.electricityHeadAmount\"}}}},\"Operations\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.operationsHeadAmount\"}}}},\"Salary\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.salaryHeadAmount\"}}}},\"Other\":{\"date_histogram\":{\"field\":\"Data.eventTime\",\"interval\":\"month\"},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.otherHeadAmount\"}}}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "amount",
+    "action": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Electricity",
+      "Operations",
+      "Salary",
+      "Other"
+    ],
+    "isCumulative": false,
+    "interval": "month",
+    "insight": {},
+    "_comment": " "
+  },
+  "dssIfixDemandAndBillMetricsByZone": {
+    "chartName": "DSS_IFIX_DEMAND_AND_BILL_METRICS_BY_ZONE",
+    "queries": [
+      {
+        "module": "IFIX",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "dateRefField": "Data.eventTime",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"Department\":{\"terms\":{\"field\":\"Data.hierarchyMap.ZONE.keyword\"},\"aggs\":{\"Demand\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Demand\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}},\"Billed\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Bill\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}},\"Collections\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Receipt\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}},\"Paid\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}}}}}}"
+      }
+    ],
+    "isMdmsEnabled": false,
+    "chartType": "table",
+    "valueType": "number",
+    "action": "",
+    "plotLabel": "Zone",
+    "isPostResponseHandler": true,
+    "postAggregationTheory": "repsonseToDifferenceOfDates",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Demand",
+      "Billed",
+      "Collections",
+      "Paid"
+    ],
+    "pathDataTypeMapping": [
+      {
+        "Demand": "amount"
+      },
+      {
+        "Billed": "amount"
+      },
+      {
+        "Collections": "amount"
+      },
+      {
+        "Paid": "amount"
+      }
+    ],
+    "insight": {},
+    "_comment": ""
+  },
+  "dssIfixUnderperformingGPWSCs": {
+    "chartName": "DSS_IFIX_UNDERPERFORMING_GPWSCS",
+    "queries": [
+      {
+        "module": "IFIX",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "dateRefField": "Data.eventTime",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"Department\":{\"terms\":{\"field\":\"Data.hierarchyMap.GPWSC.keyword\"},\"aggs\":{\"Demand\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Demand\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}},\"Billed\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Bill\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}},\"Collections\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Receipt\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}},\"Paid\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.amountDetails.amount\"}}}},\"comparator_script\":{\"bucket_script\":{\"buckets_path\":{\"bill\":\"Billed>Total\",\"paid\":\"Paid>Total\",\"demand\":\"Demand>Total\",\"collection\":\"Collections>Total\"},\"script\":\"Math.max(params.bill-params.paid,params.demand-params.collection)\"}},\"sales_bucket_sort\":{\"bucket_sort\":{\"sort\":[{\"comparator_script\":{\"order\":\"asc\"}}]}}}}}}"
+      }
+    ],
+    "isMdmsEnabled": false,
+    "chartType": "table",
+    "valueType": "number",
+    "action": "",
+    "plotLabel": "GPWSCS",
+    "isPostResponseHandler": true,
+    "postAggregationTheory": "repsonseToDifferenceOfDates",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Demand",
+      "Billed",
+      "Collections",
+      "Paid"
+    ],
+    "pathDataTypeMapping": [
+      {
+        "Demand": "amount"
+      },
+      {
+        "Billed": "amount"
+      },
+      {
+        "Collections": "amount"
+      },
+      {
+        "Paid": "amount"
+      }
+    ],
+    "insight": {},
+    "_comment": ""
+  },
+  "dssIfixEBillsUnpaid": {
+    "chartName": "DSS_IFIX_EBILLS_UNPAID",
+    "queries": [
+      {
+        "module": "IFIX",
+        "requestQueryMap": "{\"ZONE\":\"Data.hierarchyMap.ZONE.keyword\",\"CIRCLE\":\"Data.hierarchyMap.CIRCLE.keyword\",\"Department\":\"Data.hierarchyMap.DEPARTMENT.keyword\",\"GPWSC\":\"Data.hierarchyMap.GPWSC.keyword\",\"DIVISION\":\"Data.hierarchyMap.DIVISION.keyword\",\"SUBDIVISION\":\"Data.hierarchyMap.SUBDIVISION.keyword\",\"SECTION\":\"Data.hierarchyMap.SECTION.keyword\"}",
+        "dateRefField": "Data.eventTime",
+        "indexName": "ifix-fiscal-events",
+        "aggrQuery": "{\"aggs\":{\"Department\":{\"terms\":{\"field\":\"Data.hierarchyMap.ZONE.keyword\"},\"aggs\":{\"Pending Amount\":{\"filter\":{\"terms\":{\"Data.eventType.keyword\":[\"Bill\",\"Payment\"]}},\"aggs\":{\"Total\":{\"sum\":{\"field\":\"Data.computedFields.electricityExpenseNetAmount\"}}}}}}}}"
+      }
+    ],
+    "isMdmsEnabled": false,
+    "chartType": "table",
+    "valueType": "amount",
+    "action": "",
+    "plotLabel": "GPWSCS",
+    "isPostResponseHandler": true,
+    "postAggregationTheory": "repsonseToDifferenceOfDates",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Pending Amount"
+    ],
+    "pathDataTypeMapping": [
+      {
+        "Pending Amount": "amount"
+      }
+    ],
+    "insight": {},
+    "_comment": ""
+  }
+}
