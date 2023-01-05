@@ -1,0 +1,74 @@
+serviceMaps:
+  serviceName: iFix Fiscal Event
+  mappings:
+    - version: 1.0
+      name: iFix-Fiscal-Event-Service
+      description: Persists the iFix fiscal event data into database
+      fromTopic: save-fiscal-event
+      isTransaction: true
+      queryMaps:
+        - query: INSERT INTO eg_ifix_fiscal_event( id, tenantid, sender, receivers, eventtype, ingestiontime, eventtime, referenceid, linkedeventid, linkedreferenceid, attributes, createdby, createdtime, lastmodifiedby,lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+          basePath: $.fiscalEvent.*
+          jsonMaps:
+            - jsonPath: $.fiscalEvent.*.id
+
+            - jsonPath: $.fiscalEvent.*.tenantId
+
+            - jsonPath: $.fiscalEvent.*.sender
+
+            - jsonPath: $.fiscalEvent.*.receivers
+              type: JSON
+              dbType: JSONB
+
+            - jsonPath: $.fiscalEvent.*.eventType
+
+            - jsonPath: $.fiscalEvent.*.ingestionTime
+
+            - jsonPath: $.fiscalEvent.*.eventTime
+
+            - jsonPath: $.fiscalEvent.*.referenceId
+
+            - jsonPath: $.fiscalEvent.*.linkedeventId
+
+            - jsonPath: $.fiscalEvent.*.linkedreferenceId
+
+            - jsonPath: $.fiscalEvent.*.attributes
+              type: JSON
+              dbType: JSONB
+
+            - jsonPath: $.fiscalEvent.*.auditDetails.createdBy
+
+            - jsonPath: $.fiscalEvent.*.auditDetails.createdTime
+
+            - jsonPath: $.fiscalEvent.*.auditDetails.lastModifiedBy
+
+            - jsonPath: $.fiscalEvent.*.auditDetails.lastModifiedTime
+
+        - query: INSERT INTO eg_ifix_amount_detail( id, tenantid, fiscalEventid, amount, coaid, frombillingperiod, tobillingperiod, attributes, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+          basePath: $.fiscalEvent.*.amountDetails.*
+          jsonMaps:
+            - jsonPath: $.fiscalEvent.*.amountDetails.*.id
+
+            - jsonPath: $.fiscalEvent[*][?({id} in @.amountDetails[*].id)].tenantId
+
+            - jsonPath: $.fiscalEvent[*][?({id} in @.amountDetails[*].id)].id
+
+            - jsonPath: $.fiscalEvent.*.amountDetails.*.amount
+
+            - jsonPath: $.fiscalEvent.*.amountDetails.*.coaId
+
+            - jsonPath: $.fiscalEvent.*.amountDetails.*.fromBillingPeriod
+
+            - jsonPath: $.fiscalEvent.*.amountDetails.*.toBillingPeriod
+
+            - jsonPath: $.fiscalEvent.*.amountDetails.*.attributes
+              type: JSON
+              dbType: JSONB
+
+            - jsonPath: $.fiscalEvent.*.auditDetails.createdBy
+
+            - jsonPath: $.fiscalEvent.*.auditDetails.createdTime
+
+            - jsonPath: $.fiscalEvent.*.auditDetails.lastModifiedBy
+
+            - jsonPath: $.fiscalEvent.*.auditDetails.lastModifiedTime

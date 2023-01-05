@@ -1,0 +1,54 @@
+serviceMaps:
+ serviceName: iFix Master
+ mappings:
+ - version: 1.0
+   name: iFix-Master-COA
+   description: Persists the iFix COA master data into database
+   fromTopic: save-coa
+   isTransaction: true
+   queryMaps:
+    - query: INSERT INTO eg_ifix_chartofaccount(id, tenantid, coacode, majorhead, majorheadname, submajorhead, submajorheadname, minorhead, minorheadname, subhead, subheadname, grouphead,groupheadname,objecthead,objectheadname,attributes,createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+      basePath: chartOfAccount
+      jsonMaps:
+
+       - jsonPath: $.chartOfAccount.id
+
+       - jsonPath: $.chartOfAccount.tenantId
+
+       - jsonPath: $.chartOfAccount.coaCode
+
+       - jsonPath: $.chartOfAccount.majorHead
+
+       - jsonPath: $.chartOfAccount.majorHeadName
+
+       - jsonPath: $.chartOfAccount.subMajorHead
+
+       - jsonPath: $.chartOfAccount.subMajorHeadName
+
+       - jsonPath: $.chartOfAccount.minorHead
+
+       - jsonPath: $.chartOfAccount.minorHeadName
+
+       - jsonPath: $.chartOfAccount.subHead
+
+       - jsonPath: $.chartOfAccount.subHeadName
+
+       - jsonPath: $.chartOfAccount.groupHead
+
+       - jsonPath: $.chartOfAccount.groupHeadName
+
+       - jsonPath: $.chartOfAccount.objectHead
+
+       - jsonPath: $.chartOfAccount.objectHeadName
+
+       - jsonPath: $.chartOfAccount.attributes
+         type: JSON
+         dbType: JSONB
+            
+       - jsonPath: $.chartOfAccount.auditDetails.createdBy
+
+       - jsonPath: $.chartOfAccount.auditDetails.createdTime
+
+       - jsonPath: $.chartOfAccount.auditDetails.lastModifiedBy
+
+       - jsonPath: $.chartOfAccount.auditDetails.lastModifiedTime
