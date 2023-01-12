@@ -7,7 +7,7 @@ serviceMaps:
       fromTopic: save-fiscal-event
       isTransaction: true
       queryMaps:
-        - query: INSERT INTO eg_ifix_fiscal_event( id, tenantid, sender, receivers, eventtype, ingestiontime, eventtime, referenceid, linkedeventid, linkedreferenceid, attributes, createdby, createdtime, lastmodifiedby,lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+        - query: INSERT INTO eg_ifix_fiscal_event( id, tenantid, sender, eventtype, ingestiontime, eventtime, referenceid, linkedeventid, linkedreferenceid, attributes, createdby, createdtime, lastmodifiedby,lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
           basePath: $.fiscalEvent.*
           jsonMaps:
             - jsonPath: $.fiscalEvent.*.id
@@ -15,10 +15,6 @@ serviceMaps:
             - jsonPath: $.fiscalEvent.*.tenantId
 
             - jsonPath: $.fiscalEvent.*.sender
-
-            - jsonPath: $.fiscalEvent.*.receivers
-              type: JSON
-              dbType: JSONB
 
             - jsonPath: $.fiscalEvent.*.eventType
 
@@ -43,6 +39,15 @@ serviceMaps:
             - jsonPath: $.fiscalEvent.*.auditDetails.lastModifiedBy
 
             - jsonPath: $.fiscalEvent.*.auditDetails.lastModifiedTime
+
+        - query: INSERT INTO eg_ifix_receivers(id,fiscaleventid,receiver) VALUES (?, ?, ?);
+          basePath: $.fiscalEvent.*.receivers.*
+          jsonMaps:
+            - jsonPath: $.fiscalEvent.*.receivers.*.id
+
+            - jsonPath: $.fiscalEvent.*.receivers.*.fiscalEventId
+
+            - jsonPath: $.fiscalEvent.*.receivers.*.receiver
 
         - query: INSERT INTO eg_ifix_amount_detail( id, tenantid, fiscalEventid, amount, coaid, frombillingperiod, tobillingperiod, attributes, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
           basePath: $.fiscalEvent.*.amountDetails.*
