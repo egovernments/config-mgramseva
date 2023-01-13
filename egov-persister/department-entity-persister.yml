@@ -7,7 +7,7 @@ serviceMaps:
       isTransaction: true
       queryMaps:
 
-        - query: INSERT INTO department_entity(id, tenant_id, department_id, code, name, hierarchy_level, children, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+        - query: INSERT INTO department_entity(id, tenant_id, department_id, code, name, hierarchy_level, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
           basePath: departmentEntity.*
           jsonMaps:
             - jsonPath: $.departmentEntity.*.id
@@ -22,8 +22,6 @@ serviceMaps:
 
             - jsonPath: $.departmentEntity.*.hierarchyLevel
 
-            - jsonPath: $.departmentEntity.*.children
-            
             - jsonPath: $.departmentEntity.*.createdBy
 
             - jsonPath: $.departmentEntity.*.lastModifiedBy
@@ -32,12 +30,22 @@ serviceMaps:
 
             - jsonPath: $.departmentEntity.*.lastModifiedTime
 
+        - query: INSERT INTO department_entity_relationship(parent_id, child_id, is_true) VALUES (?, ?, ?);
+          basePath: departmentEntityRelationship.*
+          jsonMaps:
+          
+            - jsonPath: $.departmentEntityRelationship.*.parentId
+
+            - jsonPath: $.departmentEntityRelationship.*.childId
+            
+            - jsonPath: $.departmentEntityRelationship.*.isTrue
+
     - version: 1.0
       description: Update departemnt entity details in tables
       fromTopic: update-dept-entity-application
       isTransaction: true
       queryMaps:
-        - query: UPDATE department_entity SET tenant_id = ?,department_id = ?,code = ?,name = ?, hierarchy_level = ?, children = ?, last_modified_by = ?, last_modified_time = ? WHERE id=?;
+        - query: UPDATE department_entity SET tenant_id = ?,department_id = ?,code = ?,name = ?, hierarchy_level = ?, last_modified_by = ?, last_modified_time = ? WHERE id=?;
           basePath: departmentEntity.*
           jsonMaps:
 
@@ -51,13 +59,27 @@ serviceMaps:
 
             - jsonPath: $.departmentEntity.*.hierarchyLevel
 
-            - jsonPath: $.departmentEntity.*.children
-
             - jsonPath: $.departmentEntity.*.lastModifiedBy
 
             - jsonPath: $.departmentEntity.*.lastModifiedTime
 
             - jsonPath: $.departmentEntity.*.id
+            
+        - query: INSERT INTO department_entity_relationship(parent_id, child_id, is_true) VALUES (?, ?, ?) ON CONFLICT (parent_id, child_id) DO UPDATE SET parent_id = ?,child_id = ?,is_true = ?;
+          basePath: departmentEntityRelationship.*
+          jsonMaps:
+          
+            - jsonPath: $.departmentEntityRelationship.*.parentId
+
+            - jsonPath: $.departmentEntityRelationship.*.childId
+            
+            - jsonPath: $.departmentEntityRelationship.*.isTrue
+            
+            - jsonPath: $.departmentEntityRelationship.*.parentId
+
+            - jsonPath: $.departmentEntityRelationship.*.childId
+            
+            - jsonPath: $.departmentEntityRelationship.*.isTrue
 
     - version: 1.0
       description: Save department hierarchy level in table
