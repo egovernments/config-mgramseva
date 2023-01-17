@@ -7,57 +7,79 @@ serviceMaps:
       isTransaction: true
       queryMaps:
 
-        - query: INSERT INTO department_entity(id, tenant_id, department_id, code, name, hierarchy_level, children, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
-          basePath: departmentEntity.*
+        - query: INSERT INTO department_entity(id, tenant_id, department_id, code, name, hierarchy_level, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+          basePath: departmentEntity
           jsonMaps:
-            - jsonPath: $.departmentEntity.*.id
+            - jsonPath: $.departmentEntity.id
 
-            - jsonPath: $.departmentEntity.*.tenantId
+            - jsonPath: $.departmentEntity.tenantId
 
-            - jsonPath: $.departmentEntity.*.departmentId
+            - jsonPath: $.departmentEntity.departmentId
 
-            - jsonPath: $.departmentEntity.*.code
+            - jsonPath: $.departmentEntity.code
 
-            - jsonPath: $.departmentEntity.*.name
+            - jsonPath: $.departmentEntity.name
 
-            - jsonPath: $.departmentEntity.*.hierarchyLevel
+            - jsonPath: $.departmentEntity.hierarchyLevel
 
-            - jsonPath: $.departmentEntity.*.children
+            - jsonPath: $.departmentEntity.auditDetails.createdBy
+
+            - jsonPath: $.departmentEntity.auditDetails.lastModifiedBy
+
+            - jsonPath: $.departmentEntity.auditDetails.createdTime
+
+            - jsonPath: $.departmentEntity.auditDetails.lastModifiedTime
+
+        - query: INSERT INTO department_entity_relationship(parent_id, child_id, status) VALUES (?, ?, ?);
+          basePath: departmentEntity.children.*
+          jsonMaps:
+          
+            - jsonPath: $.departmentEntity.id
+
+            - jsonPath: $.departmentEntity.children.*.childId
             
-            - jsonPath: $.departmentEntity.*.createdBy
-
-            - jsonPath: $.departmentEntity.*.lastModifiedBy
-
-            - jsonPath: $.departmentEntity.*.createdTime
-
-            - jsonPath: $.departmentEntity.*.lastModifiedTime
+            - jsonPath: $.departmentEntity.children.*.status
 
     - version: 1.0
       description: Update departemnt entity details in tables
       fromTopic: update-dept-entity-application
       isTransaction: true
       queryMaps:
-        - query: UPDATE department_entity SET tenant_id = ?,department_id = ?,code = ?,name = ?, hierarchy_level = ?, children = ?, last_modified_by = ?, last_modified_time = ? WHERE id=?;
-          basePath: departmentEntity.*
+        - query: UPDATE department_entity SET tenant_id = ?,department_id = ?,code = ?,name = ?, hierarchy_level = ?, last_modified_by = ?, last_modified_time = ? WHERE id=?;
+          basePath: departmentEntity
           jsonMaps:
 
-            - jsonPath: $.departmentEntity.*.tenantId
+            - jsonPath: $.departmentEntity.tenantId
 
-            - jsonPath: $.departmentEntity.*.departmentId
+            - jsonPath: $.departmentEntity.departmentId
 
-            - jsonPath: $.departmentEntity.*.code
+            - jsonPath: $.departmentEntity.code
 
-            - jsonPath: $.departmentEntity.*.name
+            - jsonPath: $.departmentEntity.name
 
-            - jsonPath: $.departmentEntity.*.hierarchyLevel
+            - jsonPath: $.departmentEntity.hierarchyLevel
 
-            - jsonPath: $.departmentEntity.*.children
+            - jsonPath: $.departmentEntity.auditDetails.lastModifiedBy
 
-            - jsonPath: $.departmentEntity.*.lastModifiedBy
+            - jsonPath: $.departmentEntity.auditDetails.lastModifiedTime
 
-            - jsonPath: $.departmentEntity.*.lastModifiedTime
+            - jsonPath: $.departmentEntity.id
+            
+        - query: INSERT INTO department_entity_relationship(parent_id, child_id, status) VALUES (?, ?, ?) ON CONFLICT (parent_id, child_id) DO UPDATE SET parent_id = ?,child_id = ?,status = ?;
+          basePath: departmentEntity.children.*
+          jsonMaps:
+          
+            - jsonPath: $.departmentEntity.id
 
-            - jsonPath: $.departmentEntity.*.id
+            - jsonPath: $.departmentEntity.children.*.childId
+            
+            - jsonPath: $.departmentEntity.children.*.status
+            
+            - jsonPath: $.departmentEntity.id
+
+            - jsonPath: $.departmentEntity.children.*.childId
+            
+            - jsonPath: $.departmentEntity.children.*.status
 
     - version: 1.0
       description: Save department hierarchy level in table
@@ -66,24 +88,24 @@ serviceMaps:
       queryMaps:
 
         - query: INSERT INTO department_hierarchy_level(id, tenant_id, department_id, label, parent, level, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
-          basePath: departmentHierarchyLevel.*
+          basePath: departmentHierarchyLevel
           jsonMaps:
-            - jsonPath: $.departmentHierarchyLevel.*.id
+            - jsonPath: $.departmentHierarchyLevel.id
 
-            - jsonPath: $.departmentHierarchyLevel.*.tenantId
+            - jsonPath: $.departmentHierarchyLevel.tenantId
 
-            - jsonPath: $.departmentHierarchyLevel.*.departmentId
+            - jsonPath: $.departmentHierarchyLevel.departmentId
 
-            - jsonPath: $.departmentHierarchyLevel.*.label
+            - jsonPath: $.departmentHierarchyLevel.label
 
-            - jsonPath: $.departmentHierarchyLevel.*.parent
+            - jsonPath: $.departmentHierarchyLevel.parent
 
-            - jsonPath: $.departmentHierarchyLevel.*.level
+            - jsonPath: $.departmentHierarchyLevel.level
 
-            - jsonPath: $.departmentHierarchyLevel.*.createdBy
-
-            - jsonPath: $.departmentHierarchyLevel.*.lastModifiedBy
-
-            - jsonPath: $.departmentHierarchyLevel.*.createdTime
-
-            - jsonPath: $.departmentHierarchyLevel.*.lastModifiedTime
+            - jsonPath: $.departmentHierarchyLevel.auditDetails.createdBy
+            
+            - jsonPath: $.departmentHierarchyLevel.auditDetails.lastModifiedBy
+            
+            - jsonPath: $.departmentHierarchyLevel.auditDetails.createdTime
+            
+            - jsonPath: $.departmentHierarchyLevel.auditDetails.lastModifiedTime
