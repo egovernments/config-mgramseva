@@ -30,7 +30,7 @@ serviceMaps:
 
             - jsonPath: $.departmentEntity.auditDetails.lastModifiedTime
 
-        - query: INSERT INTO department_entity_relationship(parent_id, child_id, status) VALUES (?, ?, ?);
+        - query: INSERT INTO department_entity_children(parent_id, child_id, status) VALUES (?, ?, ?);
           basePath: departmentEntity.children.*
           jsonMaps:
           
@@ -65,7 +65,7 @@ serviceMaps:
 
             - jsonPath: $.departmentEntity.id
             
-        - query: INSERT INTO department_entity_relationship(parent_id, child_id, status) VALUES (?, ?, ?) ON CONFLICT (parent_id, child_id) DO UPDATE SET parent_id = ?,child_id = ?,status = ?;
+        - query: INSERT INTO department_entity_children(parent_id, child_id, status) VALUES (?, ?, ?) ON CONFLICT (parent_id, child_id) DO UPDATE SET parent_id = ?,child_id = ?,status = ?;
           basePath: departmentEntity.children.*
           jsonMaps:
           
