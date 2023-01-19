@@ -1,0 +1,24 @@
+serviceMaps:
+  serviceName: ifix-migration-toolkit
+  mappings:
+  - version: 1.0
+    description: Persists migration related information in tables
+    fromTopic: de-migration-topic
+    isTransaction: true
+    queryMaps:
+    - query: INSERT INTO department_entity_migration(id, tenantid, pagenumber, batchsize, totalnumberofrecordsmigrated, service_type, createdtime) VALUES (?, ?, ?, ?, ?, ?, ?);
+      basePath: $.DepartmentEntityMigrationCount
+      jsonMaps:
+      - jsonPath: $.DepartmentEntityMigrationCount.id
+
+      - jsonPath: $.DepartmentEntityMigrationCount.tenantId
+
+      - jsonPath: $.DepartmentEntityMigrationCount.pageNumber
+
+      - jsonPath: $.DepartmentEntityMigrationCount.batchSize
+
+      - jsonPath: $.DepartmentEntityMigrationCount.totalNumberOfRecordsMigrated
+
+      - jsonPath: $.DepartmentEntityMigrationCount.service_type
+      
+      - jsonPath: $.DepartmentEntityMigrationCount.createdTime
