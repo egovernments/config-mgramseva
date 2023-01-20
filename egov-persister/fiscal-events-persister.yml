@@ -7,10 +7,12 @@ serviceMaps:
       fromTopic: save-fiscal-event
       isTransaction: true
       queryMaps:
-        - query: INSERT INTO eg_ifix_fiscal_event( id, tenantid, sender, eventtype, ingestiontime, eventtime, referenceid, linkedeventid, linkedreferenceid, attributes, createdby, createdtime, lastmodifiedby,lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+        - query: INSERT INTO eg_ifix_fiscal_event( id, version, tenantid, sender, eventtype, ingestiontime, eventtime, referenceid, linkedeventid, linkedreferenceid, attributes, createdby, createdtime, lastmodifiedby,lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
           basePath: $.fiscalEvent.*
           jsonMaps:
             - jsonPath: $.fiscalEvent.*.id
+
+            - jsonPath: $.fiscalEvent.*.version
 
             - jsonPath: $.fiscalEvent.*.tenantId
 
