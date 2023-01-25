@@ -1,0 +1,146 @@
+serviceMaps:
+  serviceName: adapter-master-data-service
+  mappings:
+    - version: 1.0
+      description: Save project details in tables
+      fromTopic: save-project-application
+      isTransaction: true
+      queryMaps:
+
+        - query: INSERT INTO project(id, tenant_id, code, name, expenditure_id, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+          basePath: project
+          jsonMaps:
+            - jsonPath: $.project.id
+
+            - jsonPath: $.project.tenantId
+
+            - jsonPath: $.project.code
+
+            - jsonPath: $.project.name
+
+            - jsonPath: $.project.expenditureId
+            
+            - jsonPath: $.project.auditDetails.createdBy
+                                 
+            - jsonPath: $.project.auditDetails.lastModifiedBy
+                                 
+            - jsonPath: $.project.auditDetails.createdTime
+                                 
+            - jsonPath: $.project.auditDetails.lastModifiedTime
+            
+        - query: INSERT INTO project_department_entity_relationship(project_id, department_entity_id, status) VALUES (?, ?, ?);
+          basePath: project.departmentEntityIds.*
+          jsonMaps:
+          
+            - jsonPath: $.project.id
+
+            - jsonPath: $.project.departmentEntityIds.*.departmentEntityId
+            
+            - jsonPath: $.project.departmentEntityIds.*.status   
+            
+        - query: INSERT INTO project_location_relationship(project_id, location_id, status) VALUES (?, ?, ?);
+          basePath: project.locationIds.*
+          jsonMaps:
+          
+            - jsonPath: $.project.id
+
+            - jsonPath: $.project.*.locationIds.*.locationId
+            
+            - jsonPath: $.project.*.locationIds.*.status
+    - version: 1.0
+      description: Update project details in tables
+      fromTopic: update-project-application
+      isTransaction: true
+      queryMaps:
+        - query: UPDATE project SET tenant_id = ?,code = ?,name = ?, expenditure_id = ?, last_modified_by = ?, last_modified_time = ? WHERE id=?;
+          basePath: project
+          jsonMaps:
+
+            - jsonPath: $.project.tenantId
+
+            - jsonPath: $.project.code
+
+            - jsonPath: $.project.name
+
+            - jsonPath: $.project.expenditureId
+
+            - jsonPath: $.project.auditDetails.lastModifiedBy
+
+            - jsonPath: $.project.auditDetails.lastModifiedTime
+
+            - jsonPath: $.project.id
+            
+            
+        - query: INSERT INTO project_department_entity_relationship(project_id, department_entity_id, status) VALUES (?, ?, ?) ON CONFLICT (project_id, department_entity_id) DO UPDATE SET project_id = ?,department_entity_id = ?,status = ?;
+          basePath: project.departmentEntityIds.*
+          jsonMaps:
+          
+            - jsonPath: $.project.id
+
+            - jsonPath: $.project.departmentEntityIds.*.departmentEntityId
+            
+            - jsonPath: $.project.departmentEntityIds.*.status  
+            
+            - jsonPath: $.project.id
+
+            - jsonPath: $.project.departmentEntityIds.*.departmentEntityId
+            
+            - jsonPath: $.project.departmentEntityIds.*.status           
+
+    - version: 1.0
+      description: Save department in table
+      fromTopic: save-department-application
+      isTransaction: true
+      queryMaps:
+
+        - query: INSERT INTO department(id, tenant_id, code, name, is_nodal, parent, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+          basePath: department
+          jsonMaps:
+            - jsonPath: $.department.id
+
+            - jsonPath: $.department.tenantId
+
+            - jsonPath: $.department.code
+
+            - jsonPath: $.department.name
+
+            - jsonPath: $.department.isNodal
+
+            - jsonPath: $.department.parent
+
+            - jsonPath: $.department.auditDetails.createdBy
+                                    
+            - jsonPath: $.department.auditDetails.lastModifiedBy
+                                    
+            - jsonPath: $.department.auditDetails.createdTime
+                                    
+            - jsonPath: $.department.auditDetails.lastModifiedTime
+
+    - version: 1.0
+      description: Save expenditure in table
+      fromTopic: save-expenditure-application
+      isTransaction: true
+      queryMaps:
+
+        - query: INSERT INTO expenditure(id, tenant_id, code, name, department_id, type, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+          basePath: expenditure
+          jsonMaps:
+            - jsonPath: $.expenditure.id
+                          
+            - jsonPath: $.expenditure.tenantId
+                          
+            - jsonPath: $.expenditure.code
+                          
+            - jsonPath: $.expenditure.name
+                          
+            - jsonPath: $.expenditure.departmentId
+                          
+            - jsonPath: $.expenditure.type
+                          
+            - jsonPath: $.expenditure.auditDetails.createdBy
+                                     
+            - jsonPath: $.expenditure.auditDetails.lastModifiedBy
+                                     
+            - jsonPath: $.expenditure.auditDetails.createdTime
+                                     
+            - jsonPath: $.expenditure.auditDetails.lastModifiedTime
